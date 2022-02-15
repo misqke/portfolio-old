@@ -1,0 +1,77 @@
+.container {
+  position: fixed;
+  display: flex;
+  top: 1rem;
+  right: 1rem;
+  border: 1px solid $main;
+  background-color: $black;
+  transition-duration: 1s;
+  border-radius: 1rem;
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  position: relative;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+  color: $main;
+  padding: 1rem;
+}
+
+.nav > * {
+  transition-duration: 0.4s;
+  font-weight: 500;
+}
+
+.nav > *:hover {
+  color: $white;
+  box-shadow: 0 0 15px 15px $main inset, 0 0 5px 5px $main;
+}
+
+.toggle_btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 4rem;
+  height: 1.5rem;
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: $black;
+  cursor: pointer;
+  span {
+    min-height: 2px;
+    min-width: 2rem;
+    background-color: $main;
+    transition-duration: 0.4s;
+  }
+}
+
+.toggle_btn:hover {
+  span {
+    background-color: $white;
+    box-shadow: 0 0 10px 5px $main;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    width: 4rem;
+    overflow: hidden;
+    flex-direction: row-reverse;
+  }
+
+  .container.open {
+    width: calc(277px + 4rem);
+  }
+
+  .toggle_btn {
+    display: flex;
+  }
+}
