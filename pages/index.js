@@ -4,23 +4,13 @@ import About from "../components/About";
 import Projects from "../components/Projects";
 import Contact from "../components/Contact";
 
-export default function Home({ projects }) {
+export default function Home() {
   return (
     <div className={styles.container}>
       <Hero />
-      <Projects projects={projects} />
+      <Projects />
       <About />
       <Contact />
     </div>
   );
 }
-
-export const getServerSideProps = async () => {
-  const res = await fetch(`http:mikerustportfolio.com/api/projects`);
-  const data = await res.json();
-  return {
-    props: {
-      projects: data.projects,
-    },
-  };
-};

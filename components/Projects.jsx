@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import Router from "next/router";
+import { projects } from "../projects";
 import styles from "../styles/Projects.module.scss";
 
-const Projects = ({ projects }) => {
+const Projects = () => {
   useEffect(() => {
     const projs = document.querySelectorAll("#projects_wrapper > div");
     const obs = new IntersectionObserver(
