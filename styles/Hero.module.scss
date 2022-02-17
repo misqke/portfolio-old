@@ -34,17 +34,12 @@
   left: 0;
   z-index: 10;
   h1 {
-    background: #12121208;
-    backdrop-filter: blur(5px);
     border-radius: 5px;
-    border: 1px solid $main;
     padding: 0 5px;
     margin: 0;
     width: fit-content;
     position: relative;
-  }
-  h1:first-child {
-    border-bottom: none;
+    font-family: "Nothing You Could Do", cursive;
   }
 }
 

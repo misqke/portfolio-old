@@ -38,6 +38,7 @@ const SingleProject = ({ project }) => {
             * Heroku app, initial load may take a moment.
           </p>
         )}
+        <p className={styles.about}>{project.about}</p>
       </div>
     </div>
   );

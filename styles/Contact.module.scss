@@ -7,8 +7,10 @@
   align-items: center;
   padding: 1rem 0;
   h2 {
+    font-size: 3rem;
+    text-shadow: 4px 4px 4px $main;
     margin: 2.5rem;
-    font-size: 2rem;
+    font-family: "Nothing You Could Do", cursive;
   }
 }
 
