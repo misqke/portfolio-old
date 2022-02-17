@@ -4,12 +4,11 @@ import styles from "../styles/ContactForm.module.scss";
 const ContactForm = () => {
   return (
     <form
-      method="post"
+      method="POST"
       className={styles.form}
       data-netlify="true"
       name="contact"
       netlify-honeypot="bot-field"
-      action="/#contact"
     >
       <input type="hidden" name="form-name" value="contact" />
 
@@ -69,6 +68,10 @@ const ContactForm = () => {
       <button className={styles.form_btn} type="submit">
         Send
       </button>
+      <label style={{ display: "none" }}>
+        Dont fill this out if youre human:
+        <input name="bot-field" />
+      </label>
     </form>
   );
 };
