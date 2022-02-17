@@ -20,6 +20,9 @@ const Contact = () => {
     e.preventDefault();
     const res = await fetch("http://localhost:3000/api/email", {
       method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
       body: JSON.stringify(formData),
     });
     const data = await res.json();
@@ -71,7 +74,19 @@ const Contact = () => {
           </div>
         </div>
         <div className={styles.box}>
-          <form onSubmit={(e) => handlesubmit(e)} className={styles.form}>
+          <form
+            method="post"
+            className={styles.form}
+            data-netlify="true"
+            name="contact"
+            netlify-honeypot="bot-field"
+          >
+            <label style={{ display: "none" }}>
+              Dont fill this out if youre human:
+              <input name="bot-field" />
+            </label>
+            <input type="hidden" name="form-name" value="contact" />
+
             <div className={styles.form_box}>
               <label htmlFor="contact_name" className={styles.form_label}>
                 Name
