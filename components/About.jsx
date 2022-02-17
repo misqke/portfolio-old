@@ -10,15 +10,15 @@ const About = () => {
       <div className={styles.wrapper}>
         <div className={styles.about_box}>
           <div>
-            Hi. I'm <span>Mike</span>, a self taught <span>web developer</span>{" "}
-            located in Ellwood City, PA.
+            Hi. I&#39;m <span>Mike</span>, a self taught{" "}
+            <span>web developer</span> located in Ellwood City, PA.
           </div>
           <div>
-            I fell in love with coding at my first <span>"Hello World"</span>{" "}
-            and haven't looked back.
+            I fell in love with coding at my first{" "}
+            <span>&#34;Hello World&#34;</span> and haven&#39;t looked back.
           </div>
           <div>
-            My work is focused towards the <span>MERN</span> stack, but i'm
+            My work is focused towards the <span>MERN</span> stack, but i&#39;m
             always looking for a reason to learn something new.
           </div>
           <div>

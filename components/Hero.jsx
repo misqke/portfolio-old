@@ -8,10 +8,10 @@ const Hero = () => {
       <div className={styles.wrapper}>
         <div className={`${styles.box} ${styles.left}`}>
           <h1>
-            Hi, i'm <span>Mike</span>,
+            Hi, i&#39;m <span>Mike</span>,
           </h1>
           <h1>
-            I'm a web <span>developer</span>.
+            I&#39;m a web <span>developer</span>.
           </h1>
         </div>
         <div className={`${styles.box} ${styles.right}`}>

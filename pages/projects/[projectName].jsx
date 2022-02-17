@@ -22,12 +22,12 @@ const SingleProject = ({ project }) => {
           <em>{project.desc}</em>
         </p>
         <div className={styles.btn_container}>
-          <a href={project.live} target="_blank">
+          <a href={project.live} target="_blank" rel="noreferrer">
             <button type="button" className={styles.btn}>
               {`Live${project.heroku === true ? "*" : ""}`}
             </button>
           </a>
-          <a href={project.code} target="_blank">
+          <a href={project.code} target="_blank" rel="noreferrer">
             <button type="button" className={styles.btn}>
               Code
             </button>

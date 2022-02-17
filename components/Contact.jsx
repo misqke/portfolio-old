@@ -40,11 +40,16 @@ const Contact = () => {
             </p>
             <div className={styles.icon_box}>
               <div className={styles.icon_wrapper}>
-                <a href="https://github.com/misqke" target="_blank">
+                <a
+                  href="https://github.com/misqke"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <Image
                     src={"/icons/github_icon.png"}
                     width={256}
                     height={256}
+                    alt="github link"
                   ></Image>
                 </a>
               </div>
@@ -52,11 +57,13 @@ const Contact = () => {
                 <a
                   href="https://www.linkedin.com/in/michael-rust-66b5b3226/"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <Image
                     src={"/icons/linkedin_icon.png"}
                     width={256}
                     height={256}
+                    alt="linked in link"
                   ></Image>
                 </a>
               </div>
