@@ -1,8 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import styles from "../styles/Contact.module.scss";
 
+function encode(data) {
+  const formData = new FormData();
+
+  for (const key of Object.keys(data)) {
+    formData.append(key, data[key]);
+  }
+
+  return formData;
+}
+
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await fetch("/", {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className={styles.container} id="contact">
       <div className={styles.blur}></div>
@@ -55,23 +88,21 @@ const Contact = () => {
             name="contact"
             netlify-honeypot="bot-field"
             action="/#contact"
-            data-netlify-recaptcha="true"
+            onSubmit={handleSubmit}
           >
-            <label style={{ display: "none" }}>
-              Dont fill this out if youre human:
-              <input name="bot-field" />
-            </label>
             <input type="hidden" name="form-name" value="contact" />
-            <div data-netlify-recaptcha="true"></div>
+
             <div className={styles.form_box}>
               <label htmlFor="contact_name" className={styles.form_label}>
                 Name
               </label>
               <input
                 type="text"
+                name="name"
                 className={styles.form_input}
                 id="contact_name"
                 placeholder="name"
+                onChange={handleChange}
                 required
               />
             </div>
@@ -81,9 +112,11 @@ const Contact = () => {
               </label>
               <input
                 type="email"
+                name="email"
                 className={styles.form_input}
                 id="contact_email"
                 placeholder="email"
+                onChange={handleChange}
                 required
               />
             </div>
@@ -95,7 +128,9 @@ const Contact = () => {
                 type="text"
                 className={styles.form_input}
                 id="contact_subject"
+                name="subject"
                 placeholder="subject"
+                onChange={handleChange}
                 required
               />
             </div>
@@ -107,8 +142,10 @@ const Contact = () => {
                 type="text"
                 className={styles.form_input}
                 id="contact_msg"
+                name="message"
                 rows={10}
                 placeholder="message"
+                onChange={handleChange}
                 required
               />
             </div>
