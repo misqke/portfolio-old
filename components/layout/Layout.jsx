@@ -4,6 +4,7 @@ import styles from "../../styles/Layout.module.scss";
 import Nav from "./Nav";
 
 const Layout = ({ children }) => {
+  console.log(children.length);
   return (
     <>
       <Head>

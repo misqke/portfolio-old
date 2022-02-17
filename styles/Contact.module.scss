@@ -1,0 +1,154 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: $dark;
+  position: relative;
+  align-items: center;
+  padding: 1rem 0;
+  h2 {
+    margin: 2.5rem;
+    font-size: 2rem;
+  }
+}
+
+.blur {
+  width: 100%;
+  height: 5%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, $black, transparent);
+}
+
+.wrapper {
+  display: flex;
+  width: 85%;
+  max-width: 1200px;
+  height: 100%;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  width: 40%;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner_container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  h4 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+  a {
+    transition-duration: 0.4s;
+  }
+  a:hover {
+    color: $main;
+  }
+}
+
+.box:last-child {
+  flex-grow: 1;
+}
+
+.icon_box {
+  display: flex;
+  gap: 1rem;
+
+  width: fit-content;
+}
+
+.icon_wrapper {
+  width: 80px;
+  background-color: $light;
+  transition-duration: 0.4s;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.icon_wrapper:hover {
+  background-color: $main;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: $main;
+  padding: 1rem;
+  gap: 1rem;
+  border-radius: 8px;
+}
+
+.form_box {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  gap: 5px;
+}
+
+.form_label {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: $black;
+}
+
+.form_input {
+  min-height: 2rem;
+  border-radius: 8px;
+  font-size: 1.25rem;
+  padding: 0.5rem 1rem;
+  background-color: $black;
+  color: $white;
+}
+
+.form_btn {
+  padding: 0.5rem 1.5rem;
+  width: 35%;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  background-color: $light;
+  font-weight: 600;
+  transition-duration: 0.5s;
+}
+
+.form_btn:hover {
+  background-color: $black;
+  color: $main;
+}
+
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  .box {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .inner_container {
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    width: 95%;
+  }
+}

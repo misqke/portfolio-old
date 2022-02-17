@@ -1,6 +1,98 @@
 .container {
   display: flex;
+  flex-direction: column;
   width: 100%;
   min-height: 100vh;
   background-color: $black;
+  position: relative;
+  align-items: center;
+  padding: 1rem 0;
+  h2 {
+    margin: 2.5rem;
+    font-size: 2rem;
+  }
+}
+
+.blur {
+  width: 100%;
+  height: 5%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, $dark, transparent);
+}
+
+.wrapper {
+  display: flex;
+  width: 80%;
+  max-width: 1200px;
+  height: 100%;
+}
+
+.about_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+}
+
+.about_box:first-child {
+  font-size: 1.5rem;
+  gap: 1rem;
+  margin: auto;
+  span {
+    color: $main;
+  }
+}
+
+.skills_container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  width: 90%;
+  height: 80%;
+  background-color: $light;
+  justify-content: space-between;
+  gap: 1rem;
+  border-radius: 1rem;
+  margin: auto 0 auto auto;
+}
+
+.skill_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  color: $black;
+}
+
+@media screen and (max-width: 1350px) {
+  .skill_wrapper {
+    width: 80px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .wrapper {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .about_box {
+    width: 100%;
+  }
+  .skills_container {
+    margin: auto;
+    width: 100%;
+    gap: 2rem;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    width: 90%;
+  }
 }

@@ -2,12 +2,10 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import Router from "next/router";
 import styles from "../styles/Projects.module.scss";
-import { projects } from "../projects";
 
-const Projects = () => {
+const Projects = ({ projects }) => {
   useEffect(() => {
     const projs = document.querySelectorAll("#projects_wrapper > div");
-    console.log(projs);
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -17,7 +15,7 @@ const Projects = () => {
           );
         });
       },
-      { threshold: 0.75 }
+      { threshold: 0.35 }
     );
     projs.forEach((proj) => {
       obs.observe(proj);
