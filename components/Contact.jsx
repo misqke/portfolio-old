@@ -1,34 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import styles from "../styles/Contact.module.scss";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    msg: "",
-  });
-
-  const handleFormChange = (field) => {
-    return (e) => {
-      setFormData((prev) => ({ ...prev, [field]: e.target.value }));
-    };
-  };
-
-  const handlesubmit = async (e) => {
-    e.preventDefault();
-    const res = await fetch("http://localhost:3000/api/email", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
-    const data = await res.json();
-    console.log(data);
-  };
-
   return (
     <div className={styles.container} id="contact">
       <div className={styles.blur}></div>
@@ -96,8 +70,6 @@ const Contact = () => {
                 className={styles.form_input}
                 id="contact_name"
                 placeholder="name"
-                value={formData.name}
-                onChange={handleFormChange("name")}
                 required
               />
             </div>
@@ -110,8 +82,6 @@ const Contact = () => {
                 className={styles.form_input}
                 id="contact_email"
                 placeholder="email"
-                value={formData.email}
-                onChange={handleFormChange("email")}
                 required
               />
             </div>
@@ -124,8 +94,6 @@ const Contact = () => {
                 className={styles.form_input}
                 id="contact_subject"
                 placeholder="subject"
-                value={formData.subject}
-                onChange={handleFormChange("subject")}
                 required
               />
             </div>
@@ -139,8 +107,6 @@ const Contact = () => {
                 id="contact_msg"
                 rows={10}
                 placeholder="message"
-                value={formData.msg}
-                onChange={handleFormChange("msg")}
                 required
               />
             </div>
