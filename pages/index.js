@@ -16,7 +16,7 @@ export default function Home({ projects }) {
 }
 
 export const getServerSideProps = async () => {
-  const res = await fetch(`http://localhost:3000/api/projects`);
+  const res = await fetch(`http:mikerustportfolio.com/api/projects`);
   const data = await res.json();
   return {
     props: {

@@ -47,7 +47,7 @@ export default SingleProject;
 
 export const getServerSideProps = async ({ params }) => {
   const res = await fetch(
-    `http://localhost:3000/api/projects/?slug=${params.projectName}`
+    `http:mikerustportfolio.com/api/projects/?slug=${params.projectName}`
   );
   const data = await res.json();
   return {
