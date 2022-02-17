@@ -54,13 +54,15 @@ const Contact = () => {
             data-netlify="true"
             name="contact"
             netlify-honeypot="bot-field"
+            action="/#contact"
+            data-netlify-recaptcha="true"
           >
             <label style={{ display: "none" }}>
               Dont fill this out if youre human:
               <input name="bot-field" />
             </label>
             <input type="hidden" name="form-name" value="contact" />
-
+            <div data-netlify-recaptcha="true"></div>
             <div className={styles.form_box}>
               <label htmlFor="contact_name" className={styles.form_label}>
                 Name
