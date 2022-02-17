@@ -5,8 +5,9 @@
   right: 1rem;
   border: 1px solid $main;
   background-color: $black;
-  transition-duration: 1s;
-  border-radius: 1rem;
+  transition-duration: 0.75s;
+  border-radius: 0.5rem;
+  z-index: 999;
 }
 
 .wrapper {
@@ -14,13 +15,15 @@
   width: 100%;
   align-items: center;
   position: relative;
+  font-size: 16px;
 }
 
 .nav {
   display: flex;
   gap: 1rem;
   color: $main;
-  padding: 1rem;
+  padding: 0.5rem;
+  font-size: 1.25rem;
 }
 
 .nav > * {
@@ -36,20 +39,24 @@
 .toggle_btn {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  width: 4rem;
-  height: 1.5rem;
+  width: 3rem;
+  height: 2rem;
   display: none;
   position: absolute;
   right: 0;
   background-color: $black;
+  transition-duration: 0.4s;
+
   cursor: pointer;
   span {
     min-height: 2px;
     min-width: 2rem;
     background-color: $main;
-    transition-duration: 0.4s;
+    position: relative;
+    transition-duration: 0.75s;
+    border-radius: 5px;
   }
 }
 
@@ -62,13 +69,34 @@
 
 @media screen and (max-width: 900px) {
   .container {
-    width: 4rem;
+    width: 3rem;
     overflow: hidden;
     flex-direction: row-reverse;
   }
 
+  .nav {
+    font-size: 1rem;
+  }
+
   .container.open {
-    width: calc(277px + 4rem);
+    width: calc(277px + 3rem);
+    box-shadow: 0 0 8px 2px $main;
+    .toggle_btn {
+      span {
+        min-width: 1.735rem;
+      }
+      span:nth-child(1) {
+        transform-origin: left;
+        transform: rotateZ(50deg);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform-origin: left;
+        transform: rotateZ(-50deg);
+      }
+    }
   }
 
   .toggle_btn {

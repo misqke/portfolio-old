@@ -13,10 +13,10 @@ const Nav = () => {
             <Link href={"/"}>Home</Link>
           </span>
           <span onClick={() => setOpen(false)}>
-            <Link href={"/#about"}>About</Link>
+            <Link href={"/#projects"}>Projects</Link>
           </span>
           <span onClick={() => setOpen(false)}>
-            <Link href={"/#projects"}>Projects</Link>
+            <Link href={"/#about"}>About</Link>
           </span>
           <span onClick={() => setOpen(false)}>
             <Link href={"/#contact"}>Contact</Link>
