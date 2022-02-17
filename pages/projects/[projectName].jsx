@@ -38,7 +38,9 @@ const SingleProject = ({ project }) => {
             * Heroku app, initial load may take a moment.
           </p>
         )}
-        <p className={styles.about}>{project.about}</p>
+        {project.about.map((stuff, i) => (
+          <p key={i}>{stuff}</p>
+        ))}
       </div>
     </div>
   );
