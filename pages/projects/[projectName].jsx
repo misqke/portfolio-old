@@ -34,12 +34,14 @@ const SingleProject = ({ project }) => {
           </a>
         </div>
         {project.heroku === true && (
-          <p className={styles.desc}>
+          <p style={{ color: "#898989" }}>
             * Heroku app, initial load may take a moment.
           </p>
         )}
         {project.about.map((stuff, i) => (
-          <p key={i}>{stuff}</p>
+          <p className={styles.about_project} key={i}>
+            {stuff}
+          </p>
         ))}
       </div>
     </div>

@@ -68,7 +68,6 @@
 .icon_box {
   display: flex;
   gap: 1rem;
-
   width: fit-content;
 }
 
@@ -78,6 +77,10 @@
   transition-duration: 0.4s;
   border-radius: 5px;
   cursor: pointer;
+  a {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .icon_wrapper:hover {

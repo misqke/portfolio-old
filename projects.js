@@ -41,7 +41,7 @@ const projects = [
     slug: "milkmaster",
     desc: "A web scraping application to simplify milk inventory and ordering.",
     about: [
-      "While learning to code i worked in the dairy department of a grocery store.  Our milk inventory and orders involved printing and order form, counting all the milk on the shelf, counting all the crates in the cooler, mathing it all together, then entering all this data on the computer to submit.",
+      "While learning to code I worked in the dairy department of a grocery store.  Our milk inventory and orders involved printing an order form, counting all the milk on the shelf, counting all the crates in the cooler, mathing it all together, then entering all this data on the computer to submit.",
       "The Milk Master 9000 has cut the time of this process by 75%.  Simply log in on your phone, enter the milk on the shelves and the number of crates and hit submit.  All the math is handled and a Puppeteer webscraper on the server side navigates the milk companies website, fills out and submits the form, and sends you back a screen shot of the confirmation.",
     ],
     live: "https://milk-master-demo.herokuapp.com/",
@@ -79,7 +79,7 @@ const projects = [
     slug: "mastermind",
     desc: "My take on the classic code cracking game of the same name.",
     about: [
-      "I've always been a huge fan of puzzles, strategy games, and anything involving logical deduction.  Mastermind is a game i loved as a kid and had a blast recreating (and playing).",
+      "I've always been a huge fan of puzzles, strategy games, and anything involving logical deduction.  Mastermind is a game I loved as a kid and had a blast recreating (and playing).",
     ],
     live: "https://master-mind-game.netlify.app/",
     code: "https://github.com/misqke/master-mind",

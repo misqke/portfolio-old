@@ -17,15 +17,15 @@ const Hero = () => {
         <div className={`${styles.box} ${styles.right}`}>
           <div className={styles.img_container}>
             <Image
-              src="/imgs/me2.png"
+              src="/imgs/me3.png"
               alt=""
-              height={2372}
-              width={1767}
+              height={800}
+              width={533}
               priority
             ></Image>
           </div>
+          <div className={styles.blur}></div>
         </div>
-        <div className={styles.blur}></div>
       </div>
     </div>
   );

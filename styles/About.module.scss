@@ -57,6 +57,7 @@
   width: 90%;
   height: 80%;
   background-color: $light;
+  backdrop-filter: blur(8px);
   justify-content: space-between;
   gap: 1rem;
   border-radius: 1rem;
