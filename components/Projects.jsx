@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
-import Router from "next/router";
+import Link from "next/link";
 import { projects } from "../projects";
 import styles from "../styles/Projects.module.scss";
 
@@ -29,18 +29,22 @@ const Projects = () => {
       <h2>Projects</h2>
       <div className={styles.wrapper} id="projects_wrapper">
         {projects.map((project, i) => (
-          <div
-            className={styles.project}
-            key={i}
-            onClick={() => Router.push(`/projects/${project.slug}`)}
-          >
-            <div className={styles.title}>
-              <h6>{project.name}</h6>
+          <Link key={i} href={`/projects/${project.slug}`}>
+            <div className={styles.project}>
+              <div className={styles.title}>
+                <h6>{project.name}</h6>
+              </div>
+              <div className={styles.img_container}>
+                <Image
+                  src={project.img}
+                  width={1898}
+                  height={889}
+                  alt=""
+                  priority
+                ></Image>
+              </div>
             </div>
-            <div className={styles.img_container}>
-              <Image src={project.img} width={1898} height={889} alt=""></Image>
-            </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
