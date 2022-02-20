@@ -8,7 +8,7 @@ const Hero = () => {
       <div className={styles.wrapper}>
         <div className={styles.text_box}>
           <h1>
-            Hi, i&#39;m <span>Mike</span>,
+            Hi, I&#39;m <span>Mike</span>,
             <br />
             I&#39;m a web <span>developer</span>.
           </h1>

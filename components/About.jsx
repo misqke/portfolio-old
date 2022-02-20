@@ -18,7 +18,7 @@ const About = () => {
             <span>&#34;Hello World&#34;</span> and haven&#39;t looked back.
           </div>
           <div>
-            My work is focused towards the <span>MERN</span> stack, but i&#39;m
+            My work is focused towards the <span>MERN</span> stack, but I&#39;m
             always looking for a reason to learn something new.
           </div>
           <div>
