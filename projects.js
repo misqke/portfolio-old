@@ -65,7 +65,7 @@ const projects = [
     slug: "specialforcesartdepartment",
     desc: "A business / portfolio website for a freelance graphic designer.",
     about: [
-      "My uncle is a freelance graphic designer with a website that was very out of date.  I saw this as a great oppurtunity to help him and practice my trade.",
+      "My uncle is a freelance graphic designer with a website that was very out of date.  I saw this as a great opportunity to help him and practice my trade.",
       "This project was my first experience working with intersection observers and with a client.  I learned a great deal about adapting a project based on a clients needs and feedback.",
     ],
     live: "https://graphicdesignerpa.netlify.app/",
