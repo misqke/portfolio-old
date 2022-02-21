@@ -1,6 +1,7 @@
 import React from "react";
 import ContactForm from "./ContactForm";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "../styles/Contact.module.scss";
 
 const Contact = () => {
@@ -13,9 +14,11 @@ const Contact = () => {
           <div className={styles.inner_container}>
             <h4>Michael Rust</h4>
             <p>
-              email:{" "}
               <a href="mailto: misqke.rust@yahoo.com">misqke.rust@yahoo.com</a>
             </p>
+            <Link href="/resume">
+              <p className={styles.resume}>Resume</p>
+            </Link>
             <div className={styles.icon_box}>
               <div className={styles.icon_wrapper}>
                 <a

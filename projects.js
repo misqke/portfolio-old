@@ -2,7 +2,7 @@ const projects = [
   {
     name: "Recipe Cloud",
     slug: "recipecloud",
-    desc: "Take your old recipe book, mix in the internet, and add a splash of social media. What do you get? Recipe Cloud. The one stop spot to store and find new recipes.",
+    desc: "Take your old recipe book, mix in the internet, and add a splash of social media. What do you get? Recipe Cloud: the one stop spot to store old favorite and find new recipes.",
     about: [
       "This project was inspired by my girlfriend's delapitated recipe book.  This was my first full stack project and helped me learn node, express, and mongoose.",
       "With Recipe Cloud you can store your recipes as well as explore the recipes of other users. Easily keep track of any recipes you like and leave comments on others recipes to let them know how you liked it.",

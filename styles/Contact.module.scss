@@ -60,6 +60,13 @@
     color: $main;
   }
 }
+.resume {
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.resume:hover {
+  color: $main;
+}
 
 .box:last-child {
   flex-grow: 1;
