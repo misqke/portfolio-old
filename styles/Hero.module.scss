@@ -32,10 +32,14 @@
 
 .img_box {
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 400px;
   opacity: 0.75;
   right: 0;
   top: 0;
+  bottom: 0;
   padding: 0;
 }
 

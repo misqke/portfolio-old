@@ -16,11 +16,12 @@
   align-items: center;
   position: relative;
   font-size: 16px;
+  margin: 0 auto;
 }
 
 .nav {
   display: flex;
-  gap: 1rem;
+  // gap: 1rem;
   color: $main;
   padding: 0.5rem;
   font-size: 1.5rem;
@@ -29,6 +30,11 @@
 .nav > * {
   transition-duration: 0.4s;
   font-weight: 500;
+  margin-right: 1rem;
+}
+
+.nav > *:last-child {
+  margin-right: 0;
 }
 
 .nav > *:hover {
@@ -101,5 +107,19 @@
 
   .toggle_btn {
     display: flex;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .container {
+    left: 0;
+    border: none;
+    background-color: transparent;
+  }
+  .wrapper {
+    width: fit-content;
+    border: 1px solid $main;
+    background-color: $black;
+    border-radius: 0.5rem;
   }
 }
