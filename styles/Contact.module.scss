@@ -5,7 +5,7 @@
   background-color: $dark;
   position: relative;
   align-items: center;
-  padding: 1rem 0;
+  padding: 3rem 0 2rem;
   h2 {
     font-size: 3rem;
     text-shadow: 4px 4px 4px $main;
@@ -37,13 +37,11 @@
   flex-direction: column;
   min-height: 100%;
   width: 40%;
-  justify-content: center;
   align-items: center;
 }
 
 .inner_container {
   display: flex;
-  height: 100%;
   flex-direction: column;
   justify-content: center;
   gap: 2rem;
