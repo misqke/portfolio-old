@@ -57,7 +57,7 @@ const SingleProject = ({ project }) => {
 
 export default SingleProject;
 
-export const getStaticProps = async ({ params }) => {
+export const getServerSideProps = async ({ params }) => {
   const res = await fetch(
     `https://mikerustportfolio.com/api/projects/?slug=${params.projectName}`
   );
@@ -68,17 +68,3 @@ export const getStaticProps = async ({ params }) => {
     },
   };
 };
-
-export async function getStaticPaths() {
-  return {
-    paths: [
-      { params: { projectName: "recipecloud" } },
-      { params: { projectName: "encounterbuddy" } },
-      { params: { projectName: "milkmaster" } },
-      { params: { projectName: "mastermind" } },
-      { params: { projectName: "specialforcesartdepartment" } },
-      { params: { projectName: "pokedex" } },
-    ],
-    fallback: false,
-  };
-}
