@@ -87,6 +87,22 @@ const projects = [
     img: "/imgs/mastermind.jpg",
     heroku: false,
   },
+  {
+    name: "Pokedex",
+    slug: "pokedex",
+    desc: "A full stack clone of pokemon.com/pokedex.",
+    about: [
+      "Who doesn't love Pokemon?  When it came to picking a website to clone, this was an easy first choice.",
+      "This project's back end was made with Express.  I built a web scraper to gather all the needed information from the real site and an api to serve, filter, and sort the data as needed.",
+      "The front end was made in Next.js and styled with SCSS.",
+    ],
+    live: "https://misqke-pokedex.netlify.app/",
+    code: "https://github.com/misqke/pokedex",
+    backend: "https://github.com/misqke/pokemon-api",
+    tech: ["react", "sass", "next.js", "node", "express"],
+    img: "/imgs/pokedex.jpg",
+    heroku: false,
+  },
 ];
 
 module.exports = { projects };

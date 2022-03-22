@@ -29,9 +29,16 @@ const SingleProject = ({ project }) => {
           </a>
           <a href={project.code} target="_blank" rel="noreferrer">
             <button type="button" className={styles.btn}>
-              Code
+              {project.backend ? "Front End" : "Code"}
             </button>
           </a>
+          {project.backend && (
+            <a href={project.backend} target="_blank" rel="noreferrer">
+              <button type="button" className={styles.btn}>
+                Back End
+              </button>
+            </a>
+          )}
         </div>
         {project.heroku === true && (
           <p style={{ color: "#898989" }}>
@@ -52,7 +59,7 @@ export default SingleProject;
 
 export const getStaticProps = async ({ params }) => {
   const res = await fetch(
-    `http:mikerustportfolio.com/api/projects/?slug=${params.projectName}`
+    `https://mikerustportfolio.com/api/projects/?slug=${params.projectName}`
   );
   const data = await res.json();
   return {
@@ -70,6 +77,7 @@ export async function getStaticPaths() {
       { params: { projectName: "milkmaster" } },
       { params: { projectName: "mastermind" } },
       { params: { projectName: "specialforcesartdepartment" } },
+      { params: { projectName: "pokedex" } },
     ],
     fallback: false,
   };
