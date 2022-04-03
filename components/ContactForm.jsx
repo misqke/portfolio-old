@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import styles from "../styles/ContactForm.module.scss";
 
 const ContactForm = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+  const nameRef = useRef();
+
   return (
     <form
       method="POST"
@@ -17,11 +23,12 @@ const ContactForm = () => {
           Name
         </label>
         <input
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           type="text"
           name="name"
-          className={styles.form_input}
+          className={`${styles.form_input} ${name.length > 0 && styles.open}`}
           id="contact_name"
-          placeholder="name"
           required
         />
       </div>
@@ -30,11 +37,12 @@ const ContactForm = () => {
           Email
         </label>
         <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           type="email"
           name="email"
-          className={styles.form_input}
+          className={`${styles.form_input} ${email.length > 0 && styles.open}`}
           id="contact_email"
-          placeholder="email"
           required
         />
       </div>
@@ -43,11 +51,14 @@ const ContactForm = () => {
           Subject
         </label>
         <input
+          value={subject}
+          onChange={(e) => setSubject(e.target.value)}
           type="text"
-          className={styles.form_input}
+          className={`${styles.form_input} ${
+            subject.length > 0 && styles.open
+          }`}
           id="contact_subject"
           name="subject"
-          placeholder="subject"
           required
         />
       </div>
@@ -56,12 +67,15 @@ const ContactForm = () => {
           Message
         </label>
         <textarea
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
           type="text"
-          className={styles.form_input}
+          className={`${styles.form_input} ${styles.form_input_area} ${
+            message.length > 0 && styles.open
+          }`}
           id="contact_msg"
           name="message"
-          rows={10}
-          placeholder="message"
+          rows={5}
           required
         />
       </div>
