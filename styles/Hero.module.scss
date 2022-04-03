@@ -35,37 +35,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 400px;
-  opacity: 0.75;
+  width: 501px;
   right: 0;
   top: 0;
   bottom: 0;
   padding: 0;
+  box-shadow: 0 0 30px 30px $black inset;
 }
 
-.blurX {
+.img_box::after {
+  content: "";
   position: absolute;
-  left: 0;
+  left: -5px;
   top: 0;
-  width: 100%;
+  width: 20px;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    $black,
-    transparent 5%,
-    transparent 95%,
-    $black 100%
-  );
-  z-index: 2;
+  background: $black;
+  z-index: 10;
 }
 
-.blurY {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 10%;
-  background: linear-gradient(0deg, $black, transparent);
-}
 @media screen and (max-height: 500px) {
   .img_box {
     width: 300px;
@@ -83,6 +71,9 @@
 @media screen and (max-width: 600px) {
   .text_box {
     font-size: 1.25rem;
+  }
+  .img_box::after {
+    display: none;
   }
 }
 
