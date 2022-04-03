@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import HeroCanvas from "./HeroCanvas";
 import styles from "../styles/Hero.module.scss";
 
 const Hero = () => {
@@ -14,15 +14,7 @@ const Hero = () => {
           </h1>
         </div>
         <div className={styles.img_box}>
-          <Image
-            src="/imgs/me3.png"
-            alt=""
-            height={800}
-            width={533}
-            priority
-          ></Image>
-          <div className={styles.blurY}></div>
-          <div className={styles.blurX}></div>
+          <HeroCanvas />
         </div>
       </div>
     </div>
