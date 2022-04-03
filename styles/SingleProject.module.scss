@@ -57,10 +57,17 @@
 .btn_container {
   display: flex;
   gap: 1rem;
+  width: 70%;
+  justify-content: center;
+  a {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .btn {
-  width: 150px;
+  width: 100%;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   background-color: $main;
@@ -108,6 +115,9 @@
         padding: 0.25rem 0.5rem;
       }
     }
+  }
+  .btn_container {
+    width: 100%;
   }
 }
 @media screen and (max-width: 500px) {
