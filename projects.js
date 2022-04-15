@@ -93,6 +93,12 @@ const projects = [
   {
     name: "Wordle Solver",
     slug: "wordlesolver",
+    desc: "A full stack application to help solve the popular game Wordle.",
+    about: [
+      "I love puzzles and logic games like Wordle.  While considering recreating the game, I decided it would be more fun to create a way to solve it instead.",
+      "The first step was to get a list of all the answers Wordle uses and find a means of sorting them.  To accomplish this I wrote a few functions to analyze all the possible answers, calculating how frequently each letter appears in each position of the word.  Using this information a value was assigned to each word and the answers sorted accordingly.",
+      "The full project was craeted with next.js and styled with scss.  Currently, the Wordle Solver can solve 98.96% of Wordle answers in the allotted six guesses.  This project will be a work in progress until I can get it to 100%.",
+    ],
     live: "https://misqke-wordle-solver.netlify.app",
     code: "https://github.com/misqke/wordle-solver",
     tech: ["react", "sass", "next.js"],
