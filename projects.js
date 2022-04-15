@@ -75,19 +75,6 @@ const projects = [
     heroku: false,
   },
   {
-    name: "Mastermind",
-    slug: "mastermind",
-    desc: "My take on the classic code cracking game of the same name.",
-    about: [
-      "I've always been a huge fan of puzzles, strategy games, and anything involving logical deduction.  Mastermind is a game I loved as a kid and had a blast recreating (and playing).",
-    ],
-    live: "https://master-mind-game.netlify.app/",
-    code: "https://github.com/misqke/master-mind",
-    tech: ["react", "sass"],
-    img: "/imgs/mastermind.jpg",
-    heroku: false,
-  },
-  {
     name: "Pokedex",
     slug: "pokedex",
     desc: "A full stack clone of pokemon.com/pokedex.",
@@ -101,6 +88,28 @@ const projects = [
     backend: "https://github.com/misqke/pokemon-api",
     tech: ["react", "sass", "next.js", "node", "express"],
     img: "/imgs/pokedex.jpg",
+    heroku: false,
+  },
+  {
+    name: "Wordle Solver",
+    slug: "wordlesolver",
+    live: "https://misqke-wordle-solver.netlify.app",
+    code: "https://github.com/misqke/wordle-solver",
+    tech: ["react", "sass", "next.js"],
+    img: "/imgs/wordleSolver.jpg",
+    heroku: false,
+  },
+  {
+    name: "Mastermind",
+    slug: "mastermind",
+    desc: "My take on the classic code cracking game of the same name.",
+    about: [
+      "I've always been a huge fan of puzzles, strategy games, and anything involving logical deduction.  Mastermind is a game I loved as a kid and had a blast recreating (and playing).",
+    ],
+    live: "https://master-mind-game.netlify.app/",
+    code: "https://github.com/misqke/master-mind",
+    tech: ["react", "sass"],
+    img: "/imgs/mastermind.jpg",
     heroku: false,
   },
 ];

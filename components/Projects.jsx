@@ -28,7 +28,7 @@ const Projects = () => {
       <div className={styles.blur}></div>
       <h2>Projects</h2>
       <div className={styles.wrapper} id="projects_wrapper">
-        {projects.map((project, i) => (
+        {projects.slice(0, 6).map((project, i) => (
           <Link key={i} href={`/projects/${project.slug}`}>
             <div className={styles.project}>
               <div className={styles.title}>
