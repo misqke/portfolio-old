@@ -18,6 +18,7 @@ const projects = [
       "express",
       "JWT",
       "mongoose",
+      "cloudinary",
     ],
     img: "/imgs/recipeCloud.jpg",
     heroku: true,
@@ -88,6 +89,20 @@ const projects = [
     backend: "https://github.com/misqke/pokemon-api",
     tech: ["react", "sass", "next.js", "node", "express"],
     img: "/imgs/pokedex.jpg",
+    heroku: false,
+  },
+  {
+    name: "Introspective Images",
+    slug: "introspectiveimages",
+    desc: "A full stack portfolio website for a freelance photographer.",
+    about: [
+      "I built this site for a coworker who does some freelance photopgraphy work.",
+      "This project was built in Next.js, using Cloudinary for image storage and MongoDB for content management.  It includes an admin page, using JWT authentication, where the photographer can update the cover photo, add or remove gallery images, and update image tags and captions.",
+    ],
+    live: "https://introspective-images.vercel.app/",
+    code: "https://github.com/misqke/introspective_images",
+    tech: ["react", "sass", "next.js", "mongoose", "JWT", "cloudinary"],
+    img: "/imgs/introspectiveImages.jpg",
     heroku: false,
   },
   {
