@@ -58,9 +58,7 @@ const SingleProject = ({ project }) => {
 export default SingleProject;
 
 export const getServerSideProps = async ({ params }) => {
-  const res = await fetch(
-    `https://mikerustportfolio.com/api/projects/?slug=${params.projectName}`
-  );
+  const res = await fetch(`api/projects/?slug=${params.projectName}`);
   const data = await res.json();
   return {
     props: {
