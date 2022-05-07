@@ -1,0 +1,127 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 3rem 0 2rem 0;
+  font-size: 1.25rem;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 60%;
+  margin-top: 2rem;
+}
+
+.title {
+  font-size: 3rem;
+  text-shadow: 4px 4px 4px $main;
+  font-family: "Nothing You Could Do", cursive;
+}
+
+.tech_container {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    list-style: none;
+    justify-content: center;
+    padding: 0;
+    gap: 1rem;
+    li {
+      background: $black;
+      padding: 0.5rem 1rem;
+      text-align: center;
+      border-radius: 5px;
+      border: 1px solid $main;
+      font-weight: 500;
+    }
+  }
+}
+
+.desc {
+  width: 80%;
+  text-align: center;
+  color: $main;
+}
+
+.btn_container {
+  display: flex;
+  gap: 1rem;
+  width: 70%;
+  justify-content: center;
+  a {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.btn {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: $main;
+  border: 2px solid $white;
+  box-shadow: 1px 2px 2px 2px #ddda;
+  color: $white;
+  font-weight: 600;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  font-size: 1.2rem;
+  a {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.btn:hover {
+  background-color: $white;
+  border: 2px solid $main;
+  box-shadow: 0px 1px 2px 1px #ddda;
+  color: $main;
+}
+
+.about_project {
+  align-self: flex-start;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+@media screen and (max-width: 1300px) {
+  .wrapper {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .wrapper {
+    width: 90%;
+    gap: 0.5rem;
+  }
+  .tech_container {
+    ul {
+      gap: 0.5rem;
+      li {
+        padding: 0.25rem 0.5rem;
+      }
+    }
+  }
+  .btn_container {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .wrapper {
+    width: 95%;
+  }
+}

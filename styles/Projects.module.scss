@@ -1,0 +1,126 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 3rem 0 2rem;
+  h2 {
+    font-size: 3rem;
+    text-shadow: 4px 4px 4px $main;
+    margin: 2.5rem;
+    font-family: "Nothing You Could Do", cursive;
+  }
+}
+
+.blur {
+  width: 100%;
+  height: 5%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, $black, transparent);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 85%;
+  max-width: 1200px;
+  height: 80%;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 45%;
+  max-width: 600px;
+  min-width: 350px;
+  cursor: pointer;
+  position: relative;
+  font-size: 2rem;
+  transition-duration: 1.5s;
+  padding: 0.5rem 1rem;
+  opacity: 0;
+  .title {
+    position: absolute;
+    top: calc(50% - 1rem);
+
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
+  h6 {
+    margin: auto;
+    padding: 5px 10px;
+    width: fit-content;
+    background-color: #12121218;
+    color: #fff;
+    backdrop-filter: blur(8px);
+    border-radius: 5px;
+    transition-duration: 0.4s;
+    border: 1px solid $white;
+  }
+}
+
+.project.visible {
+  opacity: 1;
+}
+
+.img_container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition-duration: 0.4s;
+  border: 1px solid $white;
+}
+
+.project:hover {
+  padding: 0;
+  transition-duration: 0.5s;
+  .img_container {
+    box-shadow: 0 0 15px 5px $main;
+    border-color: $main;
+  }
+  h6 {
+    color: $main;
+    border: 1px solid $main;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    width: 95%;
+  }
+  .project {
+    width: 45%;
+    font-size: 1.5rem;
+    min-width: 250px;
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .wrapper {
+    width: 100%;
+  }
+  .project {
+    width: 95%;
+    max-width: none;
+    min-width: none;
+    font-size: 2.25rem;
+    text-align: center;
+  }
+  .title {
+    h6 {
+      max-width: 80%;
+    }
+  }
+}

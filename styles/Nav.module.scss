@@ -1,0 +1,132 @@
+.container {
+  position: fixed;
+  display: flex;
+  top: 1rem;
+  right: 1rem;
+  border: 1px solid $main;
+  background-color: $black;
+  transition-duration: 0.75s;
+  border-radius: 0.5rem;
+  z-index: 999;
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  position: relative;
+  font-size: 16px;
+  margin: 0 auto;
+}
+
+.nav {
+  display: flex;
+  // gap: 1rem;
+  color: $main;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.nav > span {
+  transition-duration: 0.4s;
+  font-weight: 500;
+  margin-right: 1rem;
+}
+
+.nav > span > * {
+  transition-duration: 0.4s;
+}
+
+.nav > span:last-child {
+  margin-right: 0;
+}
+
+.nav > span:hover {
+  * {
+    color: $white;
+  }
+  box-shadow: 0 0 15px 15px $main inset, 0 0 5px 5px $main;
+}
+
+.toggle_btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 3rem;
+  height: 2rem;
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: $black;
+  transition-duration: 0.4s;
+
+  cursor: pointer;
+  span {
+    min-height: 2px;
+    min-width: 2rem;
+    background-color: $main;
+    position: relative;
+    transition-duration: 0.75s;
+    border-radius: 5px;
+  }
+}
+
+.toggle_btn:hover {
+  span {
+    background-color: $white;
+    box-shadow: 0 0 10px 5px $main;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    width: 3rem;
+    overflow: hidden;
+    flex-direction: row-reverse;
+  }
+
+  .nav {
+    font-size: 1.25rem;
+  }
+
+  .container.open {
+    width: calc(284.48px + 3rem);
+    box-shadow: 0 0 8px 2px $main;
+    .toggle_btn {
+      span {
+        min-width: 1.735rem;
+      }
+      span:nth-child(1) {
+        transform-origin: left;
+        transform: rotateZ(50deg);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform-origin: left;
+        transform: rotateZ(-50deg);
+      }
+    }
+  }
+
+  .toggle_btn {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .container {
+    right: 0;
+    left: 0;
+    border: none;
+    background-color: transparent;
+  }
+  .wrapper {
+    width: fit-content;
+    border: 1px solid $main;
+    background-color: $black;
+    border-radius: 0.5rem;
+  }
+}

@@ -1,0 +1,10 @@
+.container {
+  cursor: pointer;
+  position: relative;
+  transition-duration: 0.5s;
+}
+
+.container.dull {
+  opacity: 0.7;
+  transition-duration: 0;
+}

@@ -1,20 +1,16 @@
-import styled from "styled-components";
-import Hero from "../components/Hero/Hero";
-import About from "../components/About/About";
+import styles from "../styles/Home.module.scss";
+import Hero from "../components/Hero";
+import About from "../components/About";
+import Projects from "../components/Projects";
+import Contact from "../components/Contact";
 
 export default function Home() {
   return (
-    <Page>
+    <div className={styles.container}>
       <Hero />
+      <Projects />
       <About />
-    </Page>
+      <Contact />
+    </div>
   );
 }
-
-const Page = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 100vw;
-  overflow-x: hidden;
-`;
