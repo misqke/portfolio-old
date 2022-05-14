@@ -4,8 +4,8 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  margin-top: 70px;
-  min-height: calc(100vh - 70px);
+  padding-top: 70px;
+  height: 100vh;
   font-size: 16px;
 }
 
@@ -13,8 +13,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  bottom: 5em;
+  position: absolute;
+  top: 20%;
   h1,
   h2 {
     font-size: 2em;

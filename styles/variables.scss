@@ -5,3 +5,19 @@ $black: #000;
 $white: #fff;
 $light: #898989;
 $dark: #0c1c30;
+$dark-glass: #0c1c3060;
+
+.sectionTitle {
+  justify-self: flex-start;
+  align-self: flex-start;
+  padding: 1rem;
+  font-size: 24px;
+  text-decoration: underline;
+  text-decoration-color: $primary;
+}
+
+@media screen and (min-width: 500px) {
+  .sectionTitle {
+    font-size: 32px;
+  }
+}

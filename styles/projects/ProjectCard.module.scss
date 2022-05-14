@@ -1,0 +1,129 @@
+.container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 95%;
+  overflow: hidden;
+  height: fit-content;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  gap: 1rem;
+  position: absolute;
+  padding: 0.5rem 1rem 1rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $dark-glass;
+  backdrop-filter: blur(3px);
+  height: 2.25rem;
+  transition-duration: 500ms;
+  border-top: 1px solid $primary;
+}
+
+.container:hover {
+  .card {
+    height: 100%;
+  }
+}
+
+.title {
+  font-size: 1rem;
+  text-shadow: 0 0 5px $dark, 0 0 10px $dark;
+}
+
+.desc {
+  text-shadow: 0 0 5px $dark, 0 0 10px $dark;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.btn {
+  width: 100%;
+  text-align: center;
+  padding: 0.25rem;
+  font-size: 0.75rem;
+  background: $dark;
+  color: $primary;
+  border: 1px solid $primary;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition-duration: 250ms;
+  box-shadow: 0px 5px 2px $black;
+}
+
+.btn:hover {
+  border-color: $white;
+  color: $white;
+}
+
+@media screen and (min-width: 450px) {
+  .card {
+    height: 2.5rem;
+  }
+  .title {
+    font-size: 1.25rem;
+  }
+  .desc,
+  .btn {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .card {
+    height: 2.75rem;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .desc,
+  .btn {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .container {
+    width: 80%;
+  }
+  .title {
+    font-size: 1.25rem;
+  }
+  .desc,
+  .btn {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .container {
+    width: 46%;
+  }
+  .title {
+    font-size: 1.25rem;
+  }
+  .desc,
+  .btn {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  .desc,
+  .btn {
+    font-size: 1.2rem;
+  }
+}

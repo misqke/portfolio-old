@@ -11,12 +11,14 @@
   border-bottom: 1px solid $primary;
   z-index: 100;
   max-width: 1300px;
+  font-size: 1.25rem;
 }
 
 .title {
   cursor: pointer;
   color: $white;
   transition-duration: 350ms;
+  width: fit-content;
   span {
     color: $primary;
     transition-duration: 350ms;
@@ -63,10 +65,10 @@
   display: flex;
   flex-direction: column;
   padding: 2.5px;
-  width: 25px;
+  width: 30px;
   height: 20px;
   right: 1rem;
-  top: 1rem;
+  top: calc(64.2px / 2 - 11.25px);
   cursor: pointer;
   transition-duration: 250ms;
 }
@@ -116,8 +118,10 @@
     display: flex;
     flex-direction: row;
     width: auto;
+    gap: 1rem;
     li {
       width: auto;
+      padding: 0;
     }
     li:hover {
       background: none;

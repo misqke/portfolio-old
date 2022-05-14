@@ -1,0 +1,107 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+}
+
+.form {
+  width: 95%;
+  border: 1px solid $primary;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.formHalf {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.formBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 4rem;
+  position: relative;
+  width: 100%;
+  label {
+    color: $primary;
+    border-bottom: 1px solid $primary;
+    padding: 0.25rem 0.5rem;
+  }
+  input,
+  textarea {
+    justify-self: flex-end;
+    background: #222;
+    border: none;
+    width: 100%;
+    color: $white;
+    font-size: 1rem;
+    height: 0px;
+    transition-duration: 250ms;
+  }
+  input:focus {
+    height: 3rem;
+    padding: 0.5rem;
+    background: $dark;
+    color: $primary;
+    outline: none;
+  }
+  textarea:focus {
+    height: 100%;
+    padding: 0.5rem;
+    background: $dark;
+    color: $primary;
+    outline: none;
+  }
+}
+
+.formArea {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.open {
+  input {
+    height: 3rem;
+    padding: 0.5rem;
+    background: $dark;
+    color: $white;
+  }
+  textarea {
+    flex: 1;
+    padding: 0.5rem;
+    background: $dark;
+    color: $white;
+    height: 7rem;
+  }
+}
+
+.submit {
+  padding: 0.5rem;
+  background: $dark;
+  color: $primary;
+  border: 1px solid $primary;
+  cursor: pointer;
+  transition-duration: 250ms;
+}
+
+.submit:hover {
+  box-shadow: 0px 0px 0px 3px $black inset, 0px 0px 0px 5px $white inset;
+  color: $white;
+}
+
+@media screen and (min-width: 700px) {
+  .form {
+    flex-direction: row;
+  }
+  .formHalf {
+    width: 50%;
+  }
+}

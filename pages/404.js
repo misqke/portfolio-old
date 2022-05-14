@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/custom404.module.scss";
 
-const custom404 = () => {
+const Custom404 = () => {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -12,4 +12,4 @@ const custom404 = () => {
   );
 };
 
-export default custom404;
+export default Custom404;

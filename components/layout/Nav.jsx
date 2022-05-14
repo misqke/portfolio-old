@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import styles from "../../styles/layout/Nav.module.scss";
 
 const Nav = () => {
@@ -9,15 +10,29 @@ const Nav = () => {
   };
   return (
     <div className={styles.container}>
-      <h3 className={styles.title}>
-        Mike<span>Rust</span>
-      </h3>
+      <Link href="/" passHref>
+        <h3 className={styles.title}>
+          Mike<span>Rust</span>
+        </h3>
+      </Link>
 
       <nav className={`${styles.nav} `}>
         <ul className={`${styles.navList} ${isOpen ? styles.open : null}`}>
-          <li>About</li>
-          <li>Projects</li>
-          <li>Contact</li>
+          <li>
+            <Link href="/#about" passHref>
+              <a>About</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/#projects" passHref>
+              <a>Projects</a>
+            </Link>
+          </li>
+          <li>
+            <Link href={"/#contact"} passHref>
+              <a>Contact</a>
+            </Link>
+          </li>
         </ul>
       </nav>
       <div className={styles.hamburger} onClick={() => handleNavToggle()}>
