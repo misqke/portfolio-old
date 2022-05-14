@@ -1,35 +1,29 @@
 import React, { useState } from "react";
-import Link from "next/link";
-import styles from "../../styles/Nav.module.scss";
+import styles from "../../styles/layout/Nav.module.scss";
 
 const Nav = () => {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
+  const handleNavToggle = () => {
+    setIsOpen((prev) => !prev);
+  };
   return (
-    <div className={`${styles.container} ${open && styles.open}`}>
-      <div className={styles.wrapper}>
-        <nav className={styles.nav}>
-          <span onClick={() => setOpen(false)}>
-            <Link href={"/"}>Home</Link>
-          </span>
-          <span onClick={() => setOpen(false)}>
-            <Link href={"/#projects"}>Projects</Link>
-          </span>
-          <span onClick={() => setOpen(false)}>
-            <Link href={"/#about"}>About</Link>
-          </span>
-          <span onClick={() => setOpen(false)}>
-            <Link href={"/#contact"}>Contact</Link>
-          </span>
-        </nav>
-        <div
-          className={styles.toggle_btn}
-          onClick={() => setOpen((prev) => !prev)}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+    <div className={styles.container}>
+      <h3 className={styles.title}>
+        Mike<span>Rust</span>
+      </h3>
+
+      <nav className={`${styles.nav} `}>
+        <ul className={`${styles.navList} ${isOpen ? styles.open : null}`}>
+          <li>About</li>
+          <li>Projects</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+      <div className={styles.hamburger} onClick={() => handleNavToggle()}>
+        <span className={`${styles.line} ${styles.top}`}></span>
+        <span className={`${styles.line} ${styles.mid}`}></span>
+        <span className={`${styles.line} ${styles.bot}`}></span>
       </div>
     </div>
   );

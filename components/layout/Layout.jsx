@@ -1,28 +1,17 @@
 import React from "react";
+import styles from "../../styles/layout/Layout.module.scss";
 import Head from "next/head";
-import styles from "../../styles/Layout.module.scss";
 import Nav from "./Nav";
 
 const Layout = ({ children }) => {
   return (
-    <>
+    <div className={styles.page}>
       <Head>
         <title>Mike Rust Portfolio</title>
-        <meta
-          name="description"
-          content="Michael Rust, web developer portfolio."
-        />
-        <link rel="icon" href="/favicon.png" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Kalam:wght@300&family=Nothing+You+Could+Do&display=swap"
-          rel="stylesheet"
-        />
       </Head>
-      <div className={styles.body}>
-        <Nav />
-        {children}
-      </div>
-    </>
+      <Nav />
+      {children}
+    </div>
   );
 };
 
