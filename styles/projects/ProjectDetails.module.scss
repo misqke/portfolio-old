@@ -1,0 +1,194 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  max-width: 1200px;
+  padding-top: 70px;
+}
+
+.topContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  border: 1px solid $primary;
+}
+
+.techContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 1rem;
+  width: 100%;
+}
+
+.img {
+  padding: 1rem;
+  border-bottom: 1px solid $primary;
+}
+
+.iconContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $dark;
+  text-shadow: 0 0 5px $white, 0 0 10px $primary, 0 0 15px $white,
+    0 0 20px $primary, 0 0 25px $white;
+  width: 50px;
+  height: 50px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  color: $primary;
+}
+
+.midContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.btnContainer {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  max-width: 200px;
+  color: $primary;
+  padding: 0.5rem;
+  border: 2px solid $dark;
+}
+
+.btn:hover {
+  animation-name: fill;
+  animation-duration: 250ms;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+.botContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+@keyframes fill {
+  0% {
+    background: linear-gradient(90deg, $black 0%, $black 100%);
+  }
+  10% {
+    background: linear-gradient(90deg, $primary 0%, $black 10%);
+  }
+  20% {
+    background: linear-gradient(90deg, $primary 0%, $black 20%);
+  }
+  40% {
+    background: linear-gradient(90deg, $primary 0%, $black 40%);
+    color: $black;
+  }
+  60% {
+    background: linear-gradient(90deg, $primary 0%, $black 60%);
+    color: $black;
+  }
+  80% {
+    background: linear-gradient(90deg, $primary 0%, $black 80%);
+    color: $black;
+  }
+  100% {
+    background: linear-gradient(90deg, $primary 0%, $primary 100%);
+    color: $black;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .container {
+    font-size: 18px;
+  }
+  .botContainer {
+    width: 80%;
+    align-items: flex-start;
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .topContainer {
+    flex-direction: row-reverse;
+    gap: 1rem;
+    height: min-content;
+  }
+
+  .techContainer {
+    flex-direction: column;
+    width: 15%;
+    padding: 1rem;
+    height: 100%;
+  }
+
+  .img {
+    border-bottom: none;
+    border-left: 1px solid $primary;
+  }
+
+  .iconContainer {
+    width: 100%;
+    flex-grow: 1;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .container {
+    font-size: 20px;
+  }
+  .topContainer {
+    flex-direction: row-reverse;
+    gap: 1rem;
+  }
+
+  .techContainer {
+    flex-direction: column;
+    width: 15%;
+  }
+
+  .iconContainer {
+    width: 100%;
+    flex-direction: row;
+    gap: 0.5rem;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 16px;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+}

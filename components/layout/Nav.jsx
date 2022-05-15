@@ -20,17 +20,22 @@ const Nav = () => {
         <ul className={`${styles.navList} ${isOpen ? styles.open : null}`}>
           <li>
             <Link href="/#about" passHref>
-              <a>About</a>
+              <a onClick={() => setIsOpen(false)}>About</a>
             </Link>
           </li>
           <li>
             <Link href="/#projects" passHref>
-              <a>Projects</a>
+              <a onClick={() => setIsOpen(false)}>Projects</a>
             </Link>
           </li>
           <li>
             <Link href={"/#contact"} passHref>
-              <a>Contact</a>
+              <a onClick={() => setIsOpen(false)}>Contact</a>
+            </Link>
+          </li>
+          <li>
+            <Link href={"/resume"} passHref>
+              <a onClick={() => setIsOpen(false)}>Resume</a>
             </Link>
           </li>
         </ul>

@@ -18,13 +18,12 @@ const Contact = () => {
       >
         <input type="hidden" name="form-name" value="contact" />
         <div className={styles.formHalf}>
-          <div
-            className={`${styles.formBox} ${
-              name.length > 0 ? styles.open : styles.shut
-            }`}
-          >
+          <div className={`${styles.formBox}`}>
             <label htmlFor="contact_name">Name</label>
             <input
+              className={`${styles.formInput} ${
+                name.length > 0 ? styles.open : null
+              }`}
               value={name}
               onChange={(e) => setName(e.target.value)}
               type="text"
@@ -33,13 +32,12 @@ const Contact = () => {
               required
             />
           </div>
-          <div
-            className={`${styles.formBox} ${
-              email.length > 0 ? styles.open : styles.shut
-            }`}
-          >
+          <div className={`${styles.formBox}`}>
             <label htmlFor="contact_email">Email</label>
             <input
+              className={`${styles.formInput} ${
+                email.length > 0 ? styles.open : null
+              }`}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               type="email"
@@ -48,13 +46,12 @@ const Contact = () => {
               required
             />
           </div>
-          <div
-            className={`${styles.formBox} ${
-              subject.length > 0 ? styles.open : styles.shut
-            }`}
-          >
+          <div className={`${styles.formBox}`}>
             <label htmlFor="contact_subject">Subject</label>
             <input
+              className={`${styles.formInput} ${
+                subject.length > 0 ? styles.open : null
+              }`}
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
               type="text"
@@ -65,13 +62,12 @@ const Contact = () => {
           </div>
         </div>
         <div className={styles.formHalf}>
-          <div
-            className={`${styles.formBox} ${styles.formArea} ${
-              message.length > 0 ? styles.open : styles.shut
-            }`}
-          >
+          <div className={`${styles.formArea}`}>
             <label htmlFor="contact_msg">Message</label>
             <textarea
+              className={`${styles.formTextArea} ${
+                message.length > 0 ? styles.open : null
+              }`}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               type="text"

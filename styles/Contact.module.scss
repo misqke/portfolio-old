@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   width: 95%;
+  padding-top: 70px;
 }
 
 .form {
@@ -22,65 +23,46 @@
   width: 100%;
 }
 
-.formBox {
+.formBox,
+.formArea {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   height: 4rem;
   position: relative;
   width: 100%;
+  overflow-y: hidden;
   label {
     color: $primary;
     border-bottom: 1px solid $primary;
     padding: 0.25rem 0.5rem;
-  }
-  input,
-  textarea {
-    justify-self: flex-end;
-    background: #222;
-    border: none;
-    width: 100%;
-    color: $white;
-    font-size: 1rem;
-    height: 0px;
-    transition-duration: 250ms;
-  }
-  input:focus {
-    height: 3rem;
-    padding: 0.5rem;
-    background: $dark;
-    color: $primary;
-    outline: none;
-  }
-  textarea:focus {
-    height: 100%;
-    padding: 0.5rem;
-    background: $dark;
-    color: $primary;
-    outline: none;
+    cursor: pointer;
   }
 }
 
 .formArea {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+  height: 8rem;
+  flex-grow: 1;
 }
 
-.open {
-  input {
-    height: 3rem;
-    padding: 0.5rem;
-    background: $dark;
-    color: $white;
-  }
-  textarea {
-    flex: 1;
-    padding: 0.5rem;
-    background: $dark;
-    color: $white;
-    height: 7rem;
-  }
+.formInput,
+.formTextArea {
+  font-size: 1rem;
+  padding: 4px 8px;
+  outline: none;
+  background: none;
+  border: none;
+  height: 0;
+  color: $white;
+  transition-duration: 550ms;
+}
+
+.formInput:focus,
+.formInput.open,
+.formTextArea:focus,
+.formTextArea.open {
+  height: 100%;
+  background-color: $dark;
 }
 
 .submit {

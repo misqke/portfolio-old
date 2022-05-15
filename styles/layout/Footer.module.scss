@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px solid $dark;
+  padding: 2rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 16px;
+  h4 {
+    font-size: 1.25em;
+  }
+  h5 {
+    font-size: 1.05em;
+  }
+  h5:hover {
+    color: $dark;
+  }
+}
+
+.linkContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.icon {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  color: $primary;
+  transition-duration: 250ms;
+}
+
+.icon:hover {
+  color: $white;
+}
+
+@media screen and (min-width: 500px) {
+  .content {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .content {
+    font-size: 22px;
+  }
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+}

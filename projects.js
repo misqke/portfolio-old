@@ -2,24 +2,15 @@ const projects = [
   {
     name: "Recipe Cloud",
     slug: "recipecloud",
-    desc: "A full stack recipe website.",
+    desc: "A full stack recipe website. Explore recipes or sign up to upload your own.",
     about: [
-      "This project was inspired by my girlfriend's delapitated recipe book.  This was my first full stack project and helped me learn node, express, and mongoose.",
-      "With Recipe Cloud you can store your recipes as well as explore the recipes of other users. Easily keep track of any recipes you like and leave comments on others recipes to let them know how you liked it.",
+      "This project was inspired by my girlfriend's delapitated recipe book.  This was my first full stack project and helped me break in to back-end technologies.",
+      "Users can create, update, and delete recipes, as well as favorite and comment on the recipes of others.  I used mongoDB for a database and used Node and Express to build out the server and api.  JWT is used for authentication on log in.",
+      "The front-end of the project was built with React.  I used React Router for routing and navigation and Redux for state management.  Bootstrap and a bit of custom CSS was used for styling.",
     ],
     live: "https://misqke-recipe-cloud.herokuapp.com/",
     code: "https://github.com/misqke/recipe-cloud",
-    tech: [
-      "react",
-      "react-router",
-      "redux",
-      "bootstrap",
-      "node",
-      "express",
-      "JWT",
-      "mongoose",
-      "cloudinary",
-    ],
+    tech: ["react", "redux", "bootstrap", "node", "express", "jwt", "mongoose"],
     img: {
       small:
         "https://res.cloudinary.com/dkhxk06gf/image/upload/v1652559425/portfolio/fw6twbljcpyvcujffbpr.jpg",
@@ -31,16 +22,17 @@ const projects = [
   {
     name: "Pokedex",
     slug: "pokedex",
-    desc: "A full stack clone of pokemon.com/pokedex.",
+    desc: "A full stack clone of the Pokedex page on pokemon.com",
     about: [
-      "Who doesn't love Pokemon?  When it came to picking a website to clone, this was an easy first choice.",
-      "This project's back end was made with Express.  I built a web scraper to gather all the needed information from the real site and an api to serve, filter, and sort the data as needed.",
-      "The front end was made in Next.js and styled with SCSS.",
+      "Who doesn't love Pokemon?  When it came to picking a website to clone, this was an easy first choice for me.",
+      "I began this project by building a Puppeteer web scraper to crawl through pokemon.com/pokedex. This got me a JSON file with all the data I would need for the clone, formatted in a way I saw fit.",
+      "The back-end of this project was built with Node and Express.  It includes a simple api to search Pokemon based on a variety of available filters or retrieve a list of random Pokemon.",
+      "I built the front-end for this project with React. I used Next.js to take advantage of the built in dynamic routing features for the individual Pokemon detail pages.  The styling was all handled with Sass to match the original website's design.",
     ],
     live: "https://misqke-pokedex.netlify.app/",
     code: "https://github.com/misqke/pokedex",
     backend: "https://github.com/misqke/pokemon-api",
-    tech: ["react", "sass", "next.js", "node", "express"],
+    tech: ["react", "sass", "next", "node", "express"],
     img: {
       small:
         "https://res.cloudinary.com/dkhxk06gf/image/upload/v1652559425/portfolio/yoxajzd8cfo8h8xf0p4t.jpg",
@@ -52,14 +44,14 @@ const projects = [
   {
     name: "Introspective Images",
     slug: "introspectiveimages",
-    desc: "A full stack portfolio website for a freelance photographer.",
+    desc: "A full stack portfolio website for a freelance photographer, including admin dashboard.",
     about: [
-      "I built this site for a coworker who does some freelance photopgraphy work.",
-      "This project was built in Next.js, using Cloudinary for image storage and MongoDB for content management.  It includes an admin page, using JWT authentication, where the photographer can update the cover photo, add or remove gallery images, and update image tags and captions.",
+      "I built this site for a coworker who does some freelance photopgraphy work.  It includes a full admin page to add or delete photos, update tags and captions, change the cover photo, and update the about section information.",
+      "The full project was built in Next.js.  Utilizing Next's built in api, I was able to hook up a MongoDB database as well as JWT authentication for the admin dashboard.  Cloudinary was used for image storage and the project was styled with Sass.",
     ],
     live: "https://introspective-images.vercel.app/",
     code: "https://github.com/misqke/introspective_images",
-    tech: ["react", "sass", "next.js", "mongoose", "JWT", "cloudinary"],
+    tech: ["react", "sass", "next", "mongoose", "jwt"],
     img: {
       small:
         "https://res.cloudinary.com/dkhxk06gf/image/upload/v1652559420/portfolio/ijy09q6xnf4vulatoy4f.jpg",
@@ -67,6 +59,27 @@ const projects = [
         "https://res.cloudinary.com/dkhxk06gf/image/upload/v1651581126/portfolio/kz3p0wcgx2mnlo6mrxpt.jpg",
     },
     heroku: false,
+  },
+
+  {
+    name: "Milk Master",
+    slug: "milkmaster",
+    desc: "A web scraping application to simplify milk inventory and ordering.",
+    about: [
+      "While learning to code, I worked in the dairy department of a grocery store.  Due to slow computers, poor websites, and a lot of math, milk inventories and orders were an hour long process.  The Milk Master has cut that time down to 15 minutes!",
+      "The front-end of this project is a single page React application with Styled Components.  It is essentially a calculator geared towards a specific purpose.",
+      "This application's magic all takes place in the back-end.  On page load, a Puppeteer web scraper crawls through the milk companies website, gathering a list of currently available products, and sending it off to the front-end.  After filling out the client-side form, a list of totals is sent back to the server and another web scraper runs through the milk companies website.  This time, it fills out the inventory or order form for you and sends back and image of the confirmation number.",
+    ],
+    live: "https://milk-master-demo.herokuapp.com/",
+    code: "https://github.com/misqke/milk-master-demo",
+    tech: ["react", "node", "express", "puppeteer"],
+    img: {
+      small:
+        "https://res.cloudinary.com/dkhxk06gf/image/upload/v1652559425/portfolio/swythnp7d0vxyiu1axzy.jpg",
+      large:
+        "https://res.cloudinary.com/dkhxk06gf/image/upload/v1652559567/portfolio/xvdiesh7sziuajdjkmvz.jpg",
+    },
+    heroku: true,
   },
   {
     name: "Special Forces Art Department",
@@ -78,7 +91,7 @@ const projects = [
     ],
     live: "https://graphicdesignerpa.netlify.app/",
     code: "https://github.com/misqke/special-forces-art-department",
-    tech: ["react", "sass", "next.js"],
+    tech: ["react", "sass", "next"],
     img: {
       small:
         "https://res.cloudinary.com/dkhxk06gf/image/upload/v1652559425/portfolio/vx1wpuw39tt0ump0dtd3.jpg",
@@ -97,7 +110,7 @@ const projects = [
     ],
     live: "https://encounter-buddy.netlify.app/",
     code: "https://github.com/misqke/encounter_buddy",
-    tech: ["react", "redux", "sass", "next.js"],
+    tech: ["react", "redux", "sass", "next"],
     img: {
       small:
         "https://res.cloudinary.com/dkhxk06gf/image/upload/v1652559412/portfolio/drv14cjj4ezzhkxc6zic.jpg",
@@ -105,35 +118,6 @@ const projects = [
         "https://res.cloudinary.com/dkhxk06gf/image/upload/v1651581075/portfolio/dpcjyaiyfu1oeocwkp0v.jpg",
     },
     heroku: false,
-  },
-  {
-    name: "Milk Master",
-    slug: "milkmaster",
-    desc: "A web scraping application to simplify milk inventory and ordering.",
-    about: [
-      "While learning to code, I worked in the dairy department of a grocery store.  Our milk inventory and orders involved printing an order form, counting all the milk on the shelf, counting all the crates in the cooler, mathing it all together, then entering all this data on the computer to submit.",
-      "The Milk Master has cut the time of this process by 75%.  Simply log in on your mobile device, enter the amount of milk on the shelves and the number of crates and hit submit.  All the math is handled, and a Puppeteer webscraper on the server side navigates the milk company's website, fills out and submits the form, and sends you back a screen shot of the confirmation.",
-    ],
-    live: "https://milk-master-demo.herokuapp.com/",
-    code: "https://github.com/misqke/milk-master-demo",
-    tech: [
-      "react",
-      "react-router",
-      "redux",
-      "bootstrap",
-      "node",
-      "express",
-      "mongoose",
-      "JWT",
-      "puppeteer",
-    ],
-    img: {
-      small:
-        "https://res.cloudinary.com/dkhxk06gf/image/upload/v1652559425/portfolio/swythnp7d0vxyiu1axzy.jpg",
-      large:
-        "https://res.cloudinary.com/dkhxk06gf/image/upload/v1652559567/portfolio/xvdiesh7sziuajdjkmvz.jpg",
-    },
-    heroku: true,
   },
 ];
 

@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../styles/About.module.scss";
-import { AiFillHtml5 } from "react-icons/ai";
 import {
   SiPuppeteer,
   SiRedux,
@@ -13,6 +12,7 @@ import {
   SiMongodb,
   SiGithub,
   SiGit,
+  SiNextdotjs,
 } from "react-icons/si";
 
 const About = () => {
@@ -59,6 +59,10 @@ const About = () => {
           <div className={styles.skillBox}>
             <SiRedux className={styles.icon} />
             redux
+          </div>
+          <div className={styles.skillBox}>
+            <SiNextdotjs className={styles.icon} />
+            next
           </div>
           <div className={styles.skillBox}>
             <SiNodedotjs className={styles.icon} />
