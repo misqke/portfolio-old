@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import styles from "../../styles/hero/Links.module.scss";
+import styles from "../styles/hero/Links.module.scss";
 
 const Links = () => {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/hero/Hero.module.scss";
+import styles from "../styles/hero/Hero.module.scss";
 import Skills from "./Skills";
 import Links from "./Links";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "../../styles/projects/ProjectCard.module.scss";
+import styles from "../styles/projects/ProjectCard.module.scss";
 
 const ProjectCard = ({ project }) => {
   return (

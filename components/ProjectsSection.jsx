@@ -1,7 +1,7 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
-import styles from "../../styles/projects/ProjectSection.module.scss";
-import { projects } from "../../projects";
+import styles from "../styles/projects/ProjectSection.module.scss";
+import { projects } from "../projects";
 
 const ProjectsSection = () => {
   return (

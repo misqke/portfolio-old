@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import styles from "../../styles/layout/Nav.module.scss";
+import styles from "../styles/layout/Nav.module.scss";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);

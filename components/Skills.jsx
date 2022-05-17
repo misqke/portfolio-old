@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/hero/Skills.module.scss";
+import styles from "../styles/hero/Skills.module.scss";
 import {
   SiPuppeteer,
   SiRedux,
