@@ -10,6 +10,7 @@ export default function Document() {
           name="description"
           content="portfolio website for Mike Rust, a web developer"
         />
+        <link rel="icon" href="/favicon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
