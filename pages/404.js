@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/custom404.module.scss";
-import Nav from "../components/layout/Nav";
-import Footer from "../components/layout/Footer";
+import Nav from "../components/Layout/Nav.jsx";
+import Footer from "../components/Layout/Footer.jsx";
 
 const Custom404 = () => {
   return (

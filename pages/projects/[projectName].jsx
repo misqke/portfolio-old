@@ -2,8 +2,8 @@ import React from "react";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../../styles/projects/ProjectDetails.module.scss";
-import Nav from "../../components/Layout/Nav";
-import Footer from "../../components/Layout/Footer";
+import Nav from "../../components/Layout/Nav.jsx";
+import Footer from "../../components/Layout/Footer.jsx";
 import { projects } from "../../projects";
 import {
   SiReact,

@@ -1,10 +1,10 @@
 import styles from "../styles/Home.module.scss";
-import Hero from "../components/Hero/Hero";
-import ProjectsSection from "../components/Projects/ProjectsSection";
-import About from "../components/About";
-import Contact from "../components/Contact";
-import Nav from "../components/Layout/Nav";
-import Footer from "../components/Layout/Footer";
+import Hero from "../components/Hero/Hero.jsx";
+import ProjectsSection from "../components/Projects/ProjectsSection.jsx";
+import About from "../components/About.jsx";
+import Contact from "../components/Contact.jsx";
+import Nav from "../components/Layout/Nav.jsx";
+import Footer from "../components/Layout/Footer.jsx";
 import Head from "next/head";
 
 export default function Home() {
