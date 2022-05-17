@@ -4,7 +4,7 @@ $primary: #4a9fc2;
 
 $black: #060611;
 $white: #ededed;
-$light: #898989;
+$light: #dedede;
 $dark: #2c4658;
 $dark-glass: #0c1c3060;
 
@@ -15,6 +15,33 @@ $dark-glass: #0c1c3060;
   font-size: 24px;
   text-decoration: underline;
   text-decoration-color: $primary;
+  z-index: 2;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  max-width: 200px;
+  color: $primary;
+  padding: 0.5rem;
+  background: $black;
+  font-weight: 500;
+  border: 2px solid $dark;
+  animation-fill-mode: backwards;
+  animation-direction: normal;
+  animation-name: unfill;
+  animation-duration: 200ms;
+  animation-timing-function: linear;
+}
+
+.btn:hover {
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+  animation-name: fill;
+  animation-duration: 200ms;
+  animation-timing-function: linear;
 }
 
 @media screen and (min-width: 500px) {
@@ -22,3 +49,120 @@ $dark-glass: #0c1c3060;
     font-size: 32px;
   }
 }
+
+@keyframes fill {
+  0% {
+    background: radial-gradient(circle, $black 0%, $black 100%);
+  }
+  10% {
+    background: radial-gradient(circle, $primary 0%, $black 10%);
+    color: $black;
+  }
+  20% {
+    background: radial-gradient(circle, $primary 0%, $black 20%);
+    color: $black;
+  }
+  40% {
+    background: radial-gradient(circle, $primary 0%, $black 40%);
+    color: $black;
+  }
+  60% {
+    background: radial-gradient(circle, $primary 0%, $black 60%);
+    color: $black;
+  }
+  80% {
+    background: radial-gradient(circle, $primary 0%, $black 80%);
+    color: $black;
+  }
+  100% {
+    background: radial-gradient(circle, $primary 0%, $primary 100%);
+    color: $black;
+  }
+}
+
+// @keyframes fill {
+//   0% {
+//     background: linear-gradient(90deg, $black 0%, $black 100%);
+//   }
+//   10% {
+//     background: linear-gradient(90deg, $primary 0%, $black 10%);
+//   }
+//   20% {
+//     background: linear-gradient(90deg, $primary 0%, $black 20%);
+//   }
+//   40% {
+//     background: linear-gradient(90deg, $primary 0%, $black 40%);
+//     color: $black;
+//   }
+//   60% {
+//     background: linear-gradient(90deg, $primary 0%, $black 60%);
+//     color: $black;
+//   }
+//   80% {
+//     background: linear-gradient(90deg, $primary 0%, $black 80%);
+//     color: $black;
+//   }
+//   100% {
+//     background: linear-gradient(90deg, $primary 0%, $primary 100%);
+//     color: $black;
+//   }
+// }
+
+@keyframes unfill {
+  0% {
+    background: radial-gradient(circle, $primary 0%, $primary 100%);
+    color: $black;
+  }
+  10% {
+    background: radial-gradient(circle, $primary 0%, $black 90%);
+    color: $black;
+  }
+  20% {
+    background: radial-gradient(circle, $primary 0%, $black 80%);
+    color: $black;
+  }
+  40% {
+    background: radial-gradient(circle, $primary 0%, $black 60%);
+    color: $black;
+  }
+  60% {
+    background: radial-gradient(circle, $primary 0%, $black 40%);
+    color: $black;
+  }
+  80% {
+    background: radial-gradient(circle, $primary 0%, $black 20%);
+    color: $primary;
+  }
+  100% {
+    background: radial-gradient(circle, $black 0%, $black 100%);
+    color: $primary;
+  }
+}
+
+// @keyframes unfill {
+//   0% {
+//     background: linear-gradient(90deg, $primary 0%, $primary 100%);
+//   }
+//   10% {
+//     background: linear-gradient(90deg, $primary 0%, $black 90%);
+//   }
+//   20% {
+//     background: linear-gradient(90deg, $primary 0%, $black 80%);
+//   }
+//   40% {
+//     background: linear-gradient(90deg, $primary 0%, $black 60%);
+//     color: $primary;
+//   }
+//   60% {
+//     background: linear-gradient(90deg, $primary 0%, $black 40%);
+//     color: $primary;
+//   }
+//   80% {
+//     background: linear-gradient(90deg, $primary 0%, $black 20%);
+//     color: $primary;
+//   }
+//   100% {
+//     background: linear-gradient(90deg, $black 0%, $black 100%);
+//     color: $primary;
+//   }
+// }

@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import styles from "../../styles/projects/ProjectDetails.module.scss";
+import Nav from "../../components/layout/Nav";
+import Footer from "../../components/layout/Footer";
 import { projects } from "../../projects";
 import {
   SiReact,
@@ -19,6 +21,7 @@ import {
 const ProjectDetails = ({ project }) => {
   return (
     <div className={styles.container}>
+      <Nav />
       <h2 className={styles.sectionTitle}>{project.name}</h2>
       <div className={styles.topContainer}>
         <div className={styles.img}>
@@ -112,10 +115,11 @@ const ProjectDetails = ({ project }) => {
         )}
       </div>
       <div className={styles.botContainer}>
-        {project.about.map((proj) => (
-          <p>{proj}</p>
+        {project.about.map((proj, i) => (
+          <p key={i + proj.slice(0, 8)}>{proj}</p>
         ))}
       </div>
+      <Footer />
     </div>
   );
 };

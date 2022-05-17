@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  gap: 0.5rem;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.btn {
+  width: 120px;
+  font-size: 16px;
+}
+
+@media screen and (min-width: 400px) {
+  .container {
+    top: 55%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .container {
+    top: 60%;
+  }
+  .btn {
+    font-size: 18px;
+    width: 300px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .container {
+    top: 65%;
+    gap: 1.5rem;
+  }
+}

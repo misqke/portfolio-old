@@ -4,9 +4,8 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  padding-top: 70px;
   height: 100vh;
-  font-size: 16px;
+  font-size: 22px;
 }
 
 .title {
@@ -14,56 +13,55 @@
   flex-direction: column;
   align-items: center;
   position: absolute;
-  top: 20%;
+  top: 5%;
   h1,
   h2 {
     font-size: 2em;
-    color: $primary;
+    color: $dark;
+
+    font-family: "Charm", cursive;
+    // font-family: "Koulen", cursive;
+    text-shadow: 0 0 5px $white, 0 0 10px $dark, 0 0 15px $white, 0 0 20px $dark,
+      0 0 25px $white;
   }
   span {
     margin-top: 7px;
     min-height: 3px;
     min-width: 120%;
-    background: $white;
-    border-radius: 20%;
+    background: $light;
+    border-radius: 30%;
+    box-shadow: 0 0 5px $dark, 0 0 10px $white, 0 0 15px $dark, 0 0 20px $white,
+      0 0 25px $dark;
   }
-}
-
-.torchBox {
-  position: absolute;
-  // bottom: 20%;
-}
-
-.torch1 {
-  left: 5%;
-}
-
-.torch2 {
-  right: 5%;
 }
 
 @media screen and (min-width: 400px) {
   .container {
-    font-size: 18px;
+    font-size: 28px;
   }
 }
 @media screen and (min-width: 600px) {
   .container {
-    font-size: 20px;
+    font-size: 30px;
   }
 }
 @media screen and (min-width: 800px) {
   .container {
-    font-size: 24px;
+    font-size: 32px;
   }
 }
 @media screen and (min-width: 1000px) {
   .container {
-    font-size: 28px;
+    font-size: 34px;
   }
 }
 @media screen and (min-width: 1200px) {
   .container {
-    font-size: 34px;
+    font-size: 36px;
+  }
+}
+@media screen and (min-width: 1500px) {
+  .container {
+    font-size: 40px;
   }
 }

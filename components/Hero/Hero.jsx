@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../../styles/hero/Hero.module.scss";
-import Torch from "./Torch";
+import Skills from "./Skills";
+import Links from "./Links";
 
 const Hero = () => {
   return (
@@ -8,14 +9,10 @@ const Hero = () => {
       <div className={styles.title}>
         <h2>Mike Rust</h2>
         <span></span>
-        <h1>Developer</h1>
+        <h1>Web Developer</h1>
       </div>
-      <div className={`${styles.torchBox} ${styles.torch1}`}>
-        <Torch />
-      </div>
-      <div className={`${styles.torchBox} ${styles.torch2}`}>
-        <Torch />
-      </div>
+      <Skills />
+      <Links />
     </div>
   );
 };

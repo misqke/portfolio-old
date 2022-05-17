@@ -87,7 +87,8 @@ const projects = [
     desc: "A business / portfolio website for a freelance graphic designer.",
     about: [
       "My uncle is a freelance graphic designer with a website that was very out of date.  I saw this as a great opportunity to help him and practice my trade.",
-      "This project was my first experience working with intersection observers and with a client.  I learned a great deal about adapting a project based on a clients needs and feedback.",
+      "This project was mostly a redesign, taking all the content from his original website and finding a better way to lay it out.  I used Next.js to take advantage of it&apos;s built in router and static site generation while still being able to use React.  The site was styled using Sass.",
+      "I used this project as an opportunity to practice using JavaScript&apos;s intersetion observer for animation purposes.",
     ],
     live: "https://graphicdesignerpa.netlify.app/",
     code: "https://github.com/misqke/special-forces-art-department",
@@ -106,7 +107,7 @@ const projects = [
     desc: "An encounter generator and monster compendium for D&D 5e SRD content.",
     about: [
       "Anyone who's run a Dungeons and Dragons game knows balancing encounters can be a real pain.  The guides provided require a number or tables and random calculations, enough to make your head spin.  Enter the encounter buddy to do all that confusing work for you.",
-      "The first step of this project involved building a web scraper with Puppeteer to build the monster data base. Next came an api full of complicated logic to generate the desired encounter. Finally, I created a nice, polished interface to display it all in.",
+      "To start this project I built a Puppeteer web scraper to gather all the needed monster data.  Using Next.js, I built out an api with a route to search monsters based on a variety of filters and, after a ton of crazy logic, a route to generate an encounter based on a variety of parameters.  Sass was used for styling and Redux was implemented to maintain generated encounter and search results when switching between pages.",
     ],
     live: "https://encounter-buddy.netlify.app/",
     code: "https://github.com/misqke/encounter_buddy",

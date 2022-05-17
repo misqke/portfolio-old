@@ -5,6 +5,9 @@
   width: 95%;
   overflow: hidden;
   height: fit-content;
+  box-shadow: 0px 0px 1px 1px $dark, -0px -0px 1px 1px $dark;
+  transition-duration: 400ms;
+  transition-delay: 100ms;
 }
 
 .img {
@@ -31,6 +34,7 @@
 }
 
 .container:hover {
+  box-shadow: 10px 10px 0px 1.5px $dark, -10px -10px 0px 1.5px $dark;
   .card {
     height: 100%;
   }
@@ -49,19 +53,24 @@
 
 .btn {
   width: 100%;
+  max-width: unset;
+}
+
+.cardBtn {
+  width: 100%;
   text-align: center;
   padding: 0.25rem;
   font-size: 0.75rem;
-  background: $dark;
+  background: $black;
   color: $primary;
   border: 1px solid $primary;
   border-radius: 0.5rem;
   cursor: pointer;
   transition-duration: 250ms;
-  box-shadow: 0px 5px 2px $black;
+  box-shadow: 0px 5px 2px $dark;
 }
 
-.btn:hover {
+.cardBtn:hover {
   border-color: $white;
   color: $white;
 }
@@ -74,7 +83,7 @@
     font-size: 1.25rem;
   }
   .desc,
-  .btn {
+  .cardBtn {
     font-size: 1rem;
   }
 }
@@ -87,7 +96,7 @@
     font-size: 1.5rem;
   }
   .desc,
-  .btn {
+  .cardBtn {
     font-size: 1.2rem;
   }
 }
@@ -100,7 +109,7 @@
     font-size: 1.25rem;
   }
   .desc,
-  .btn {
+  .cardBtn {
     font-size: 1rem;
   }
 }
@@ -113,7 +122,7 @@
     font-size: 1.25rem;
   }
   .desc,
-  .btn {
+  .cardBtn {
     font-size: 1rem;
   }
 }
@@ -123,7 +132,7 @@
     font-size: 1.5rem;
   }
   .desc,
-  .btn {
+  .cardBtn {
     font-size: 1.2rem;
   }
 }

@@ -78,7 +78,7 @@ const Contact = () => {
               required
             />
           </div>
-          <button className={styles.submit} type="submit">
+          <button className={styles.btn} type="submit">
             Send
           </button>
         </div>

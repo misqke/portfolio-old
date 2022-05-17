@@ -8,7 +8,7 @@ const ProjectsSection = () => {
     <div className={styles.container} id="projects">
       <h3 className={styles.sectionTitle}>My Work</h3>
       <div className={styles.projectCardContainer}>
-        {projects.slice(0, 4).map((project) => (
+        {projects.map((project) => (
           <ProjectCard key={project.slug} project={project} />
         ))}
       </div>
