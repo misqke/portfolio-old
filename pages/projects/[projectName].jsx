@@ -103,14 +103,29 @@ const ProjectDetails = ({ project }) => {
       </div>
       <div className={styles.midContainer}>
         <div className={styles.btnContainer}>
-          <a className={styles.btn} href={project.live} target="_blank">
+          <a
+            className={styles.btn}
+            href={project.live}
+            target="_blank"
+            rel="noreferrer"
+          >
             Live{(project.heroku === true || project.backend) && "*"}
           </a>
-          <a className={styles.btn} href={project.code} target="_blank">
+          <a
+            className={styles.btn}
+            href={project.code}
+            target="_blank"
+            rel="noreferrer"
+          >
             {project.backend ? "Front-End Code" : "Code"}
           </a>
           {project.backend && (
-            <a className={styles.btn} href={project.backend} target="_blank">
+            <a
+              className={styles.btn}
+              href={project.backend}
+              target="_blank"
+              rel="noreferrer"
+            >
               Back-End Code
             </a>
           )}
