@@ -7,9 +7,9 @@ const Hero = () => {
   return (
     <div className={styles.container}>
       <div className={styles.title}>
-        <h2>Mike Rust</h2>
-        <span></span>
         <h1>Web Developer</h1>
+        <span></span>
+        <h2>Mike Rust</h2>
       </div>
       <Skills />
       <Links />

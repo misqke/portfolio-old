@@ -31,7 +31,7 @@ const About = () => {
           src={"/me4.png"}
           width={501}
           height={766}
-          // layout="fill"
+          alt="me"
           objectFit="contain"
         />
       </div>

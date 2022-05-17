@@ -11,11 +11,16 @@ const Footer = () => {
           <h5>misqke.rust@yahoo.com</h5>
         </a>
         <div className={styles.linkContainer}>
-          <a href="https://www.linkedin.com/in/michael-rust-66b5b3226/">
+          <a
+            className={styles.link}
+            href="https://www.linkedin.com/in/michael-rust-66b5b3226/"
+          >
             <SiLinkedin className={styles.icon} />
+            LinkedIn
           </a>
-          <a href="https://github.com/misqke">
+          <a className={styles.link} href="https://github.com/misqke">
             <SiGithub className={styles.icon} />
+            GitHub
           </a>
         </div>
       </div>

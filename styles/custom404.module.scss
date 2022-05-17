@@ -2,8 +2,11 @@
   width: 100%;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 1300px;
+  margin: auto;
 }
 
 .wrapper {
@@ -11,6 +14,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-grow: 1;
   gap: 0;
   p {
     font-size: 4rem;

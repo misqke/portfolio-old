@@ -42,11 +42,13 @@
 
 .title {
   font-size: 1rem;
-  text-shadow: 0 0 5px $dark, 0 0 10px $dark;
+  text-shadow: 0 0 5px black, 0 0 10px black;
+  font-family: "Courgette", cursive;
+  letter-spacing: 1px;
 }
 
 .desc {
-  text-shadow: 0 0 5px $dark, 0 0 10px $dark;
+  text-shadow: 0 0 5px black, 0 0 10px black;
   font-size: 0.75rem;
   font-weight: 400;
 }
@@ -54,6 +56,10 @@
 .btn {
   width: 100%;
   max-width: unset;
+}
+
+.btn:hover {
+  border: 1px solid $black;
 }
 
 .cardBtn {

@@ -10,7 +10,7 @@
 
 .title {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   position: absolute;
   top: 5%;
@@ -18,11 +18,9 @@
   h2 {
     font-size: 2em;
     color: $dark;
-
-    font-family: "Charm", cursive;
-    // font-family: "Koulen", cursive;
-    text-shadow: 0 0 5px $white, 0 0 10px $dark, 0 0 15px $white, 0 0 20px $dark,
-      0 0 25px $white;
+    color: transparent;
+    font-family: "Courgette", cursive;
+    text-shadow: 0 0 3px $black, 0px 0px 3px #8abfe2, 0 0 1px $white;
   }
   span {
     margin-top: 7px;

@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import Image from "next/image";
 import styles from "../../styles/projects/ProjectDetails.module.scss";
 import Nav from "../../components/layout/Nav";
@@ -21,11 +22,21 @@ import {
 const ProjectDetails = ({ project }) => {
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Mike Rust - {project.name}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
       <Nav />
       <h2 className={styles.sectionTitle}>{project.name}</h2>
       <div className={styles.topContainer}>
         <div className={styles.img}>
-          <Image src={project.img.large} width={1897} height={880} />
+          <Image
+            src={project.img.large}
+            alt={project.name}
+            width={1897}
+            height={880}
+            priority
+          />
         </div>
         <div className={styles.techContainer}>
           {project.tech.includes("react") === true && (

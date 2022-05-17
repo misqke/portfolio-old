@@ -7,6 +7,7 @@
   max-width: 1200px;
   margin: auto;
   padding-bottom: 1rem;
+  font-size: 16px;
 }
 
 .topContainer {
@@ -42,7 +43,9 @@
   width: 50px;
   height: 50px;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 1em;
+  font-family: "Patrick Hand", cursive;
+  letter-spacing: 1px;
 }
 
 .icon {
@@ -79,6 +82,9 @@
   gap: 2rem;
   width: 100%;
   padding: 1rem;
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: 1px;
+  font-size: 1.5em;
 }
 
 @media screen and (min-width: 600px) {
@@ -88,7 +94,6 @@
   .botContainer {
     width: 80%;
     align-items: flex-start;
-    font-size: 18px;
   }
 }
 
@@ -114,11 +119,6 @@
   .iconContainer {
     width: 100%;
     flex-grow: 1;
-    font-size: 16px;
-  }
-
-  .botContainer {
-    font-size: 20px;
   }
 }
 
@@ -142,15 +142,10 @@
     gap: 0.5rem;
     justify-content: flex-start;
     align-items: center;
-    font-size: 18px;
   }
 
   .icon {
     width: 40px;
     height: 40px;
-  }
-
-  .botContainer {
-    font-size: 22px;
   }
 }
