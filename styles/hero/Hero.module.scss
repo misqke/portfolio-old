@@ -13,16 +13,23 @@
   flex-direction: column-reverse;
   align-items: center;
   position: absolute;
-  top: 5%;
+  top: 8%;
   h1,
   h2 {
     font-size: 2em;
-    color: $dark;
-    color: transparent;
+    position: relative;
     font-family: "Courgette", cursive;
-    text-shadow: 0 0 3px $black, 0px 0px 3px #8abfe2, 0 0 1px $white;
+    color: transparent;
+    padding: 0 1rem;
+    background: linear-gradient(180deg, $primary 50%, $light 100%);
+    background-clip: text;
+  }
+  h1 {
+    background: linear-gradient(0deg, $primary 50%, $light 100%);
+    background-clip: text;
   }
   span {
+    position: relative;
     margin-top: 7px;
     min-height: 3px;
     min-width: 120%;
