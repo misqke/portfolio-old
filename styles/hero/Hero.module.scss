@@ -14,6 +14,7 @@
   align-items: center;
   position: absolute;
   top: 8%;
+  cursor: default;
   h1,
   h2 {
     font-size: 2em;
@@ -23,6 +24,7 @@
     padding: 0 1rem;
     background: linear-gradient(180deg, $primary 50%, $light 100%);
     background-clip: text;
+    transition-duration: 250ms;
   }
   h1 {
     background: linear-gradient(0deg, $primary 50%, $light 100%);
@@ -37,6 +39,23 @@
     border-radius: 30%;
     box-shadow: 0 0 5px $dark, 0 0 10px $white, 0 0 15px $dark, 0 0 20px $white,
       0 0 25px $dark;
+    transition-duration: 250ms;
+  }
+}
+
+.title:hover {
+  span {
+    box-shadow: 0 0 5px $dark, 0 0 10px $white, 0 0 15px $dark, 0 0 20px $white,
+      0 0 25px $dark, 0 0 45px $white, 0 0 55px $white, 0 0 65px $white,
+      0 0 75px $white, 0 0 85px $white;
+  }
+  h2 {
+    background: linear-gradient(180deg, $primary 20%, $light 100%);
+    background-clip: text;
+  }
+  h1 {
+    background: linear-gradient(0deg, $primary 20%, $light 100%);
+    background-clip: text;
   }
 }
 

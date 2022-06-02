@@ -8,7 +8,7 @@ const Hero = () => {
     <div className={styles.container}>
       <div className={styles.title}>
         <h1>Web Developer</h1>
-        <span></span>
+        <span className={styles.bar}></span>
         <h2>Mike Rust</h2>
       </div>
       <Skills />

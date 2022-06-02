@@ -134,10 +134,7 @@ const ProjectDetails = ({ project }) => {
           <i>*Hosted on Heroku, inital load may take a moment.</i>
         )}
         {project.backend && (
-          <i>
-            *Backend hosted on Heroku, refresh may be required after page load
-            for data.
-          </i>
+          <i>*Backend hosted on Heroku, data may take a moment to load.</i>
         )}
       </div>
       <div className={styles.botContainer}>
