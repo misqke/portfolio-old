@@ -1,18 +1,13 @@
-import { createGlobalStyle, ThemeProvider } from "styled-components";
-import { lightTheme, darkTheme } from "../themes";
+import { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme } from "../styles/themes";
 import useDarkMode from "../components/useDarkMode";
-import React, { useState } from "react";
-
-const GlobalStyles = createGlobalStyle`
-  body {
-    background: ${({ theme }) => theme.body};
-    color: ${({ theme }) => theme.text};
-    transition: all 0.50s linear;
-  }
-`;
+import { GlobalStyles } from "../components";
+import React from "react";
+import { Page } from "../styles/components";
+import { Nav } from "../components";
 
 function MyApp({ Component, pageProps }) {
-  const [theme, mounted] = useDarkMode();
+  const [theme, themeToggler, mounted] = useDarkMode();
 
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
@@ -20,7 +15,10 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
-      <Component {...pageProps} />
+      <Page>
+        <Nav />
+        <Component {...pageProps} />
+      </Page>
     </ThemeProvider>
   );
 }

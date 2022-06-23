@@ -1,9 +1,5 @@
-import { Page } from "../styles";
+import { Section } from "../styles/components";
 
 export default function Home() {
-  return (
-    <Page>
-      <div>hi</div>
-    </Page>
-  );
+  return <Section>hero</Section>;
 }
