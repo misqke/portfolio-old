@@ -5,15 +5,6 @@ export const Page = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
-`;
-
-export const Section = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: ${(props) => props.justify || undefined};
-  height: 100vh;
-
   @media screen and (min-width: 800px) {
     padding-left: 250px;
   }
@@ -22,6 +13,8 @@ export const Section = styled.div`
 export const NavBar = styled.div`
   position: absolute;
   left: 0;
+  top: 0;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   flex: 1;

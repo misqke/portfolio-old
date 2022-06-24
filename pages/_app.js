@@ -3,8 +3,7 @@ import { lightTheme, darkTheme } from "../styles/themes";
 import useDarkMode from "../components/useDarkMode";
 import { GlobalStyles } from "../components";
 import React from "react";
-import { Page } from "../styles/components";
-import { Nav } from "../components";
+import { Layout } from "../components";
 
 function MyApp({ Component, pageProps }) {
   const [theme, themeToggler, mounted] = useDarkMode();
@@ -15,10 +14,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
-      <Page>
-        <Nav />
+      <Layout>
         <Component {...pageProps} />
-      </Page>
+      </Layout>
     </ThemeProvider>
   );
 }

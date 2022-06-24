@@ -7,7 +7,9 @@ html {
 body {
   background: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};
-  transition: all 0.50s linear;
+  transition: color 0.50s linear;
+  transition: background 0.50s linear;
+  
 }
 * {
   margin: 0;

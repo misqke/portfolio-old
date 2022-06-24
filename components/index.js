@@ -1,5 +1,5 @@
 import GlobalStyles from "./GlobalStyles";
 import Contact from "./Contact";
-import Nav from "./Nav";
+import Layout from "./layout/Layout";
 
-export { Nav, Contact, GlobalStyles };
+export { Contact, GlobalStyles, Layout };
