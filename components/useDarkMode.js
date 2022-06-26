@@ -14,10 +14,11 @@ const useDarkMode = () => {
   };
 
   useEffect(() => {
+    setMounted(false);
     const localTheme = window.localStorage.getItem("theme");
     localTheme && setTheme(localTheme);
     setMounted(true);
-  }, []);
+  }, [theme]);
 
   return [theme, themeToggler, mounted];
 };

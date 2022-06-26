@@ -1,12 +1,16 @@
 import React from "react";
 import Nav from "./Nav";
-import { Page } from "../../styles/components";
+import { Page, Col } from "../../styles/components";
+import CanvasBG from "./Canvas";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, toggle, theme }) => {
   return (
     <Page>
-      <Nav />
-      {children}
+      <Nav toggle={toggle} theme={theme} />
+      <Col>
+        {children}
+        <CanvasBG theme={theme} />
+      </Col>
     </Page>
   );
 };

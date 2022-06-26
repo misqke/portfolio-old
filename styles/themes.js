@@ -1,24 +1,26 @@
 const theme = {
   sizes: {
-    xs: ".75rem",
-    sm: "1rem",
-    md: "1.5rem",
-    lg: "2rem",
+    xs: `.75rem`,
+    sm: `1rem`,
+    md: `1.5rem`,
+    lg: `2rem`,
   },
 };
 
+const hue = 199;
+
 export const lightTheme = {
-  body: "#fff",
-  text: "#363537",
-  primary: "#36accc",
-  bg: "#365676",
+  body: `hsl(${hue}, 100%, 95%)`,
+  text: `hsl(${hue}, 100%, 3%)`,
+  primary: `hsl(${hue}, 100%, 6%)`,
+  bg: `hsl(${hue}, 100%, 60%)`,
   ...theme,
 };
 
 export const darkTheme = {
-  body: "#363537",
-  text: "#fafafa",
-  primary: "#064949",
-  bg: "#365555",
+  body: `hsl(${hue}, 100%, 3%)`,
+  text: `hsl(${hue}, 100%, 95%)`,
+  primary: `hsl(${hue}, 100%, 60%)`,
+  bg: `hsl(${hue}, 90%, 6%)`,
   ...theme,
 };

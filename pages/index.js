@@ -1,5 +1,14 @@
-import { Section } from "../styles/components";
+import { Col, ToggleBtn } from "../styles/components";
+import useDarkMode from "../components/useDarkMode";
 
 export default function Home() {
-  return <div>hi</div>;
+  const [theme, themeToggler] = useDarkMode();
+  return (
+    <div>
+      hi
+      <Col>
+        <ToggleBtn mode={theme} onClick={() => themeToggler()} />
+      </Col>
+    </div>
+  );
 }
