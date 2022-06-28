@@ -11,16 +11,18 @@ const hue = 199;
 
 export const lightTheme = {
   body: `hsl(${hue}, 100%, 95%)`,
-  text: `hsl(${hue}, 100%, 3%)`,
-  primary: `hsl(${hue}, 100%, 6%)`,
-  bg: `hsl(${hue}, 100%, 60%)`,
+  text: `hsl(${hue}, 100%, 10%)`,
+  primary: `hsl(${hue}, 100%, 30%)`,
+  bg: `hsl(${hue}, 50%, 80%)`,
+  bgTrans: `hsla(${hue}, 50%, 80%, .7)`,
   ...theme,
 };
 
 export const darkTheme = {
-  body: `hsl(${hue}, 100%, 3%)`,
+  body: `hsl(${hue}, 100%, 0%)`,
   text: `hsl(${hue}, 100%, 95%)`,
-  primary: `hsl(${hue}, 100%, 60%)`,
-  bg: `hsl(${hue}, 90%, 6%)`,
+  primary: `hsl(${hue}, 80%, 60%)`,
+  bg: `hsl(${hue}, 60%, 12%)`,
+  bgTrans: `hsla(${hue}, 60%, 12%, .7)`,
   ...theme,
 };

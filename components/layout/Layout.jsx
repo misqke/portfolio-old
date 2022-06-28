@@ -7,7 +7,7 @@ const Layout = ({ children, toggle, theme }) => {
   return (
     <Page>
       <Nav toggle={toggle} theme={theme} />
-      <Col>
+      <Col flex>
         {children}
         <CanvasBG theme={theme} />
       </Col>

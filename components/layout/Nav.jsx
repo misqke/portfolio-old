@@ -9,12 +9,13 @@ import {
 } from "../../styles/components";
 import { BsSun, BsMoon } from "react-icons/bs";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Nav = ({ toggle, theme }) => {
   const [open, setOpen] = useState(false);
   const [pos, setPos] = useState(-size);
   const [size, setSize] = useState(window.innerWidth > 1200 ? 300 : 250);
-  const [page, setPage] = useState("home");
+  const Router = useRouter();
 
   const handleResize = () => {
     if (window.innerWidth > 1200) {
@@ -24,8 +25,8 @@ const Nav = ({ toggle, theme }) => {
     }
   };
 
-  const handleClick = (page) => {
-    setPage(page);
+  const handleClick = () => {
+    setOpen(false);
   };
 
   useEffect(() => {
@@ -51,7 +52,11 @@ const Nav = ({ toggle, theme }) => {
 
   return (
     <NavBar pos={pos} size={size}>
-      <NavToggle onClick={() => setOpen((prev) => !prev)}>X</NavToggle>
+      <NavToggle onClick={() => setOpen((prev) => !prev)}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </NavToggle>
       <Row>
         <BsSun style={{ fontSize: "1.25em" }} />
         <ToggleBtn
@@ -60,12 +65,12 @@ const Nav = ({ toggle, theme }) => {
         />
         <BsMoon style={{ fontSize: "1.25em" }} />
       </Row>
-      <Col>
+      <Col padding={"0px"}>
         <Link href={"/"} passHref>
           <a>
             <NavBtn
               onClick={() => handleClick("home")}
-              active={page === "home" ? true : false}
+              active={Router.pathname === "/" ? true : false}
             >
               Home
             </NavBtn>
@@ -75,7 +80,7 @@ const Nav = ({ toggle, theme }) => {
           <a>
             <NavBtn
               onClick={() => handleClick("skills")}
-              active={page === "skills" ? true : false}
+              active={Router.pathname === "/skills" ? true : false}
             >
               Skills
             </NavBtn>
@@ -85,7 +90,7 @@ const Nav = ({ toggle, theme }) => {
           <a>
             <NavBtn
               onClick={() => handleClick("webProjects")}
-              active={page === "webProjects" ? true : false}
+              active={Router.pathname === "/webProjects" ? true : false}
             >
               Web Apps
             </NavBtn>
@@ -95,7 +100,7 @@ const Nav = ({ toggle, theme }) => {
           <a>
             <NavBtn
               onClick={() => handleClick("mobileProjects")}
-              active={page === "mobileProjects" ? true : false}
+              active={Router.pathname === "/mobileProjects" ? true : false}
             >
               Mobile Apps
             </NavBtn>
@@ -105,7 +110,7 @@ const Nav = ({ toggle, theme }) => {
           <a>
             <NavBtn
               onClick={() => handleClick("about")}
-              active={page === "about" ? true : false}
+              active={Router.pathname === "/about" ? true : false}
             >
               About
             </NavBtn>
@@ -115,7 +120,7 @@ const Nav = ({ toggle, theme }) => {
           <a>
             <NavBtn
               onClick={() => handleClick("contact")}
-              active={page === "contact" ? true : false}
+              active={Router.pathname === "/contact" ? true : false}
             >
               Contact
             </NavBtn>

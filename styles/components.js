@@ -5,7 +5,7 @@ export const Page = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
-  flex: ${(props) => props.flex || 0};
+  min-height: 100vh;
   @media screen and (min-width: 800px) {
     padding-left: 250px;
   }
@@ -17,20 +17,78 @@ export const Page = styled.div`
 export const Row = styled.div`
   display: flex;
   flex-direction: row;
+  width: ${(props) => props.width || "auto"};
+  max-width: ${(props) => props.max || undefined};
   justify-content: ${(props) => props.justify || undefined};
   align-items: center;
   gap: ${(props) => props.gap || "1rem"};
+  padding: ${(props) => props.padding || "1rem"};
+  border-radius: ${(props) => props.radius || "8px"};
+  text-align: ${(props) => props.textAlign || undefined};
+  background: ${(props) =>
+    props.bg === "trans"
+      ? props.theme.bgTrans
+      : props.bg === "solid"
+      ? props.theme.bg
+      : "transparent"};
 `;
 
 export const Col = styled.div`
   display: flex;
   flex-direction: column;
+  text-align: ${(props) => props.textAlign || undefined};
+  padding: ${(props) => props.padding || "1rem"};
   align-items: ${(props) => props.align || "center"};
   justify-content: ${(props) => props.justify || undefined};
   gap: ${(props) => props.gap || 0};
   width: ${(props) => props.width || "100%"};
+  max-width: ${(props) => props.max || undefined};
+  flex: ${(props) => (props.flex ? 1 : 0)};
+  border-radius: ${(props) => props.radius || "8px"};
+  background: ${(props) =>
+    props.bg === "trans"
+      ? props.theme.bgTrans
+      : props.bg === "solid"
+      ? props.theme.bg
+      : "transparent"};
   a {
     width: 100%;
+  }
+`;
+
+export const Text = styled.p`
+  color: ${(props) => props.text || props.theme.text};
+  text-align: "center";
+  font-size: ${(props) => props.fs || "1.15"}em;
+  max-width: 50ch;
+  @media screen and (min-width: 800px) {
+    font-size: ${(props) => props.fs * 1.5}em;
+  }
+`;
+
+export const Span = styled.span`
+  color: ${(props) => props.text || props.theme.primary};
+  font-weight: ${(props) => props.weight || undefined};
+`;
+
+export const Btn = styled.button`
+  inherits: none;
+  font-size: 1.15em;
+  padding: 0.35em;
+  cursor: pointer;
+  border-radius: 20px;
+  transition-duration: 250ms;
+  border-width: 1;
+  width: ${(props) => props.width || "100%"};
+  color: ${(props) => (props.outline ? props.theme.primary : props.theme.body)};
+  background: ${(props) =>
+    props.outline ? "transparent" : props.theme.primary};
+  border-color: ${({ theme }) => theme.primary};
+  :hover {
+    background: ${(props) =>
+      !props.outline ? "transparent" : props.theme.primary};
+    color: ${(props) =>
+      !props.outline ? props.theme.primary : props.theme.body};
   }
 `;
 
@@ -51,6 +109,7 @@ export const NavBar = styled.div`
   transition-duration: 750ms;
   gap: 1rem;
   z-index: 10;
+  box-shadow: 0px 5px 20px 5px ${({ theme }) => theme.bgTrans};
   @media screen and (min-width: 800px) {
     transform: translateX(0);
   }
@@ -80,13 +139,30 @@ export const NavBtn = styled.button`
 
 export const NavToggle = styled.button`
   position: absolute;
-  top: 0;
+  top: 1rem;
   right: -2.5rem;
   width: 2.5rem;
   height: 2.5rem;
-  background: ${({ theme }) => theme.bg};
+  background: ${({ theme }) => theme.bgTrans};
   color: ${({ theme }) => theme.text};
   border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  span {
+    display: flex;
+    min-width: 80%;
+    min-height: 2px;
+    border-radius: 1rem;
+    background: ${({ theme }) => theme.text};
+    transition-duration: 250ms;
+  }
+  :hover {
+    span {
+      background: ${({ theme }) => theme.primary};
+    }
+  }
   @media screen and (min-width: 800px) {
     display: none;
   }
@@ -121,4 +197,40 @@ export const Canvas = styled.canvas`
   top: 0;
   right: 0;
   z-index: -1;
+`;
+
+export const Form = styled.form`
+  background: ${({ theme }) => theme.bgTrans};
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+`;
+
+export const FormBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  backdrop-filter: blur(8px);
+  gap: 0.5rem;
+  label {
+    color: ${({ theme }) => theme.text};
+    font-size: 1.15em;
+  }
+  input,
+  textarea {
+    inherits: false;
+    border: none;
+    border-bottom: 1px solid ${({ theme }) => theme.text};
+    background: transparent;
+    font-size: 1.25rem;
+    padding: 0.25em 0.5em;
+    transition-duration: 250ms;
+    background: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.body};
+    border-radius: 8px;
+  }
 `;

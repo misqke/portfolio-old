@@ -27,7 +27,71 @@ const CanvasBG = ({ theme }) => {
         : window.innerWidth;
 
     ctx.fillStyle = theme === "light" ? lightTheme.bg : darkTheme.bg;
-    ctx.fillRect(canvas.width / 2 - 50, canvas.height / 2 - 50, 100, 100);
+    // ctx.fillRect(canvas.width / 2 - 50, canvas.height / 2 - 50, 100, 100);
+
+    class Particle {
+      constructor() {
+        this.size = 3;
+        this.x = Math.floor(Math.random() * canvas.width);
+        this.y = Math.floor(Math.random() * canvas.height);
+        this.velocity = Math.random() * 3 + 1;
+        this.dirX = Math.random() > 0.5 ? 1 : -1;
+        this.dirY = Math.random() > 0.5 ? 1 : -1;
+        this.opacity = 1;
+      }
+      draw() {
+        ctx.fillStyle =
+          theme === "light"
+            ? `hsla(199, 50%, 80%, ${this.opacity})`
+            : `hsla(199, 60%, 12%, ${this.opacity})`;
+        ctx.opacity = this.opactity;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, true);
+        ctx.fill();
+      }
+      animate() {
+        // if (this.x >= canvas.width || this.x <= 0) {
+        //   this.dirX *= -1;
+        // }
+        // if (this.y >= canvas.height || this.y <= 0) {
+        //   this.dirY *= -1;
+        // }
+        // this.x += this.velocity * this.dirX;
+        // this.y += this.velocity * this.dirY;
+
+        if (this.opacity <= 0) {
+          this.size = 1;
+          this.opacity = 1;
+          this.x = Math.floor(Math.random() * canvas.width);
+          this.y = Math.floor(Math.random() * canvas.height);
+        } else {
+          this.size += 0.25;
+          this.opacity -= this.velocity / 200;
+        }
+
+        this.draw();
+      }
+    }
+
+    const particles = [];
+    for (let i = 0; i < 120; i++) {
+      particles.push(new Particle());
+    }
+
+    particles.forEach((particle) => {
+      particle.draw();
+    });
+
+    const runAnimation = () => {
+      ctx.fillStyle = "transparent";
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((particle) => {
+        particle.animate();
+      });
+      requestAnimationFrame(runAnimation);
+    };
+
+    window.requestAnimationFrame(runAnimation);
 
     window.addEventListener("resize", handleResize);
 
