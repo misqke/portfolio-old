@@ -5,7 +5,9 @@ export const Page = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
+  flex: 1;
+  overflow: hidden;
   @media screen and (min-width: 800px) {
     padding-left: 250px;
   }
@@ -17,14 +19,17 @@ export const Page = styled.div`
 export const Row = styled.div`
   display: flex;
   flex-direction: row;
-  width: ${(props) => props.width || "auto"};
+  width: ${(props) => props.width || "100%"};
   max-width: ${(props) => props.max || undefined};
+  min-width: ${(props) => props.min || undefined};
   justify-content: ${(props) => props.justify || undefined};
-  align-items: center;
+  align-items: ${(props) => props.align || "center"};
+  flex-wrap: ${(props) => props.wrap || "no-wrap"};
   gap: ${(props) => props.gap || "1rem"};
-  padding: ${(props) => props.padding || "1rem"};
+  padding: ${(props) => props.padding || ".5rem"};
   border-radius: ${(props) => props.radius || "8px"};
   text-align: ${(props) => props.textAlign || undefined};
+  flex: ${(props) => (props.flex ? 1 : 0)};
   background: ${(props) =>
     props.bg === "trans"
       ? props.theme.bgTrans
@@ -42,9 +47,12 @@ export const Col = styled.div`
   justify-content: ${(props) => props.justify || undefined};
   gap: ${(props) => props.gap || 0};
   width: ${(props) => props.width || "100%"};
+  max-height: ${(props) => props.height || undefined};
   max-width: ${(props) => props.max || undefined};
+  min-width: ${(props) => props.min || undefined};
   flex: ${(props) => (props.flex ? 1 : 0)};
   border-radius: ${(props) => props.radius || "8px"};
+  overflow-y: ${(props) => props.overflow || undefined};
   background: ${(props) =>
     props.bg === "trans"
       ? props.theme.bgTrans
@@ -54,21 +62,32 @@ export const Col = styled.div`
   a {
     width: 100%;
   }
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const Text = styled.p`
-  color: ${(props) => props.text || props.theme.text};
+  color: ${(props) =>
+    props.color === "primary"
+      ? props.theme.primary
+      : props.color === "secondary"
+      ? props.theme.body
+      : props.theme.text};
   text-align: "center";
   font-size: ${(props) => props.fs || "1.15"}em;
   max-width: 50ch;
+  font-weight: ${(props) => props.weight || undefined};
+
   @media screen and (min-width: 800px) {
     font-size: ${(props) => props.fs * 1.5}em;
   }
 `;
 
 export const Span = styled.span`
-  color: ${(props) => props.text || props.theme.primary};
+  color: ${(props) => props.color || props.theme.primary};
   font-weight: ${(props) => props.weight || undefined};
+  font-size: ${(props) => props.fs || "1.15"}em;
 `;
 
 export const Btn = styled.button`
@@ -109,6 +128,7 @@ export const NavBar = styled.div`
   transition-duration: 750ms;
   gap: 1rem;
   z-index: 10;
+  border-right: 1px solid ${({ theme }) => theme.primary};
   box-shadow: 0px 5px 20px 5px ${({ theme }) => theme.bgTrans};
   @media screen and (min-width: 800px) {
     transform: translateX(0);

@@ -7,7 +7,7 @@ const Layout = ({ children, toggle, theme }) => {
   return (
     <Page>
       <Nav toggle={toggle} theme={theme} />
-      <Col flex>
+      <Col height={"100vh"} flex overflow={"scroll"}>
         {children}
         <CanvasBG theme={theme} />
       </Col>

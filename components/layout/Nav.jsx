@@ -57,7 +57,7 @@ const Nav = ({ toggle, theme }) => {
         <span></span>
         <span></span>
       </NavToggle>
-      <Row>
+      <Row justify={"center"}>
         <BsSun style={{ fontSize: "1.25em" }} />
         <ToggleBtn
           mode={theme === "light" ? "0%" : "100%"}
