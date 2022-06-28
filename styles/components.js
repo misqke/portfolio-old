@@ -19,6 +19,7 @@ export const Page = styled.div`
 export const Row = styled.div`
   display: flex;
   flex-direction: row;
+  height: ${(props) => props.height || undefined};
   width: ${(props) => props.width || "100%"};
   max-width: ${(props) => props.max || undefined};
   min-width: ${(props) => props.min || undefined};
@@ -29,7 +30,7 @@ export const Row = styled.div`
   padding: ${(props) => props.padding || ".5rem"};
   border-radius: ${(props) => props.radius || "8px"};
   text-align: ${(props) => props.textAlign || undefined};
-  flex: ${(props) => (props.flex ? 1 : 0)};
+  flex: ${(props) => props.flex || 0};
   background: ${(props) =>
     props.bg === "trans"
       ? props.theme.bgTrans
