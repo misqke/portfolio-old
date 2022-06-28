@@ -79,7 +79,7 @@ export const Text = styled.p`
   font-size: ${(props) => props.fs || "1.15"}em;
   max-width: 50ch;
   font-weight: ${(props) => props.weight || undefined};
-
+  background: ${(props) => (props.bg ? props.theme.body : undefined)};
   @media screen and (min-width: 800px) {
     font-size: ${(props) => props.fs * 1.5}em;
   }
@@ -89,6 +89,21 @@ export const Span = styled.span`
   color: ${(props) => props.color || props.theme.primary};
   font-weight: ${(props) => props.weight || undefined};
   font-size: ${(props) => props.fs || "1.15"}em;
+`;
+
+export const HoverSpan = styled.button`
+  border: none;
+  background: none;
+  height: 1.5em;
+  cursor: pointer;
+  color: ${(props) => props.color || props.theme.text};
+  font-weight: ${(props) => props.weight || undefined};
+  font-size: ${(props) => props.fs || "1.15"}em;
+  transition-duration: 250ms;
+  transform: rotateZ(${(props) => (props.open ? 180 : 0)}deg);
+  &:hover {
+    color: ${({ theme }) => theme.primary};
+  }
 `;
 
 export const Btn = styled.button`
@@ -109,6 +124,51 @@ export const Btn = styled.button`
       !props.outline ? "transparent" : props.theme.primary};
     color: ${(props) =>
       !props.outline ? props.theme.primary : props.theme.body};
+  }
+`;
+
+export const SelectBar = styled.div`
+  background: ${({ theme }) => theme.body};
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25em 0.5em;
+  border-radius: 0.5rem;
+  position: relative;
+  overflow: ${(props) => (props.open ? "visible" : "hidden")};
+  border-bottom-left-radius: ${(props) => (props.open ? 0 : ".5rem")};
+  border-bottom-right-radius: ${(props) => (props.open ? 0 : ".5rem")};
+  z-index: 2;
+`;
+
+export const SelectionMenu = styled.div`
+  flex-direction: column;
+  display: flex;
+  transition: 250ms;
+  /* height: ${(props) => (props.open ? "auto" : 0)}; */
+  min-width: 100%;
+  background: ${({ theme }) => theme.body};
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  opacity: ${(props) => (props.open ? 1 : 0)};
+  transform: translateY(${(props) => (props.open ? 0 : "-100%")});
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  z-index: -1;
+`;
+
+export const SelectionBtn = styled.div`
+  color: ${({ theme }) => theme.text};
+  padding: 6px;
+  cursor: pointer;
+  transition-duration: 250ms;
+  &:hover {
+    background: ${({ theme }) => theme.bgTrans};
+    color: ${({ theme }) => theme.primary};
   }
 `;
 

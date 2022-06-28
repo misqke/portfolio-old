@@ -6,12 +6,14 @@ import {
   Col,
   ToggleBtn,
   Row,
+  Text,
 } from "../../styles/components";
+import BgSelector from "../BgSelector";
 import { BsSun, BsMoon } from "react-icons/bs";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const Nav = ({ toggle, theme }) => {
+const Nav = ({ toggle, theme, mode, changeMode }) => {
   const [open, setOpen] = useState(false);
   const [pos, setPos] = useState(-size);
   const [size, setSize] = useState(window.innerWidth > 1200 ? 300 : 250);
@@ -57,14 +59,17 @@ const Nav = ({ toggle, theme }) => {
         <span></span>
         <span></span>
       </NavToggle>
-      <Row justify={"center"}>
-        <BsSun style={{ fontSize: "1.25em" }} />
-        <ToggleBtn
-          mode={theme === "light" ? "0%" : "100%"}
-          onClick={() => toggle()}
-        />
-        <BsMoon style={{ fontSize: "1.25em" }} />
-      </Row>
+      <Col>
+        <Row justify={"center"}>
+          <BsSun style={{ fontSize: "1.25em" }} />
+          <ToggleBtn
+            mode={theme === "light" ? "0%" : "100%"}
+            onClick={() => toggle()}
+          />
+          <BsMoon style={{ fontSize: "1.25em" }} />
+        </Row>
+        <BgSelector mode={mode} changeMode={changeMode} />
+      </Col>
       <Col padding={"0px"}>
         <Link href={"/"} passHref>
           <a>

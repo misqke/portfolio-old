@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { Canvas } from "../../styles/components";
 import { lightTheme, darkTheme } from "../../styles/themes";
 
-const CanvasBG = ({ theme }) => {
+const CanvasBG = ({ theme, mode }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -27,7 +27,6 @@ const CanvasBG = ({ theme }) => {
         : window.innerWidth;
 
     ctx.fillStyle = theme === "light" ? lightTheme.bg : darkTheme.bg;
-    // ctx.fillRect(canvas.width / 2 - 50, canvas.height / 2 - 50, 100, 100);
 
     class Particle {
       constructor() {
@@ -49,16 +48,19 @@ const CanvasBG = ({ theme }) => {
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, true);
         ctx.fill();
       }
-      animate() {
-        // if (this.x >= canvas.width || this.x <= 0) {
-        //   this.dirX *= -1;
-        // }
-        // if (this.y >= canvas.height || this.y <= 0) {
-        //   this.dirY *= -1;
-        // }
-        // this.x += this.velocity * this.dirX;
-        // this.y += this.velocity * this.dirY;
+      bounce() {
+        if (this.x >= canvas.width || this.x <= 0) {
+          this.dirX *= -1;
+        }
+        if (this.y >= canvas.height || this.y <= 0) {
+          this.dirY *= -1;
+        }
+        this.x += this.velocity * this.dirX;
+        this.y += this.velocity * this.dirY;
 
+        this.draw();
+      }
+      pop() {
         if (this.opacity <= 0) {
           this.size = 1;
           this.opacity = 1;
@@ -71,6 +73,7 @@ const CanvasBG = ({ theme }) => {
 
         this.draw();
       }
+      follow() {}
     }
 
     const particles = [];
@@ -86,7 +89,11 @@ const CanvasBG = ({ theme }) => {
       ctx.fillStyle = "transparent";
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particles.forEach((particle) => {
-        particle.animate();
+        if (mode === "bounce") {
+          particle.bounce();
+        } else if (mode === "pop") {
+          particle.pop();
+        }
       });
       requestAnimationFrame(runAnimation);
     };
@@ -98,7 +105,7 @@ const CanvasBG = ({ theme }) => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [theme]);
+  }, [theme, mode]);
 
   return <Canvas ref={canvasRef}>Canvas</Canvas>;
 };
