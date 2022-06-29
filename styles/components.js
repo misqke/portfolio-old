@@ -48,7 +48,7 @@ export const Col = styled.div`
   justify-content: ${(props) => props.justify || undefined};
   gap: ${(props) => props.gap || 0};
   width: ${(props) => props.width || "100%"};
-  max-height: ${(props) => props.height || undefined};
+  height: ${(props) => props.height || undefined};
   max-width: ${(props) => props.max || undefined};
   min-width: ${(props) => props.min || undefined};
   flex: ${(props) => (props.flex ? 1 : 0)};
@@ -106,6 +106,14 @@ export const HoverSpan = styled.button`
   }
 `;
 
+export const Laptop = styled.div`
+  background-image: "./laptop.png";
+  display: flex;
+  background-size: contain;
+  width: 200px;
+  height: auto;
+`;
+
 export const Btn = styled.button`
   inherits: none;
   font-size: 1.15em;
@@ -146,7 +154,7 @@ export const SelectionMenu = styled.div`
   flex-direction: column;
   display: flex;
   transition: 250ms;
-  /* height: ${(props) => (props.open ? "auto" : 0)}; */
+  height: ${(props) => (props.open ? "calc((1em + 12px) * 2.2)" : 0)};
   min-width: 100%;
   background: ${({ theme }) => theme.body};
   position: absolute;
@@ -154,18 +162,19 @@ export const SelectionMenu = styled.div`
   left: 0;
   right: 0;
   overflow: hidden;
-  opacity: ${(props) => (props.open ? 1 : 0)};
-  transform: translateY(${(props) => (props.open ? 0 : "-100%")});
+  /* opacity: ${(props) => (props.open ? 1 : 0)}; */
+  /* transform: translateY(${(props) => (props.open ? 0 : "-100%")}); */
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
-  z-index: -1;
 `;
 
 export const SelectionBtn = styled.div`
   color: ${({ theme }) => theme.text};
   padding: 6px;
+  flex: 1;
   cursor: pointer;
   transition-duration: 250ms;
+  font-size: 1em;
   &:hover {
     background: ${({ theme }) => theme.bgTrans};
     color: ${({ theme }) => theme.primary};

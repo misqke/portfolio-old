@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import { FaHandshakeSlash } from "react-icons/fa";
 import { Canvas } from "../../styles/components";
 import { lightTheme, darkTheme } from "../../styles/themes";
 
@@ -86,7 +87,10 @@ const CanvasBG = ({ theme, mode }) => {
     });
 
     const runAnimation = () => {
-      ctx.fillStyle = "transparent";
+      ctx.fillStyle =
+        theme === "light"
+          ? "hsla(199, 100%, 98%, .7)"
+          : "hsla(199, 100%, 2%, .7)";
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particles.forEach((particle) => {
         if (mode === "bounce") {
