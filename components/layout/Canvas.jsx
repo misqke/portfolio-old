@@ -1,9 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import { FaHandshakeSlash } from "react-icons/fa";
 import { Canvas } from "../../styles/components";
-import { lightTheme, darkTheme } from "../../styles/themes";
 
-const CanvasBG = ({ theme, mode }) => {
+const CanvasBG = ({ theme, mode, hue }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -27,8 +26,6 @@ const CanvasBG = ({ theme, mode }) => {
         ? window.innerWidth - 250
         : window.innerWidth;
 
-    ctx.fillStyle = theme === "light" ? lightTheme.bg : darkTheme.bg;
-
     let numParticles =
       mode === "pop"
         ? canvas.width / 10
@@ -51,8 +48,8 @@ const CanvasBG = ({ theme, mode }) => {
       draw() {
         ctx.fillStyle =
           theme === "light"
-            ? `hsla(199, 50%, 80%, ${this.opacity})`
-            : `hsla(199, 60%, 12%, ${this.opacity})`;
+            ? `hsla(${hue}, 50%, 80%, ${this.opacity})`
+            : `hsla(${hue}, 60%, 12%, ${this.opacity})`;
         ctx.opacity = this.opactity;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, true);
@@ -107,8 +104,8 @@ const CanvasBG = ({ theme, mode }) => {
     const runAnimation = () => {
       ctx.fillStyle =
         theme === "light"
-          ? "hsla(199, 100%, 98%, .7)"
-          : "hsla(199, 100%, 2%, .7)";
+          ? `hsla(${hue}, 100%, 98%, .7)`
+          : `hsla(${hue}, 100%, 2%, .7)`;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particles.forEach((particle) => {
         if (mode === "bounce") {
@@ -129,7 +126,7 @@ const CanvasBG = ({ theme, mode }) => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [theme, mode]);
+  }, [theme, mode, hue]);
 
   return <Canvas ref={canvasRef}>Canvas</Canvas>;
 };

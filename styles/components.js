@@ -103,7 +103,7 @@ export const Text = styled.p`
   font-weight: ${(props) => props.weight || undefined};
   background: ${(props) => (props.bg ? props.theme.body : undefined)};
   @media screen and (min-width: 800px) {
-    font-size: ${(props) => props.fs * 1.5}em;
+    font-size: ${(props) => props.fs * 1.2}em;
   }
 `;
 
@@ -132,12 +132,11 @@ export const WebProj = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 450px;
   padding: 0.5rem;
-  /* align-items: center; */
   border-radius: 0.5rem;
   justify-content: space-evenly;
   gap: 0.5rem;
+  max-width: 450px;
   background: ${({ theme }) => theme.bgTrans};
   @media screen and (min-width: 600px) {
     width: 46%;
@@ -152,19 +151,72 @@ export const WebProj = styled.div`
   }
 `;
 
+export const MobileProject = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: ${({ theme }) => theme.bgTrans};
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  gap: 1rem;
+  max-width: 450px;
+  @media screen and (min-width: 700px) {
+    width: 45%;
+  }
+  @media screen and (min-width: 900px) {
+    height: 450px;
+  }
+`;
+
+export const MobileImage = styled.div`
+  display: flex;
+  align-items: center;
+  height: auto;
+  width: 100px;
+  @media screen and (min-width: 700px) {
+    width: 125px;
+  }
+  @media screen and (min-width: 900px) {
+    width: 150px;
+  }
+`;
+
 export const Switch = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-grow: ${(props) => props.flex || 0};
+  flex: 1;
+  /* height: 100%; */
+  font-size: 1.25em;
   @media screen and (min-width: 500px) {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  @media screen and (min-width: 800px) {
+    padding: 1rem;
+  }
+`;
+
+export const ReverseSwitch = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-grow: ${(props) => props.flex || 0};
+  font-size: 1.25em;
+  flex: 1;
+  justify-content: space-between;
+  @media screen and (min-width: 500px) {
+    flex-direction: column;
+    align-items: flex-start;
   }
 `;
 
 export const Btn = styled.button`
   inherits: none;
   font-size: ${(props) => props.fs || "1em"};
-  padding: 0.35em;
+  padding: ${(props) => props.padding || ".25em"};
   cursor: pointer;
   border-radius: 20px;
   transition-duration: 250ms;
@@ -258,7 +310,7 @@ export const NavBtn = styled.button`
   border-left: none;
   border-right: none;
   width: 100%;
-  font-size: ${({ theme }) => theme.sizes.md};
+  font-size: 1.5em;
   background: ${(props) =>
     props.active ? props.theme.primary : "transparent"};
   transition-duration: 250ms;
@@ -373,4 +425,21 @@ export const FormBox = styled.div`
     color: ${({ theme }) => theme.body};
     border-radius: 8px;
   }
+`;
+
+export const ColorTrack = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 20px;
+  width: 90%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 0.5px solid ${({ theme }) => theme.text};
+`;
+
+export const ColorBlock = styled.span`
+  display: flex;
+  width: 5px;
+  height: 100%;
+  border-radius: 8px;
 `;

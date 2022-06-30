@@ -9,11 +9,21 @@ import {
   Text,
 } from "../../styles/components";
 import BgSelector from "../BgSelector";
+import ColorSelector from "./ColorSelector";
 import { BsSun, BsMoon } from "react-icons/bs";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const Nav = ({ toggle, theme, mode, changeMode, open, close }) => {
+const Nav = ({
+  toggle,
+  theme,
+  mode,
+  changeMode,
+  open,
+  close,
+  hue,
+  changeHue,
+}) => {
   const [pos, setPos] = useState(-size);
   const [size, setSize] = useState(window.innerWidth > 1200 ? 300 : 250);
   const Router = useRouter();
@@ -59,6 +69,7 @@ const Nav = ({ toggle, theme, mode, changeMode, open, close }) => {
           <BsMoon style={{ fontSize: "1.25em" }} />
         </Row>
         <BgSelector mode={mode} changeMode={changeMode} />
+        <ColorSelector click={changeHue} />
       </Col>
       <Col padding={"0px"}>
         <Link href={"/"} passHref>

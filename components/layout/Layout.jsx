@@ -4,7 +4,7 @@ import { Page, Col } from "../../styles/components";
 import { NavToggle } from "../../styles/components";
 import CanvasBG from "./Canvas";
 
-const Layout = ({ children, toggle, theme }) => {
+const Layout = ({ children, toggle, theme, hue, changeHue }) => {
   const [bgMode, setBgMode] = useState("pop");
   const [open, setOpen] = useState(false);
 
@@ -25,6 +25,8 @@ const Layout = ({ children, toggle, theme }) => {
         changeMode={handleBgChange}
         open={open}
         close={closeNav}
+        changeHue={changeHue}
+        hue={hue}
       />
       <NavToggle onClick={() => setOpen((prev) => !prev)}>
         <span></span>
@@ -33,7 +35,7 @@ const Layout = ({ children, toggle, theme }) => {
       </NavToggle>
       <Col height={"100vh"} flex overflow={"scroll"}>
         {children}
-        <CanvasBG theme={theme} mode={bgMode} />
+        <CanvasBG theme={theme} mode={bgMode} hue={hue} />
       </Col>
     </Page>
   );
