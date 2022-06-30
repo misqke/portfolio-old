@@ -9,71 +9,73 @@ const Contact = () => {
 
   return (
     <Col gap={"1rem"} justify={"space-evenly"} flex>
-      <Col bg={"trans"} width={"auto"}>
+      <Col bg={"trans"} width={"auto"} animation={"fadeIn"} dur={750}>
         <Text fs={1}>
           Like my work? Want to hire me? Comments or questions?
         </Text>
         <Text fs={1}> Let me know!</Text>
       </Col>
-      <Form
-        method="POST"
-        data-netlify="true"
-        name="contact"
-        netlify-honeypot="bot-field"
-      >
-        <FormBox>
-          <label htmlFor="name">Name</label>
-          <input
-            required
-            id="name"
-            type="text"
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </FormBox>
-        <FormBox>
-          <label htmlFor="email">Email</label>
-          <input
-            required
-            id="email"
-            type="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </FormBox>
-        <FormBox>
-          <label htmlFor="subject">Subject</label>
-          <input
-            required
-            id="subject"
-            type="text"
-            name="subject"
-            value={subject}
-            onChange={(e) => setSubject(e.target.value)}
-          />
-        </FormBox>
-        <FormBox>
-          <label htmlFor="message">Message</label>
-          <textarea
-            required
-            id="message"
-            rows={6}
-            type="text"
-            name="message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-        </FormBox>
-        <Btn type="submit" outline>
-          Send
-        </Btn>
-        <label style={{ display: "none" }}>
-          Dont fill this out if youre human:
-          <input name="bot-field" />
-        </label>
-      </Form>
+      <Col animation={"slideUp"} dur={750}>
+        <Form
+          method="POST"
+          data-netlify="true"
+          name="contact"
+          netlify-honeypot="bot-field"
+        >
+          <FormBox>
+            <label htmlFor="name">Name</label>
+            <input
+              required
+              id="name"
+              type="text"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </FormBox>
+          <FormBox>
+            <label htmlFor="email">Email</label>
+            <input
+              required
+              id="email"
+              type="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </FormBox>
+          <FormBox>
+            <label htmlFor="subject">Subject</label>
+            <input
+              required
+              id="subject"
+              type="text"
+              name="subject"
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
+            />
+          </FormBox>
+          <FormBox>
+            <label htmlFor="message">Message</label>
+            <textarea
+              required
+              id="message"
+              rows={6}
+              type="text"
+              name="message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
+          </FormBox>
+          <Btn type="submit" outline>
+            Send
+          </Btn>
+          <label style={{ display: "none" }}>
+            Dont fill this out if youre human:
+            <input name="bot-field" />
+          </label>
+        </Form>
+      </Col>
     </Col>
   );
 };

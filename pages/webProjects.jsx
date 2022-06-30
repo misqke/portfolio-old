@@ -1,23 +1,28 @@
 import React from "react";
 import Image from "next/image";
-import { Col, Row, Text, Laptop } from "../styles/components";
+import { Col, Row, Text, Btn } from "../styles/components";
+import { WebCard } from "../components";
 import { projects } from "../projects";
 
 const WebProjects = () => {
   return (
-    <Col flex>
-      <Row flex={1} wrap={"wrap"}>
+    <Col
+      opacity={0}
+      animation={"fadeIn"}
+      dur={1000}
+      flex
+      padding={"1rem .5rem"}
+      overflow="scroll"
+    >
+      <Row
+        padding={"0px"}
+        wrap={"wrap"}
+        justify={"center"}
+        gap={"1.5rem"}
+        flex={1}
+      >
         {projects.map((project) => (
-          <Col bg={"trans"} min={"45%"} max={"45%"}>
-            <Row>
-              <Image width={"660px"} height={"396px"} src={"/laptop.png"} />
-              <Col min={"50%"} bg={"solid"} flex justify={"space-between"}>
-                <Text>{project.name}</Text>
-                <Text>{project.desc}</Text>
-              </Col>
-            </Row>
-            <Row>dghsfghjdj</Row>
-          </Col>
+          <WebCard key={project.name} project={project} />
         ))}
       </Row>
     </Col>

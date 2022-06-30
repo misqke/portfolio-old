@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { fadeIn, fadeUp, slideDown, slideUp } from "./animations";
 
 export const Page = styled.div`
   display: flex;
@@ -8,7 +9,7 @@ export const Page = styled.div`
   height: 100vh;
   flex: 1;
   overflow: hidden;
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1000px) {
     padding-left: 250px;
   }
   @media screen and (min-width: 1200px) {
@@ -37,11 +38,32 @@ export const Row = styled.div`
       : props.bg === "solid"
       ? props.theme.bg
       : "transparent"};
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+  }
 `;
 
 export const Col = styled.div`
+  animation-duration: ${(props) => props.dur + "ms" || undefined};
+  animation-delay: ${(props) => props.delay + "ms" || undefined};
+  animation-fill-mode: forwards;
+  animation-timing-function: ${(props) => props.timing || "ease-in-and-out"};
+  animation-name: ${(props) =>
+    props.animation === "fadeIn"
+      ? fadeIn
+      : props.animation === "fadeUp"
+      ? fadeUp
+      : props.animation === "slideDown"
+      ? slideDown
+      : props.animation === "slideUp"
+      ? slideUp
+      : undefined};
   display: flex;
   flex-direction: column;
+  position: relative;
   text-align: ${(props) => props.textAlign || undefined};
   padding: ${(props) => props.padding || "1rem"};
   align-items: ${(props) => props.align || "center"};
@@ -106,32 +128,60 @@ export const HoverSpan = styled.button`
   }
 `;
 
-export const Laptop = styled.div`
-  background-image: "./laptop.png";
+export const WebProj = styled.div`
   display: flex;
-  background-size: contain;
-  width: 200px;
-  height: auto;
+  flex-direction: column;
+  width: 100%;
+  max-width: 450px;
+  padding: 0.5rem;
+  /* align-items: center; */
+  border-radius: 0.5rem;
+  justify-content: space-evenly;
+  gap: 0.5rem;
+  background: ${({ theme }) => theme.bgTrans};
+  @media screen and (min-width: 600px) {
+    width: 46%;
+    height: 275px;
+    justify-content: space-between;
+  }
+  @media screen and (min-width: 800px) {
+    height: 300px;
+  }
+  @media screen and (min-width: 1200px) {
+    height: 350px;
+  }
+`;
+
+export const Switch = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: ${(props) => props.flex || 0};
+  @media screen and (min-width: 500px) {
+  }
 `;
 
 export const Btn = styled.button`
   inherits: none;
-  font-size: 1.15em;
+  font-size: ${(props) => props.fs || "1em"};
   padding: 0.35em;
   cursor: pointer;
   border-radius: 20px;
   transition-duration: 250ms;
   border-width: 1;
   width: ${(props) => props.width || "100%"};
-  color: ${(props) => (props.outline ? props.theme.primary : props.theme.body)};
+  color: ${(props) => (props.outline ? props.theme.primary : props.theme.bg)};
   background: ${(props) =>
     props.outline ? "transparent" : props.theme.primary};
-  border-color: ${({ theme }) => theme.primary};
+  border-color: ${(props) =>
+    props.outline ? props.theme.primary : props.theme.bg};
   :hover {
     background: ${(props) =>
       !props.outline ? "transparent" : props.theme.primary};
     color: ${(props) =>
-      !props.outline ? props.theme.primary : props.theme.body};
+      !props.outline ? props.theme.primary : props.theme.bg};
+    border-color: ${(props) =>
+      !props.outline ? props.theme.primary : props.theme.bg};
   }
 `;
 
@@ -154,7 +204,7 @@ export const SelectionMenu = styled.div`
   flex-direction: column;
   display: flex;
   transition: 250ms;
-  height: ${(props) => (props.open ? "calc((1em + 12px) * 2.2)" : 0)};
+  height: ${(props) => (props.open ? "calc((1em + 12px) * 3.2)" : 0)};
   min-width: 100%;
   background: ${({ theme }) => theme.body};
   position: absolute;
@@ -162,8 +212,6 @@ export const SelectionMenu = styled.div`
   left: 0;
   right: 0;
   overflow: hidden;
-  /* opacity: ${(props) => (props.open ? 1 : 0)}; */
-  /* transform: translateY(${(props) => (props.open ? 0 : "-100%")}); */
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
 `;
@@ -200,7 +248,7 @@ export const NavBar = styled.div`
   z-index: 10;
   border-right: 1px solid ${({ theme }) => theme.primary};
   box-shadow: 0px 5px 20px 5px ${({ theme }) => theme.bgTrans};
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1000px) {
     transform: translateX(0);
   }
 `;
@@ -230,16 +278,19 @@ export const NavBtn = styled.button`
 export const NavToggle = styled.button`
   position: absolute;
   top: 1rem;
-  right: -2.5rem;
+  right: 1rem;
   width: 2.5rem;
   height: 2.5rem;
-  background: ${({ theme }) => theme.bgTrans};
+  background: ${({ theme }) => theme.bg};
   color: ${({ theme }) => theme.text};
   border: none;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  z-index: 10;
+  border-radius: 0.5rem;
+  cursor: pointer;
   span {
     display: flex;
     min-width: 80%;
@@ -253,7 +304,7 @@ export const NavToggle = styled.button`
       background: ${({ theme }) => theme.primary};
     }
   }
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1000px) {
     display: none;
   }
 `;
@@ -304,7 +355,6 @@ export const FormBox = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  backdrop-filter: blur(8px);
   gap: 0.5rem;
   label {
     color: ${({ theme }) => theme.text};

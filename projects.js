@@ -10,7 +10,7 @@ const projects = [
     ],
     live: "https://misqke-recipe-cloud.herokuapp.com/",
     code: "https://github.com/misqke/recipe-cloud",
-    tech: ["react", "redux", "bootstrap", "node", "express", "jwt", "mongoose"],
+    tech: ["react", "redux", "bootstrap", "express", "jwt", "mongoose"],
     img: {
       small:
         "https://res.cloudinary.com/dkhxk06gf/image/upload/v1652559425/portfolio/fw6twbljcpyvcujffbpr.jpg",

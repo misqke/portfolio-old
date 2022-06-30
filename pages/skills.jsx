@@ -15,7 +15,9 @@ const Skills = () => {
       flex
     >
       <Col
-        flex={1}
+        animation={"slideDown"}
+        dur={500}
+        flex
         bg={"trans"}
         max={colMax}
         min={colMin}
@@ -58,6 +60,8 @@ const Skills = () => {
         />
       </Col>
       <Col
+        animation={"slideDown"}
+        dur={750}
         flex
         bg={"trans"}
         max={colMax}
@@ -95,6 +99,8 @@ const Skills = () => {
         />
       </Col>
       <Col
+        animation={"slideDown"}
+        dur={1000}
         flex
         bg={"trans"}
         max={colMax}

@@ -29,9 +29,18 @@ const CanvasBG = ({ theme, mode }) => {
 
     ctx.fillStyle = theme === "light" ? lightTheme.bg : darkTheme.bg;
 
+    let numParticles =
+      mode === "pop"
+        ? canvas.width / 10
+        : mode === "bounce"
+        ? canvas.width / 7
+        : mode === "rain"
+        ? canvas.width / 3
+        : 120;
+
     class Particle {
       constructor() {
-        this.size = 3;
+        this.size = 1.5;
         this.x = Math.floor(Math.random() * canvas.width);
         this.y = Math.floor(Math.random() * canvas.height);
         this.velocity = Math.random() * 3 + 1;
@@ -50,6 +59,7 @@ const CanvasBG = ({ theme, mode }) => {
         ctx.fill();
       }
       bounce() {
+        this.size = 2;
         if (this.x >= canvas.width || this.x <= 0) {
           this.dirX *= -1;
         }
@@ -74,11 +84,19 @@ const CanvasBG = ({ theme, mode }) => {
 
         this.draw();
       }
-      follow() {}
+      rain() {
+        if (this.y >= canvas.height) {
+          this.y = 0;
+          this.x = Math.random() * canvas.width;
+        } else {
+          this.y += (this.velocity + 2) * 2;
+        }
+        this.draw();
+      }
     }
 
     const particles = [];
-    for (let i = 0; i < 120; i++) {
+    for (let i = 0; i < numParticles; i++) {
       particles.push(new Particle());
     }
 
@@ -97,6 +115,8 @@ const CanvasBG = ({ theme, mode }) => {
           particle.bounce();
         } else if (mode === "pop") {
           particle.pop();
+        } else if (mode === "rain") {
+          particle.rain();
         }
       });
       requestAnimationFrame(runAnimation);

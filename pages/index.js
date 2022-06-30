@@ -13,20 +13,34 @@ export default function Home() {
       gap={"1rem"}
     >
       <Col padding={"0px"} align={"flex-start"}>
-        <Text fs={2.25}>
-          Hi, I'm <Span weight={"600"}>Mike</Span>,
-        </Text>
-        <Text fs={2.25}>
-          I'm a <Span weight={"600"}>React</Span> developer.
-        </Text>
+        <Col
+          padding={"0px"}
+          align={"flex-start"}
+          animation={"fadeUp"}
+          dur={1000}
+        >
+          <Text fs={2.25}>
+            Hi, I'm <Span weight={"600"}>Mike</Span>,
+          </Text>
+        </Col>
+        <Col
+          padding={"0px"}
+          align={"flex-start"}
+          animation={"fadeUp"}
+          dur={1750}
+        >
+          <Text fs={2.25}>
+            I'm a <Span weight={"600"}>React</Span> developer.
+          </Text>
+        </Col>
       </Col>
-      <Row bg="trans" width={"100%"}>
+      <Col padding={"0px"} align={"flex-start"} animation={"fadeUp"} dur={2500}>
         <Text>
           I make fully responsive web and mobile applications with React and
           React Native. I specialize in front-end development but have
           experience with full-stack applications as well.
         </Text>
-      </Row>
+      </Col>
     </Col>
   );
 }

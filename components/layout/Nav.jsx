@@ -13,8 +13,7 @@ import { BsSun, BsMoon } from "react-icons/bs";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const Nav = ({ toggle, theme, mode, changeMode }) => {
-  const [open, setOpen] = useState(false);
+const Nav = ({ toggle, theme, mode, changeMode, open, close }) => {
   const [pos, setPos] = useState(-size);
   const [size, setSize] = useState(window.innerWidth > 1200 ? 300 : 250);
   const Router = useRouter();
@@ -25,10 +24,6 @@ const Nav = ({ toggle, theme, mode, changeMode }) => {
     } else {
       setSize(250);
     }
-  };
-
-  const handleClick = () => {
-    setOpen(false);
   };
 
   useEffect(() => {
@@ -54,11 +49,6 @@ const Nav = ({ toggle, theme, mode, changeMode }) => {
 
   return (
     <NavBar pos={pos} size={size}>
-      <NavToggle onClick={() => setOpen((prev) => !prev)}>
-        <span></span>
-        <span></span>
-        <span></span>
-      </NavToggle>
       <Col>
         <Row justify={"center"}>
           <BsSun style={{ fontSize: "1.25em" }} />
@@ -74,7 +64,7 @@ const Nav = ({ toggle, theme, mode, changeMode }) => {
         <Link href={"/"} passHref>
           <a>
             <NavBtn
-              onClick={() => handleClick("home")}
+              onClick={() => close()}
               active={Router.pathname === "/" ? true : false}
             >
               Home
@@ -84,7 +74,7 @@ const Nav = ({ toggle, theme, mode, changeMode }) => {
         <Link href={"/skills"} passHref>
           <a>
             <NavBtn
-              onClick={() => handleClick("skills")}
+              onClick={() => close()}
               active={Router.pathname === "/skills" ? true : false}
             >
               Skills
@@ -94,7 +84,7 @@ const Nav = ({ toggle, theme, mode, changeMode }) => {
         <Link href={"/webProjects"} passHref>
           <a>
             <NavBtn
-              onClick={() => handleClick("webProjects")}
+              onClick={() => close()}
               active={Router.pathname === "/webProjects" ? true : false}
             >
               Web Apps
@@ -104,7 +94,7 @@ const Nav = ({ toggle, theme, mode, changeMode }) => {
         <Link href={"/mobileProjects"} passHref>
           <a>
             <NavBtn
-              onClick={() => handleClick("mobileProjects")}
+              onClick={() => close()}
               active={Router.pathname === "/mobileProjects" ? true : false}
             >
               Mobile Apps
@@ -114,7 +104,7 @@ const Nav = ({ toggle, theme, mode, changeMode }) => {
         <Link href={"/about"} passHref>
           <a>
             <NavBtn
-              onClick={() => handleClick("about")}
+              onClick={() => close()}
               active={Router.pathname === "/about" ? true : false}
             >
               About
@@ -124,7 +114,7 @@ const Nav = ({ toggle, theme, mode, changeMode }) => {
         <Link href={"/contact"} passHref>
           <a>
             <NavBtn
-              onClick={() => handleClick("contact")}
+              onClick={() => close()}
               active={Router.pathname === "/contact" ? true : false}
             >
               Contact
