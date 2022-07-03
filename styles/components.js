@@ -81,13 +81,28 @@ export const Col = styled.div`
       ? props.theme.bgTrans
       : props.bg === "solid"
       ? props.theme.bg
+      : props.bg === "body"
+      ? props.theme.body
       : "transparent"};
+  backdrop-filter: ${(props) =>
+    props.bg === "trans" ? "blur(18px)" : undefined};
+  /* backdrop-filter: blur(8px); */
   a {
     width: 100%;
   }
   ::-webkit-scrollbar {
     display: none;
   }
+`;
+
+export const ImageContainer = styled.div`
+  width: ${(props) => props.width || "200"}px;
+  height: ${(props) => props.height || "200"}px;
+  border-radius: 50%;
+  border: 1px solid ${({ theme }) => theme.text};
+  background: ${({ theme }) => theme.body};
+  overflow: hidden;
+  padding: 0.75rem;
 `;
 
 export const Text = styled.p`
@@ -256,7 +271,7 @@ export const SelectionMenu = styled.div`
   flex-direction: column;
   display: flex;
   transition: 250ms;
-  height: ${(props) => (props.open ? "calc((1em + 12px) * 3.2)" : 0)};
+  height: ${(props) => (props.open ? "calc((1em + 12px) * 4.2)" : 0)};
   min-width: 100%;
   background: ${({ theme }) => theme.body};
   position: absolute;
@@ -434,12 +449,13 @@ export const ColorTrack = styled.div`
   width: 90%;
   border-radius: 16px;
   overflow: hidden;
-  border: 0.5px solid ${({ theme }) => theme.text};
+  border: 1px solid ${({ theme }) => theme.text};
+  cursor: pointer;
 `;
 
 export const ColorBlock = styled.span`
   display: flex;
   width: 5px;
   height: 100%;
-  border-radius: 8px;
+  flex: 1;
 `;

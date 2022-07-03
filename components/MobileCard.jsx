@@ -33,7 +33,7 @@ const MobileCard = ({ project }) => {
       </Row>
       <Row>
         <a href={project.live} target="_blank">
-          <Btn>Expo</Btn>
+          <Btn outline>Expo</Btn>
         </a>
         <a href={project.code} target="_blank">
           <Btn outline>Code</Btn>

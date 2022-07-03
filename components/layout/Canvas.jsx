@@ -43,13 +43,13 @@ const CanvasBG = ({ theme, mode, hue }) => {
         this.velocity = Math.random() * 3 + 1;
         this.dirX = Math.random() > 0.5 ? 1 : -1;
         this.dirY = Math.random() > 0.5 ? 1 : -1;
-        this.opacity = 1;
+        this.opacity = 0.7;
       }
       draw() {
         ctx.fillStyle =
           theme === "light"
-            ? `hsla(${hue}, 50%, 80%, ${this.opacity})`
-            : `hsla(${hue}, 60%, 12%, ${this.opacity})`;
+            ? `hsla(${hue}, 60%, 25%, ${this.opacity})`
+            : `hsla(${hue}, 80%, 75%, ${this.opacity})`;
         ctx.opacity = this.opactity;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, true);
@@ -71,7 +71,7 @@ const CanvasBG = ({ theme, mode, hue }) => {
       pop() {
         if (this.opacity <= 0) {
           this.size = 1;
-          this.opacity = 1;
+          this.opacity = 0.7;
           this.x = Math.floor(Math.random() * canvas.width);
           this.y = Math.floor(Math.random() * canvas.height);
         } else {
@@ -102,6 +102,9 @@ const CanvasBG = ({ theme, mode, hue }) => {
     });
 
     const runAnimation = () => {
+      if (mode === "none") {
+        cancelAnimationFrame(animID);
+      }
       ctx.fillStyle =
         theme === "light"
           ? `hsla(${hue}, 100%, 98%, .7)`
@@ -116,10 +119,10 @@ const CanvasBG = ({ theme, mode, hue }) => {
           particle.rain();
         }
       });
-      requestAnimationFrame(runAnimation);
+      const animID = requestAnimationFrame(runAnimation);
     };
 
-    window.requestAnimationFrame(runAnimation);
+    runAnimation();
 
     window.addEventListener("resize", handleResize);
 

@@ -7,12 +7,14 @@ import {
   ToggleBtn,
   Row,
   Text,
+  ImageContainer,
 } from "../../styles/components";
 import BgSelector from "../BgSelector";
 import ColorSelector from "./ColorSelector";
 import { BsSun, BsMoon } from "react-icons/bs";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const Nav = ({
   toggle,
@@ -59,18 +61,22 @@ const Nav = ({
 
   return (
     <NavBar pos={pos} size={size}>
-      <Col>
-        <Row justify={"center"}>
-          <BsSun style={{ fontSize: "1.25em" }} />
-          <ToggleBtn
-            mode={theme === "light" ? "0%" : "100%"}
-            onClick={() => toggle()}
+      <Col gap={".5rem"}>
+        <ImageContainer width={size - 100} height={size - 100}>
+          <Image
+            src={"/me.png"}
+            width={450}
+            height={600}
+            objectPosition={"center"}
           />
-          <BsMoon style={{ fontSize: "1.25em" }} />
-        </Row>
-        <BgSelector mode={mode} changeMode={changeMode} />
-        <ColorSelector click={changeHue} />
+        </ImageContainer>
+        <Col padding=".5rem" bg="body">
+          <Text color={"primary"} weight={"600"}>
+            Mike Rust
+          </Text>
+        </Col>
       </Col>
+
       <Col padding={"0px"}>
         <Link href={"/"} passHref>
           <a>
@@ -112,16 +118,6 @@ const Nav = ({
             </NavBtn>
           </a>
         </Link>
-        <Link href={"/about"} passHref>
-          <a>
-            <NavBtn
-              onClick={() => close()}
-              active={Router.pathname === "/about" ? true : false}
-            >
-              About
-            </NavBtn>
-          </a>
-        </Link>
         <Link href={"/contact"} passHref>
           <a>
             <NavBtn
@@ -132,6 +128,18 @@ const Nav = ({
             </NavBtn>
           </a>
         </Link>
+      </Col>
+      <Col>
+        <Row justify={"center"}>
+          <BsSun style={{ fontSize: "1.25em" }} />
+          <ToggleBtn
+            mode={theme === "light" ? "0%" : "100%"}
+            onClick={() => toggle()}
+          />
+          <BsMoon style={{ fontSize: "1.25em" }} />
+        </Row>
+        <BgSelector mode={mode} changeMode={changeMode} />
+        <ColorSelector click={changeHue} theme={theme} />
       </Col>
     </NavBar>
   );

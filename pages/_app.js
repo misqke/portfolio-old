@@ -15,17 +15,17 @@ function MyApp({ Component, pageProps }) {
 
   const lightTheme = {
     body: `hsl(${hue}, 100%, 98%)`,
-    text: `hsl(${hue}, 80%, 10%)`,
-    primary: `hsl(${hue}, 100%, 25%)`,
+    text: `hsl(${hue}, 80%, 2%)`,
+    primary: `hsl(${hue}, 60%, 25%)`,
     bg: `hsl(${hue}, 50%, 80%)`,
     bgTrans: `hsla(${hue}, 50%, 80%, .6)`,
   };
 
   const darkTheme = {
     body: `hsl(${hue}, 100%, 2%)`,
-    text: `hsl(${hue}, 100%, 95%)`,
-    primary: `hsl(${hue}, 80%, 60%)`,
-    bg: `hsl(${hue}, 60%, 12%)`,
+    text: `hsl(${hue}, 100%, 98%)`,
+    primary: `hsl(${hue}, 80%, 75%)`,
+    bg: `hsl(${hue}, 60%, 15%)`,
     bgTrans: `hsla(${hue}, 60%, 12%, .6)`,
   };
 

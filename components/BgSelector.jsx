@@ -32,6 +32,7 @@ const BgSelector = ({ mode, changeMode }) => {
             bounce
           </SelectionBtn>
           <SelectionBtn onClick={() => changeMode("rain")}>rain</SelectionBtn>
+          <SelectionBtn onClick={() => changeMode("none")}>none</SelectionBtn>
         </SelectionMenu>
       </SelectBar>
     </Row>
