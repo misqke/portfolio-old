@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import Nav from "./Nav";
-import { Page, Col } from "../../styles/components";
-import { NavToggle } from "../../styles/components";
+import { Page, NavToggle, Body } from "../../styles/components";
 import CanvasBG from "./Canvas";
 
-const Layout = ({ children, toggle, theme, hue, changeHue }) => {
-  const [bgMode, setBgMode] = useState("pop");
+const Layout = ({
+  children,
+  toggle,
+  theme,
+  hue,
+  changeHue,
+  mode,
+  changeMode,
+}) => {
   const [open, setOpen] = useState(false);
 
   const closeNav = () => {
@@ -21,8 +27,8 @@ const Layout = ({ children, toggle, theme, hue, changeHue }) => {
       <Nav
         toggle={toggle}
         theme={theme}
-        mode={bgMode}
-        changeMode={handleBgChange}
+        mode={mode}
+        changeMode={changeMode}
         open={open}
         close={closeNav}
         changeHue={changeHue}
@@ -33,10 +39,10 @@ const Layout = ({ children, toggle, theme, hue, changeHue }) => {
         <span></span>
         <span></span>
       </NavToggle>
-      <Col height={"100vh"} flex overflow={"scroll"}>
+      <Body>
         {children}
-        <CanvasBG theme={theme} mode={bgMode} hue={hue} />
-      </Col>
+        <CanvasBG theme={theme} mode={mode} hue={hue} />
+      </Body>
     </Page>
   );
 };

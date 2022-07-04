@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Row,
   Text,
@@ -9,8 +9,12 @@ import {
 } from "../styles/components";
 import { FaCaretDown } from "react-icons/fa";
 
-const BgSelector = ({ mode, changeMode }) => {
+const BgSelector = ({ mode, changeMode, show }) => {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!show) setOpen(false);
+  }, [show]);
 
   return (
     <Row justify={"center"}>

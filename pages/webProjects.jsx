@@ -6,26 +6,19 @@ import { projects } from "../projects";
 
 const WebProjects = () => {
   return (
-    <Col
-      opacity={0}
+    <Row
+      padding={"0px"}
+      wrap={"wrap"}
+      justify={"center"}
+      gap={"1.5rem"}
+      flex={1}
       animation={"fadeIn"}
       dur={1000}
-      flex
-      padding={"1rem .5rem"}
-      overflow="scroll"
     >
-      <Row
-        padding={"0px"}
-        wrap={"wrap"}
-        justify={"center"}
-        gap={"1.5rem"}
-        flex={1}
-      >
-        {projects.map((project) => (
-          <WebCard key={project.name} project={project} />
-        ))}
-      </Row>
-    </Col>
+      {projects.map((project) => (
+        <WebCard key={project.name} project={project} />
+      ))}
+    </Row>
   );
 };
 

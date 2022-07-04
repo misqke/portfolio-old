@@ -4,15 +4,8 @@ import useDarkMode from "../components/useDarkMode";
 export default function Home() {
   const [theme, themeToggler] = useDarkMode();
   return (
-    <Col
-      flex
-      width={"auto"}
-      max={"700px"}
-      align={"flex-start"}
-      justify={"center"}
-      gap={"1rem"}
-    >
-      <Col padding={"0px"} align={"flex-start"}>
+    <Col flex justify={"center"} max="700px" height="100%" gap={"1rem"}>
+      <Col padding={"0px"}>
         <Col
           padding={"0px"}
           align={"flex-start"}

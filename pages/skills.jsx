@@ -7,23 +7,15 @@ const colMin = "300px";
 
 const Skills = () => {
   return (
-    <Row
-      wrap={"wrap"}
-      justify={"space-evenly"}
-      height={"100%"}
-      align={"flex-start"}
-      flex
-    >
+    <Row wrap={"wrap"} justify={"space-evenly"} flex align={"flex-start"}>
       <Col
-        animation={"slideDown"}
-        dur={500}
         flex
         bg={"trans"}
         max={colMax}
         min={colMin}
         gap={"1rem"}
-        // height={"100%"}
-        // overflow={"scroll"}
+        animation="slideDown"
+        dur={500}
       >
         <Text color={"primary"} fs={1.75} weight={"550"}>
           Front-End
@@ -60,15 +52,13 @@ const Skills = () => {
         />
       </Col>
       <Col
-        animation={"slideDown"}
-        dur={750}
         flex
         bg={"trans"}
         max={colMax}
         min={colMin}
         gap={"1rem"}
-        // height={"100%"}
-        // overflow={"scroll"}
+        animation="slideDown"
+        dur={750}
       >
         <Text fs={1.75} weight={"550"} color={"primary"}>
           Back-End
@@ -99,15 +89,13 @@ const Skills = () => {
         />
       </Col>
       <Col
-        animation={"slideDown"}
-        dur={1000}
         flex
         bg={"trans"}
         max={colMax}
         min={colMin}
         gap={"1rem"}
-        // height={"100%"}
-        // overflow={"scroll"}
+        animation="slideDown"
+        dur={1000}
       >
         <Text fs={1.75} weight={"550"} color={"primary"}>
           Mobile

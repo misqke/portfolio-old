@@ -23,7 +23,10 @@ export const fadeUp = keyframes`
 export const slideDown = keyframes`
 0% {
   opacity: 0;
-  transform: translateY(-50%);
+  transform: translateY(-100%);
+}
+50% {
+  opacity: 1;
 }
 100% {
   opacity: 1;

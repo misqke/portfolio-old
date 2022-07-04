@@ -3,10 +3,9 @@ import { fadeIn, fadeUp, slideDown, slideUp } from "./animations";
 
 export const Page = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
   position: relative;
   height: 100vh;
+  width: "100vw";
   flex: 1;
   overflow: hidden;
   @media screen and (min-width: 1000px) {
@@ -14,6 +13,28 @@ export const Page = styled.div`
   }
   @media screen and (min-width: 1200px) {
     padding-left: 300px;
+  }
+`;
+
+export const Body = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 100vh;
+  width: "100%";
+  padding: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: ${({ theme }) => theme.bg + " " + theme.primary};
+  ::-webkit-scrollbar {
+    background: ${({ theme }) => theme.bg};
+    width: 5px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.primary};
+    border-radius: 2rem;
   }
 `;
 
@@ -38,12 +59,20 @@ export const Row = styled.div`
       : props.bg === "solid"
       ? props.theme.bg
       : "transparent"};
-  a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-  }
+  animation-duration: ${(props) => props.dur + "ms" || undefined};
+  animation-delay: ${(props) => props.delay + "ms" || undefined};
+  animation-fill-mode: forwards;
+  animation-timing-function: ${(props) => props.timing || "ease-in-and-out"};
+  animation-name: ${(props) =>
+    props.animation === "fadeIn"
+      ? fadeIn
+      : props.animation === "fadeUp"
+      ? fadeUp
+      : props.animation === "slideDown"
+      ? slideDown
+      : props.animation === "slideUp"
+      ? slideUp
+      : undefined};
 `;
 
 export const Col = styled.div`
@@ -84,12 +113,7 @@ export const Col = styled.div`
       : props.bg === "body"
       ? props.theme.body
       : "transparent"};
-  backdrop-filter: ${(props) =>
-    props.bg === "trans" ? "blur(18px)" : undefined};
-  /* backdrop-filter: blur(8px); */
-  a {
-    width: 100%;
-  }
+
   ::-webkit-scrollbar {
     display: none;
   }
@@ -102,7 +126,7 @@ export const ImageContainer = styled.div`
   border: 1px solid ${({ theme }) => theme.text};
   background: ${({ theme }) => theme.body};
   overflow: hidden;
-  padding: 0.75rem;
+  position: relative;
 `;
 
 export const Text = styled.p`
@@ -242,7 +266,7 @@ export const Btn = styled.button`
     props.outline ? "transparent" : props.theme.primary};
   border-color: ${(props) =>
     props.outline ? props.theme.primary : props.theme.bg};
-  :hover {
+  &:hover {
     background: ${(props) =>
       !props.outline ? "transparent" : props.theme.primary};
     color: ${(props) =>
@@ -271,14 +295,15 @@ export const SelectionMenu = styled.div`
   flex-direction: column;
   display: flex;
   transition: 250ms;
-  height: ${(props) => (props.open ? "calc((1em + 12px) * 4.2)" : 0)};
+  height: ${(props) => (props.open ? "80px" : 0)};
   min-width: 100%;
   background: ${({ theme }) => theme.body};
   position: absolute;
   top: 100%;
   left: 0;
   right: 0;
-  overflow: hidden;
+  overflow-y: scroll;
+  /* overflow: hidden; */
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
 `;
@@ -302,9 +327,10 @@ export const NavBar = styled.div`
   top: 0;
   bottom: 0;
   display: flex;
+  padding: 0.5rem 0px;
   flex-direction: column;
   flex: 1;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: ${(props) => props.size}px;
   height: 100vh;
@@ -325,6 +351,7 @@ export const NavBtn = styled.button`
   border-left: none;
   border-right: none;
   width: 100%;
+  position: relative;
   font-size: 1.5em;
   background: ${(props) =>
     props.active ? props.theme.primary : "transparent"};
@@ -332,7 +359,7 @@ export const NavBtn = styled.button`
   color: ${(props) => (props.active ? props.theme.bg : props.theme.text)};
   cursor: pointer;
   padding: 0.25em;
-  :hover {
+  &:hover {
     border-color: ${({ theme }) => theme.primary};
     border-style: solid;
     border-top-width: 1;
@@ -366,7 +393,7 @@ export const NavToggle = styled.button`
     background: ${({ theme }) => theme.text};
     transition-duration: 250ms;
   }
-  :hover {
+  &:hover {
     span {
       background: ${({ theme }) => theme.primary};
     }
@@ -458,4 +485,54 @@ export const ColorBlock = styled.span`
   width: 5px;
   height: 100%;
   flex: 1;
+`;
+
+export const LinkA = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: ${(props) => props.width || "100%"};
+  flex: ${(props) => (props.flex ? 1 : undefined)};
+  cursor: pointer;
+  color: ${({ theme }) => theme.text};
+  transition-duration: 250ms;
+  &:hover {
+    color: ${({ theme }) => theme.primary};
+  }
+`;
+
+export const SettingsBox = styled.button`
+  border: none;
+  background: transparent;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${({ theme }) => theme.text};
+  transition-duration: 250ms;
+  cursor: pointer;
+  z-index: 12;
+  &:hover {
+    color: ${({ theme }) => theme.primary};
+  }
+`;
+
+export const SettingsMenu = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  gap: 0.5rem;
+  min-height: ${(props) => props.size - 90}px;
+  padding: 0.5rem;
+  border-radius: 8px;
+  width: ${(props) => props.size - 50}px;
+  background-color: ${({ theme }) => theme.bg};
+  transition-duration: 500ms;
+  transform: translateY(${(props) => (props.open ? 0 : "-100%")});
 `;
