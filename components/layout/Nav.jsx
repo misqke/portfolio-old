@@ -69,7 +69,7 @@ const Nav = ({
 
   return (
     <NavBar pos={pos} size={size}>
-      <Settings click={handleSettingsClick} />
+      <Settings open={showSettings} click={handleSettingsClick} />
       <SettingsMenu open={showSettings} size={size}>
         <Row padding={"0px"} justify={"center"}>
           <BsSun style={{ fontSize: "1.25em" }} />
@@ -84,7 +84,7 @@ const Nav = ({
       </SettingsMenu>
 
       <Col gap={".5rem"} padding={"0px"}>
-        <ImageContainer width={size - 100} height={size - 100}>
+        <ImageContainer width={size - 125} height={size - 125}>
           <Portrait size={size} theme={theme} />
         </ImageContainer>
 
@@ -94,7 +94,7 @@ const Nav = ({
           </Text>
         </Col>
       </Col>
-      <Col padding={"0px"}>
+      <Col style={{ justifySelf: "center" }} padding={"0px"}>
         <Link href={"/"} passHref>
           <LinkA flex>
             <NavBtn

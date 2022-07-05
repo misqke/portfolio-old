@@ -2,9 +2,9 @@ import React from "react";
 import { IoMdSettings } from "react-icons/io";
 import { SettingsBox } from "../../styles/components";
 
-const Settings = ({ click }) => {
+const Settings = ({ click, open }) => {
   return (
-    <SettingsBox onClick={() => click()}>
+    <SettingsBox open={open} onClick={() => click()}>
       <IoMdSettings style={{ fontSize: "2rem" }} />
     </SettingsBox>
   );

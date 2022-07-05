@@ -21,19 +21,19 @@ function MyApp({ Component, pageProps }) {
   };
 
   const lightTheme = {
-    body: `hsl(${hue}, 100%, 98%)`,
-    text: `hsl(${hue}, 80%, 2%)`,
-    primary: `hsl(${hue}, 60%, 25%)`,
-    bg: `hsl(${hue}, 50%, 80%)`,
-    bgTrans: `hsla(${hue}, 50%, 80%, .6)`,
+    body: `hsl(${hue}, 50%, 98%)`,
+    text: `hsl(${hue}, 50%, 2%)`,
+    primary: `hsl(${hue}, 50%, 25%)`,
+    bg: `hsl(${hue}, 50%, 70%)`,
+    bgTrans: `hsla(${hue}, 50%, 70%, .6)`,
   };
 
   const darkTheme = {
-    body: `hsl(${hue}, 100%, 2%)`,
-    text: `hsl(${hue}, 100%, 98%)`,
-    primary: `hsl(${hue}, 80%, 75%)`,
-    bg: `hsl(${hue}, 60%, 15%)`,
-    bgTrans: `hsla(${hue}, 60%, 12%, .6)`,
+    body: `hsl(${hue}, 50%, 2%)`,
+    text: `hsl(${hue}, 50%, 98%)`,
+    primary: `hsl(${hue}, 50%, 75%)`,
+    bg: `hsl(${hue}, 50%, 25%)`,
+    bgTrans: `hsla(${hue}, 50%, 25%, .6)`,
   };
 
   const themeMode = theme === "light" ? lightTheme : darkTheme;
@@ -45,7 +45,7 @@ function MyApp({ Component, pageProps }) {
     if (savedMode) setMode(savedMode);
   }, []);
 
-  if (!mounted) return;
+  if (!mounted) return <div />;
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />

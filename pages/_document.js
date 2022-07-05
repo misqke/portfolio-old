@@ -10,15 +10,12 @@ export default function Document() {
           name="description"
           content="portfolio website for Mike Rust, a web developer"
         />
+        <title>Mike Rust Portfolio</title>
         <link rel="icon" href="/favicon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Courgette&family=Patrick+Hand&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;600&display=swap"
           rel="stylesheet"
         />
       </Head>

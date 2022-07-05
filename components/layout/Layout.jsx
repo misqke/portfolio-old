@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Nav from "./Nav";
-import { Page, NavToggle, Body } from "../../styles/components";
+import { Page, NavToggle, Body, ToggleBar } from "../../styles/components";
 import CanvasBG from "./Canvas";
 
 const Layout = ({
@@ -18,10 +18,6 @@ const Layout = ({
     setOpen(false);
   };
 
-  const handleBgChange = (mode) => {
-    setBgMode(mode);
-  };
-
   return (
     <Page>
       <Nav
@@ -35,9 +31,10 @@ const Layout = ({
         hue={hue}
       />
       <NavToggle onClick={() => setOpen((prev) => !prev)}>
-        <span></span>
-        <span></span>
-        <span></span>
+        <ToggleBar open={open} />
+        <ToggleBar open={open} />
+        <ToggleBar open={open} />
+        <ToggleBar open={open} />
       </NavToggle>
       <Body>
         {children}

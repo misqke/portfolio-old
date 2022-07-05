@@ -5,7 +5,7 @@ import { Canvas } from "../../styles/components";
 const Portrait = ({ size }) => {
   const canvasRef = useRef();
 
-  const canvasSize = size - 100;
+  const canvasSize = size - 125;
 
   useEffect(() => {
     const canvas = canvasRef.current;

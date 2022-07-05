@@ -5,7 +5,7 @@ import Image from "next/image";
 const WebCard = ({ project }) => {
   return (
     <WebProj>
-      <Text color="primary" fs={1.25}>
+      <Text color="primary" weight="bold" fs={1.25}>
         {project.name}
       </Text>
       <Row flex padding={"0px 1rem"} justify={"center"}>
@@ -20,7 +20,9 @@ const WebCard = ({ project }) => {
         >
           {project.tech.map((t) => (
             <Col padding={"3px 5px"} textAlign="center" key={project.name + t}>
-              <Text fs={0.75}>{t}</Text>
+              <Text fs={0.75} weight="light">
+                {t}
+              </Text>
             </Col>
           ))}
         </Col>

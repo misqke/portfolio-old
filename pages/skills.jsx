@@ -17,7 +17,7 @@ const Skills = () => {
         animation="slideDown"
         dur={500}
       >
-        <Text color={"primary"} fs={1.75} weight={"550"}>
+        <Text color={"primary"} fs={1.75} weight={"bold"}>
           Front-End
         </Text>
         <SkillRow
@@ -60,7 +60,7 @@ const Skills = () => {
         animation="slideDown"
         dur={750}
       >
-        <Text fs={1.75} weight={"550"} color={"primary"}>
+        <Text fs={1.75} weight={"bold"} color={"primary"}>
           Back-End
         </Text>
         <SkillRow
@@ -97,7 +97,7 @@ const Skills = () => {
         animation="slideDown"
         dur={1000}
       >
-        <Text fs={1.75} weight={"550"} color={"primary"}>
+        <Text fs={1.75} weight={"bold"} color={"primary"}>
           Mobile
         </Text>
         <SkillRow

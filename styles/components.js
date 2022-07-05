@@ -8,7 +8,8 @@ export const Page = styled.div`
   width: "100vw";
   flex: 1;
   overflow: hidden;
-  @media screen and (min-width: 1000px) {
+  font-family: "Inconsolata", monospace;
+  @media screen and (min-width: 900px) {
     padding-left: 250px;
   }
   @media screen and (min-width: 1200px) {
@@ -139,7 +140,8 @@ export const Text = styled.p`
   text-align: "center";
   font-size: ${(props) => props.fs || "1.15"}em;
   max-width: 50ch;
-  font-weight: ${(props) => props.weight || undefined};
+  font-weight: ${(props) =>
+    props.weight === "light" ? 300 : props.weight === "bold" ? 600 : 400};
   background: ${(props) => (props.bg ? props.theme.body : undefined)};
   @media screen and (min-width: 800px) {
     font-size: ${(props) => props.fs * 1.2}em;
@@ -157,10 +159,14 @@ export const HoverSpan = styled.button`
   background: none;
   height: 1.5em;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: ${(props) => props.color || props.theme.text};
   font-weight: ${(props) => props.weight || undefined};
   font-size: ${(props) => props.fs || "1.15"}em;
   transition-duration: 250ms;
+  transform-origin: center;
   transform: rotateZ(${(props) => (props.open ? 180 : 0)}deg);
   &:hover {
     color: ${({ theme }) => theme.primary};
@@ -254,12 +260,13 @@ export const ReverseSwitch = styled.div`
 
 export const Btn = styled.button`
   inherits: none;
-  font-size: ${(props) => props.fs || "1em"};
+  font-size: ${(props) => props.fs || "1.08em"};
   padding: ${(props) => props.padding || ".25em"};
   cursor: pointer;
   border-radius: 20px;
   transition-duration: 250ms;
   border-width: 1;
+  font-family: "Inconsolata", monospace;
   width: ${(props) => props.width || "100%"};
   color: ${(props) => (props.outline ? props.theme.primary : props.theme.bg)};
   background: ${(props) =>
@@ -295,7 +302,7 @@ export const SelectionMenu = styled.div`
   flex-direction: column;
   display: flex;
   transition: 250ms;
-  height: ${(props) => (props.open ? "80px" : 0)};
+  height: ${(props) => (props.open ? "100px" : 0)};
   min-width: 100%;
   background: ${({ theme }) => theme.body};
   position: absolute;
@@ -303,21 +310,27 @@ export const SelectionMenu = styled.div`
   left: 0;
   right: 0;
   overflow-y: scroll;
-  /* overflow: hidden; */
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
+  ::-webkit-scrollbar {
+    background: ${({ theme }) => theme.body};
+    width: 5px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.primary};
+    border-radius: 2rem;
+  }
 `;
 
 export const SelectionBtn = styled.div`
   color: ${({ theme }) => theme.text};
-  padding: 6px;
-  flex: 1;
+  padding: 0.5rem;
   cursor: pointer;
   transition-duration: 250ms;
   font-size: 1em;
   &:hover {
-    background: ${({ theme }) => theme.bgTrans};
     color: ${({ theme }) => theme.primary};
+    background: ${({ theme }) => theme.bgTrans};
   }
 `;
 
@@ -339,9 +352,9 @@ export const NavBar = styled.div`
   transition-duration: 750ms;
   gap: 1rem;
   z-index: 10;
-  border-right: 1px solid ${({ theme }) => theme.primary};
+  /* border-right: 1px solid ${({ theme }) => theme.primary}; */
   box-shadow: 0px 5px 20px 5px ${({ theme }) => theme.bgTrans};
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 900px) {
     transform: translateX(0);
   }
 `;
@@ -352,7 +365,8 @@ export const NavBtn = styled.button`
   border-right: none;
   width: 100%;
   position: relative;
-  font-size: 1.5em;
+  font-size: 1.75em;
+  font-family: "Inconsolata", monospace;
   background: ${(props) =>
     props.active ? props.theme.primary : "transparent"};
   transition-duration: 250ms;
@@ -376,7 +390,6 @@ export const NavToggle = styled.button`
   width: 2.5rem;
   height: 2.5rem;
   background: ${({ theme }) => theme.bg};
-  color: ${({ theme }) => theme.text};
   border: none;
   display: flex;
   flex-direction: column;
@@ -385,21 +398,47 @@ export const NavToggle = styled.button`
   z-index: 10;
   border-radius: 0.5rem;
   cursor: pointer;
-  span {
-    display: flex;
-    min-width: 80%;
-    min-height: 2px;
-    border-radius: 1rem;
-    background: ${({ theme }) => theme.text};
-    transition-duration: 250ms;
-  }
+
   &:hover {
     span {
       background: ${({ theme }) => theme.primary};
     }
   }
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 900px) {
     display: none;
+  }
+`;
+
+export const ToggleBar = styled.span`
+  display: flex;
+  min-width: 80%;
+  min-height: 2px;
+  border-radius: 1rem;
+  background: ${({ theme }) => theme.text};
+  transition-duration: 250ms;
+  transform-origin: center;
+  &:first-child {
+    transition: background 250ms linear 0ms,
+      opacity 100ms linear ${(props) => (props.open ? "0ms" : "400ms")};
+    opacity: ${(props) => (props.open ? 0 : 1)};
+  }
+  &:nth-child(2) {
+    transition: background 250ms linear 0ms, transform 500ms ease-in-out 0ms;
+    transition: transform 500ms ease-in-out;
+    transform: rotateZ(${(props) => (props.open ? "225deg" : "0deg")});
+  }
+  &:nth-child(3) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: background 250ms linear 0ms, transform 500ms ease-in-out 0ms;
+    transform: translate(-50%, -50%)
+      rotateZ(${(props) => (props.open ? "-225deg" : "0deg")});
+  }
+  &:last-child {
+    transition: background 250ms linear 0ms,
+      opacity 100ms linear ${(props) => (props.open ? "0ms" : "400ms")};
+    opacity: ${(props) => (props.open ? 0 : 1)};
   }
 `;
 
@@ -512,8 +551,10 @@ export const SettingsBox = styled.button`
   align-items: center;
   color: ${({ theme }) => theme.text};
   transition-duration: 250ms;
-  cursor: pointer;
+  transition: transform 500ms ease-in-out;
   z-index: 12;
+  cursor: pointer;
+  transform: rotateZ(${(props) => (props.open ? "360deg" : "0deg")});
   &:hover {
     color: ${({ theme }) => theme.primary};
   }
@@ -528,7 +569,7 @@ export const SettingsMenu = styled.div`
   top: 0;
   z-index: 10;
   gap: 0.5rem;
-  min-height: ${(props) => props.size - 90}px;
+  min-height: ${(props) => props.size - 50}px;
   padding: 0.5rem;
   border-radius: 8px;
   width: ${(props) => props.size - 50}px;

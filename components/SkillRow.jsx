@@ -52,7 +52,7 @@ const SkillRow = ({ title, desc }) => {
         </Col>
       </Col>
       <Row flex height={"100%"}>
-        <Text>{desc}</Text>
+        <Text weight="light">{desc}</Text>
       </Row>
     </Row>
   );

@@ -11,7 +11,7 @@ const CanvasBG = ({ theme, mode, hue }) => {
       canvas.width =
         window.innerWidth > 1200
           ? window.innerWidth - 300
-          : window.innerWidth > 800
+          : window.innerWidth > 900
           ? window.innerWidth - 250
           : window.innerWidth;
     };
@@ -22,7 +22,7 @@ const CanvasBG = ({ theme, mode, hue }) => {
     canvas.width =
       window.innerWidth > 1200
         ? window.innerWidth - 300
-        : window.innerWidth > 800
+        : window.innerWidth > 900
         ? window.innerWidth - 250
         : window.innerWidth;
 
@@ -48,8 +48,8 @@ const CanvasBG = ({ theme, mode, hue }) => {
       draw() {
         ctx.fillStyle =
           theme === "light"
-            ? `hsla(${hue}, 60%, 25%, ${this.opacity})`
-            : `hsla(${hue}, 80%, 75%, ${this.opacity})`;
+            ? `hsla(${hue}, 50%, 25%, ${this.opacity})`
+            : `hsla(${hue}, 50%, 75%, ${this.opacity})`;
         ctx.opacity = this.opactity;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, true);
@@ -105,10 +105,6 @@ const CanvasBG = ({ theme, mode, hue }) => {
       if (mode === "none") {
         cancelAnimationFrame(animID);
       }
-      ctx.fillStyle =
-        theme === "light"
-          ? `hsla(${hue}, 100%, 98%, .7)`
-          : `hsla(${hue}, 100%, 2%, .7)`;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particles.forEach((particle) => {
         if (mode === "bounce") {

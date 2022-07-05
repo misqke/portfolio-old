@@ -20,7 +20,7 @@ const ColorSelector = ({ click, theme }) => {
             onClick={() => handleClick(num)}
             key={num}
             style={{
-              background: `hsl(${num}, 75%, 50%)`,
+              background: `hsl(${num}, 50%, 50%)`,
             }}
           />
         ))}

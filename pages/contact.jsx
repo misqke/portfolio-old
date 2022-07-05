@@ -9,11 +9,20 @@ const Contact = () => {
 
   return (
     <Col gap={"1rem"} justify={"space-evenly"} flex>
-      <Col bg={"trans"} width={"auto"} animation={"fadeIn"} dur={750}>
-        <Text fs={1}>
+      <Col
+        textAlign="center"
+        bg={"trans"}
+        width={"auto"}
+        animation={"fadeIn"}
+        dur={750}
+      >
+        <Text fs={1.25}>
           Like my work? Want to hire me? Comments or questions?
         </Text>
-        <Text fs={1}> Let me know!</Text>
+        <Text fs={1.25} color="primary">
+          {" "}
+          Let me know!
+        </Text>
       </Col>
       <Col animation={"slideUp"} dur={750}>
         <Form
