@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import { Col, Row, Text } from "../styles/components";
 import { SkillRow } from "../components";
 
@@ -8,6 +9,9 @@ const colMin = "300px";
 const Skills = () => {
   return (
     <Row wrap={"wrap"} justify={"space-evenly"} flex align={"flex-start"}>
+      <Head>
+        <title>Mike Rust - Skills</title>
+      </Head>
       <Col
         flex
         bg={"trans"}

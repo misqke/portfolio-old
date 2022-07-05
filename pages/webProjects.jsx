@@ -1,6 +1,6 @@
 import React from "react";
-import Image from "next/image";
-import { Col, Row, Text, Btn } from "../styles/components";
+import Head from "next/head";
+import { Row } from "../styles/components";
 import { WebCard } from "../components";
 import { projects } from "../projects";
 
@@ -15,6 +15,9 @@ const WebProjects = () => {
       animation={"fadeIn"}
       dur={1000}
     >
+      <Head>
+        <title>Mike Rust - Web Apps</title>
+      </Head>
       {projects.map((project) => (
         <WebCard key={project.name} project={project} />
       ))}

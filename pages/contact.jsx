@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Head from "next/dist/shared/lib/head";
 import { Form, Col, FormBox, Btn, Text } from "../styles/components";
 
 const Contact = () => {
@@ -9,6 +10,9 @@ const Contact = () => {
 
   return (
     <Col gap={"1rem"} justify={"space-evenly"} flex>
+      <Head>
+        <title>Mike Rust - Contact</title>
+      </Head>
       <Col
         textAlign="center"
         bg={"trans"}

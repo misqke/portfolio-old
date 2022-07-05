@@ -431,7 +431,9 @@ export const ToggleBar = styled.span`
     position: absolute;
     top: 50%;
     left: 50%;
-    transition: background 250ms linear 0ms, transform 500ms ease-in-out 0ms;
+    transition: background 250ms linear 0ms, transform 500ms ease-in-out 0ms,
+      opacity 0ms linear ${(props) => (!props.open ? "500ms" : "0ms")};
+    opacity: ${(props) => (props.open ? 1 : 0)};
     transform: translate(-50%, -50%)
       rotateZ(${(props) => (props.open ? "-225deg" : "0deg")});
   }

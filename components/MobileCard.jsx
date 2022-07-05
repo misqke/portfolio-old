@@ -25,7 +25,12 @@ const MobileCard = ({ project }) => {
       </Row>
       <Row>
         <MobileImage>
-          <Image src={project.img} width={750} height={1334} />
+          <Image
+            src={project.img}
+            alt={project.name}
+            width={750}
+            height={1334}
+          />
         </MobileImage>
         <Col bg="solid" flex justify="space-between">
           <Col textAlign={"center"} padding=".5em" fs={0.7} flex>

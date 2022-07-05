@@ -1,8 +1,12 @@
 import { Col, Text, Span, Row } from "../styles/components";
+import Head from "next/head";
 
 export default function Home() {
   return (
     <Col flex align="center">
+      <Head>
+        <title>Mike Rust - Portfolio</title>
+      </Head>
       <Col
         padding={"0.5rem"}
         align={"center"}
@@ -32,7 +36,7 @@ export default function Home() {
             dur={1000}
           >
             <Text fs={2.5}>
-              Hi, I'm <Span weight={"bold"}>Mike</Span>,
+              Hi, I&apos;m <Span weight={"bold"}>Mike</Span>,
             </Text>
           </Col>
           <Col
@@ -42,7 +46,7 @@ export default function Home() {
             dur={1750}
           >
             <Text fs={2.5}>
-              I'm a <Span weight={"bold"}>React</Span> developer.
+              I&apos;m a <Span weight={"bold"}>React</Span> developer.
             </Text>
           </Col>
         </Col>

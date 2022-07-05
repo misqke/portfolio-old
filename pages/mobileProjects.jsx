@@ -1,7 +1,8 @@
 import React from "react";
-import { Col, Row, Text } from "../styles/components";
+import { Row } from "../styles/components";
 import { MobileCard } from "../components";
 import { mobile } from "../projects";
+import Head from "next/head";
 
 const MobileProjects = () => {
   return (
@@ -14,6 +15,9 @@ const MobileProjects = () => {
       animation={"fadeIn"}
       dur={1000}
     >
+      <Head>
+        <title>Mike Rust - Mobile Apps</title>
+      </Head>
       {mobile.map((project) => (
         <MobileCard key={project.name} project={project} />
       ))}

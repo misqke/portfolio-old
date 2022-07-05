@@ -28,7 +28,12 @@ const WebCard = ({ project }) => {
         </Col>
         <Col gap={".5rem"} padding={".25rem"} max={"80%"} flex>
           <Col flex max={"300px"} padding={".5rem"}>
-            <Image src={project.img} width={1920} height={892} />
+            <Image
+              src={project.img}
+              alt={project.name}
+              width={1920}
+              height={892}
+            />
           </Col>
           <Col textAlign="center" padding={"5px"} bg={"solid"} flex>
             <Text fs={0.85}>{project.desc}</Text>
