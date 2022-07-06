@@ -16,8 +16,8 @@ import { BsSun, BsMoon, BsLinkedin, BsGithub } from "react-icons/bs";
 import { GrMail } from "react-icons/gr";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Portrait from "./Portrait";
 import Settings from "./Settings";
+import Image from "next/image";
 
 const Nav = ({
   toggle,
@@ -80,12 +80,18 @@ const Nav = ({
           <BsMoon style={{ fontSize: "1.25em" }} />
         </Row>
         <BgSelector mode={mode} changeMode={changeMode} show={showSettings} />
-        <ColorSelector click={changeHue} theme={theme} />
+        <ColorSelector click={changeHue} />
       </SettingsMenu>
 
       <Col gap={".5rem"} padding={"0px"}>
         <ImageContainer width={size - 125} height={size - 125}>
-          <Portrait size={size} theme={theme} />
+          <Image
+            src={"/me.png"}
+            width={501}
+            height={766}
+            layout="fill"
+            objectFit="contain"
+          />
         </ImageContainer>
 
         <Col width={"80%"} padding=".5rem" bg="body">
@@ -148,17 +154,17 @@ const Nav = ({
       </Col>
       <Row justify="center" gap={"2rem"}>
         <LinkA href="mailto: misqke.rust@yahoo.com" width="auto">
-          <GrMail style={{ fontSize: "1.5em" }} />
+          <GrMail style={{ fontSize: "1.5em" }} alt="email" />
         </LinkA>
         <LinkA
           href="https://www.linkedin.com/in/michael-rust-66b5b3226/"
           target="_blank"
           width="auto"
         >
-          <BsLinkedin style={{ fontSize: "1.5em" }} />
+          <BsLinkedin style={{ fontSize: "1.5em" }} alt="linkedin" />
         </LinkA>
         <LinkA href="https://github.com/misqke" target="_blank" width="auto">
-          <BsGithub style={{ fontSize: "1.5em" }} />
+          <BsGithub style={{ fontSize: "1.5em" }} alt="github" />
         </LinkA>
       </Row>
     </NavBar>

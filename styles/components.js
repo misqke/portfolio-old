@@ -140,18 +140,37 @@ export const Text = styled.p`
   text-align: "center";
   font-size: ${(props) => props.fs || "1.15"}em;
   max-width: 50ch;
+  text-shadow: 1px 1px 2px
+    ${(props) =>
+      props.shadow === "body"
+        ? props.theme.body
+        : props.shadow === "primary"
+        ? props.theme.primary
+        : props.shadow === "text"
+        ? props.theme.text
+        : "undefined"};
   font-weight: ${(props) =>
     props.weight === "light" ? 300 : props.weight === "bold" ? 600 : 400};
   background: ${(props) => (props.bg ? props.theme.body : undefined)};
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1200px) {
     font-size: ${(props) => props.fs * 1.2}em;
   }
 `;
 
 export const Span = styled.span`
   color: ${(props) => props.color || props.theme.primary};
-  font-weight: ${(props) => props.weight || undefined};
+  font-weight: ${(props) =>
+    props.weight === "light" ? 300 : props.weight === "bold" ? 600 : 400};
   font-size: ${(props) => props.fs || "1.15"}em;
+  text-shadow: 1px 1px 2px
+    ${(props) =>
+      props.shadow === "body"
+        ? props.theme.body
+        : props.shadow === "primary"
+        ? props.theme.primary
+        : props.shadow === "text"
+        ? props.theme.text
+        : "undefined"};
 `;
 
 export const HoverSpan = styled.button`
@@ -223,38 +242,6 @@ export const MobileImage = styled.div`
   }
   @media screen and (min-width: 900px) {
     width: 150px;
-  }
-`;
-
-export const Switch = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-grow: ${(props) => props.flex || 0};
-  flex: 1;
-  /* height: 100%; */
-  font-size: 1.25em;
-  @media screen and (min-width: 500px) {
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 0.5rem;
-  }
-  @media screen and (min-width: 800px) {
-    padding: 1rem;
-  }
-`;
-
-export const ReverseSwitch = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-grow: ${(props) => props.flex || 0};
-  font-size: 1.25em;
-  flex: 1;
-  justify-content: space-between;
-  @media screen and (min-width: 500px) {
-    flex-direction: column;
-    align-items: flex-start;
   }
 `;
 
@@ -352,8 +339,7 @@ export const NavBar = styled.div`
   transition-duration: 750ms;
   gap: 1rem;
   z-index: 10;
-  /* border-right: 1px solid ${({ theme }) => theme.primary}; */
-  box-shadow: 0px 5px 20px 5px ${({ theme }) => theme.bgTrans};
+  box-shadow: 0px 5px 20px 5px ${({ theme }) => theme.body};
   @media screen and (min-width: 900px) {
     transform: translateX(0);
   }

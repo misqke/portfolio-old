@@ -13,7 +13,7 @@ import Image from "next/image";
 const MobileCard = ({ project }) => {
   return (
     <MobileProject>
-      <Text color="primary" weight="bold" fs={1.25}>
+      <Text color="primary" weight="bold" fs={1.25} shadow="body">
         {project.name}
       </Text>
       <Row bg="solid" justify="space-evenly">

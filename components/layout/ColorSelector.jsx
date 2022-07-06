@@ -6,18 +6,13 @@ for (let i = 1; i < 361; i++) {
   hueArr.push(i);
 }
 
-const ColorSelector = ({ click, theme }) => {
-  const handleClick = (num) => {
-    window.localStorage.setItem("hue", num);
-    click(num);
-  };
-
+const ColorSelector = ({ click }) => {
   return (
     <ColorTrack>
       {hueArr.length > 0 &&
         hueArr.map((num) => (
           <ColorBlock
-            onClick={() => handleClick(num)}
+            onClick={() => click(num)}
             key={num}
             style={{
               background: `hsl(${num}, 50%, 50%)`,

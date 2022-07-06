@@ -23,7 +23,7 @@ const Contact = () => {
         <Text fs={1.25}>
           Like my work? Want to hire me? Comments or questions?
         </Text>
-        <Text fs={1.25} color="primary">
+        <Text fs={1.25} color="primary" weight="bold">
           {" "}
           Let me know!
         </Text>

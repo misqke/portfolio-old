@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from "react";
-import { FaHandshakeSlash } from "react-icons/fa";
 import { Canvas } from "../../styles/components";
 
 const CanvasBG = ({ theme, mode, hue }) => {

@@ -5,7 +5,7 @@ import Image from "next/image";
 const WebCard = ({ project }) => {
   return (
     <WebProj>
-      <Text color="primary" weight="bold" fs={1.25}>
+      <Text color="primary" weight="bold" shadow="body" fs={1.25}>
         {project.name}
       </Text>
       <Row flex padding={"0px 1rem"} justify={"center"}>
