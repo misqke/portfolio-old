@@ -10,6 +10,7 @@ import {
   SiPuppeteer,
   SiNextdotjs,
   SiExpo,
+  SiJsonwebtokens,
 } from "react-icons/si";
 import { FaNodeJs } from "react-icons/fa";
 import { GiMeepleCircle } from "react-icons/gi";
@@ -41,6 +42,8 @@ const SkillRow = ({ title, desc }) => {
             <SiExpo />
           ) : title === "React Navigation" ? (
             <GiMeepleCircle />
+          ) : title === "JWT" ? (
+            <SiJsonwebtokens />
           ) : (
             <SiReact />
           )}

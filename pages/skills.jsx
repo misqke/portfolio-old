@@ -86,6 +86,12 @@ const Skills = () => {
           }
         />
         <SkillRow
+          title={"JWT"}
+          desc={
+            "A library for providing secure authorization of a user. I use JSON Web Tokens for all my applications involving a log in process."
+          }
+        />
+        <SkillRow
           title={"Puppeteer"}
           desc={
             "A high-level API to control Chrome or Chromium over the DevTools Protocol. I've built a number of web scrapers for gathering data and automating repetative web tasks."

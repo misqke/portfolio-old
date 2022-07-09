@@ -5,16 +5,6 @@ const CanvasBG = ({ theme, mode, hue }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    const handleResize = () => {
-      canvas.height = window.innerHeight;
-      canvas.width =
-        window.innerWidth > 1200
-          ? window.innerWidth - 300
-          : window.innerWidth > 900
-          ? window.innerWidth - 250
-          : window.innerWidth;
-    };
-
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     canvas.height = window.innerHeight;
@@ -91,33 +81,104 @@ const CanvasBG = ({ theme, mode, hue }) => {
       }
     }
 
-    const particles = [];
-    for (let i = 0; i < numParticles; i++) {
-      particles.push(new Particle());
+    class Square {
+      constructor(delay) {
+        this.width = canvas.width / 10;
+        this.height = canvas.height / 10;
+        this.x = canvas.width / 2 - this.width / 2;
+        this.y = canvas.height / 2 - this.height / 2;
+        this.ratio = canvas.height / canvas.width;
+        this.delay = delay;
+      }
+      draw() {
+        ctx.strokeStyle =
+          theme === "light"
+            ? `hsla(${hue}, 50%, 25%, .5)`
+            : `hsl(${hue}, 50%, 75%, .5)`;
+        ctx.strokeRect(this.x, this.y, this.width, this.height);
+      }
+      grow() {
+        this.width += 2;
+        this.height = this.height + 2 * this.ratio;
+        this.x -= 1;
+        this.y = this.y - 1 * this.ratio;
+        this.draw();
+      }
     }
 
-    particles.forEach((particle) => {
-      particle.draw();
-    });
-
-    const runAnimation = () => {
-      if (mode === "none") {
-        cancelAnimationFrame(animID);
-      }
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach((particle) => {
-        if (mode === "bounce") {
-          particle.bounce();
-        } else if (mode === "pop") {
-          particle.pop();
-        } else if (mode === "rain") {
-          particle.rain();
-        }
+    if (mode === "squares") {
+      const newSquare = new Square();
+      let squaresArr = [newSquare];
+      squaresArr.forEach((s) => {
+        s.draw();
       });
-      const animID = requestAnimationFrame(runAnimation);
-    };
+      let frame = 0;
+      const runSquareAnim = () => {
+        if (mode === "none") {
+          cancelAnimationFrame(squareAnimId);
+        }
+        const squaresArrClone = [...squaresArr];
+        for (let i = 0; i < squaresArrClone.length; i++) {
+          if (
+            squaresArrClone[i].width > canvas.width &&
+            squaresArrClone[i].height > canvas.height
+          ) {
+            squaresArr.shift();
+          } else {
+            break;
+          }
+        }
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        if (frame % 30 === 0) {
+          squaresArr.push(new Square());
+        }
+        squaresArr.forEach((s) => {
+          s.grow();
+        });
+        frame++;
+        const squareAnimId = requestAnimationFrame(runSquareAnim);
+      };
 
-    runAnimation();
+      runSquareAnim();
+    } else {
+      const particles = [];
+      for (let i = 0; i < numParticles; i++) {
+        particles.push(new Particle());
+      }
+
+      particles.forEach((particle) => {
+        particle.draw();
+      });
+
+      const runAnimation = () => {
+        if (mode === "none") {
+          cancelAnimationFrame(animID);
+        }
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((particle) => {
+          if (mode === "bounce") {
+            particle.bounce();
+          } else if (mode === "pop") {
+            particle.pop();
+          } else if (mode === "rain") {
+            particle.rain();
+          }
+        });
+        const animID = requestAnimationFrame(runAnimation);
+      };
+
+      runAnimation();
+    }
+
+    const handleResize = () => {
+      canvas.height = window.innerHeight;
+      canvas.width =
+        window.innerWidth > 1200
+          ? window.innerWidth - 300
+          : window.innerWidth > 900
+          ? window.innerWidth - 250
+          : window.innerWidth;
+    };
 
     window.addEventListener("resize", handleResize);
 

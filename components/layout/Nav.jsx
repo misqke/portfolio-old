@@ -87,8 +87,7 @@ const Nav = ({
         <ImageContainer width={size - 125} height={size - 125}>
           <Image
             src={"/me.png"}
-            width={501}
-            height={766}
+            priority
             layout="fill"
             objectFit="contain"
             alt=""
