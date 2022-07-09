@@ -1,23 +1,11 @@
 import { ThemeProvider } from "styled-components";
 import useDarkMode from "../components/useDarkMode";
 import { GlobalStyles, Layout } from "../components";
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 function MyApp({ Component, pageProps }) {
-  const [theme, themeToggler, mounted] = useDarkMode();
-  const [mode, setMode] = useState("pop");
-  const [hue, setHue] = useState(199);
-
-  const changeMode = (bgMode) => {
-    window.localStorage.setItem("mode", bgMode);
-    setMode(bgMode);
-  };
-
-  const changeHue = (num) => {
-    if (num < 0 || num > 360) return;
-    window.localStorage.setItem("hue", num);
-    setHue(num);
-  };
+  const [theme, themeToggler, hue, hueToggler, mode, modeToggler, mounted] =
+    useDarkMode();
 
   const lightTheme = {
     body: `hsl(${hue}, 50%, 98%)`,
@@ -37,13 +25,6 @@ function MyApp({ Component, pageProps }) {
 
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
-  useEffect(() => {
-    const savedHue = window.localStorage.getItem("hue");
-    const savedMode = window.localStorage.getItem("mode");
-    if (savedHue) setHue(savedHue);
-    if (savedMode) setMode(savedMode);
-  }, []);
-
   if (!mounted) return <div />;
   return (
     <ThemeProvider theme={themeMode}>
@@ -52,9 +33,9 @@ function MyApp({ Component, pageProps }) {
         toggle={themeToggler}
         theme={theme}
         hue={hue}
-        changeHue={changeHue}
+        changeHue={hueToggler}
         mode={mode}
-        changeMode={changeMode}
+        changeMode={modeToggler}
       >
         <Component {...pageProps} />
       </Layout>
