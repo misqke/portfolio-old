@@ -91,6 +91,7 @@ const Nav = ({
             height={766}
             layout="fill"
             objectFit="contain"
+            alt=""
           />
         </ImageContainer>
 
