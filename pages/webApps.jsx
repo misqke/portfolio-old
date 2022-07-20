@@ -16,7 +16,7 @@ const WebApps = () => {
     setTimeout(() => {
       dispatch(deactivate());
     }, 450);
-  }, []);
+  }, [dispatch]);
   return (
     <Container opacity={opacity} scale={scale}>
       <WebPage />

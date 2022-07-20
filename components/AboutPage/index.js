@@ -35,8 +35,8 @@ const AboutPage = () => {
         </AboutText>
         <AboutText>
           I&apos;ve always looked at life through logical lenses, which has made
-          coding a fantastic fit for me. I'm a quick learner, excellent problem
-          solver, and strive for perfection in everything I do.
+          coding a fantastic fit for me. I&apos;m a quick learner, excellent
+          problem solver, and strive for perfection in everything I do.
         </AboutText>
       </AboutTextContainer>
       <SkillsContainer>

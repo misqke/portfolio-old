@@ -16,7 +16,7 @@ const About = () => {
     setTimeout(() => {
       dispatch(deactivate());
     }, 450);
-  }, []);
+  }, [dispatch]);
   return (
     <Container opacity={opacity} scale={scale}>
       <AboutPage />

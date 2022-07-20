@@ -25,7 +25,7 @@ const MobilePage = () => {
           </WebTech>
           <WebBody>
             <MobileImg>
-              <Image src={proj.img} width={750} height={1334} />
+              <Image src={proj.img} width={750} height={1334} alt={proj.name} />
             </MobileImg>
             <MobileBox>
               <WebDesc>{proj.desc}</WebDesc>

@@ -27,7 +27,7 @@ const WebPage = () => {
           </WebTech>
           <WebBody reverse={i % 2 !== 0}>
             <WebImg>
-              <Image src={proj.img} width={1900} height={892} />
+              <Image src={proj.img} width={1900} height={892} alt={proj.name} />
             </WebImg>
             <WebDesc>{proj.desc}</WebDesc>
             <WebBtnBox>

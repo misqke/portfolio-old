@@ -16,7 +16,7 @@ const Contact = () => {
     setTimeout(() => {
       dispatch(deactivate());
     }, 450);
-  }, []);
+  }, [dispatch]);
   return (
     <Container scale={scale} opacity={opacity}>
       <ContactPage />
