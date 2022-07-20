@@ -17,4 +17,15 @@ export const Body = styled.div`
   padding-top: 60px;
   position: absolute;
   inset: 0;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: ${({ theme }) => theme.glass + " " + theme.primary};
+  ::-webkit-scrollbar {
+    background: ${({ theme }) => theme.glass};
+    width: 5px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.primary};
+    border-radius: 2rem;
+  }
 `;

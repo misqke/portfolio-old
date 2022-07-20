@@ -67,22 +67,11 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  flex: 1;
   transition-duration: 250ms;
   opacity: ${(props) => Number(props.opacity)};
   transform: scaleX(${(props) => props.scale}%)
     scaleY(${(props) => props.scale}%);
-  overflow-y: scroll;
-  scrollbar-width: thin;
-  scrollbar-color: ${({ theme }) => theme.glass + " " + theme.primary};
-  ::-webkit-scrollbar {
-    background: ${({ theme }) => theme.glass};
-    width: 5px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.primary};
-    border-radius: 2rem;
-  }
 `;
 
 const Btn = styled.a`

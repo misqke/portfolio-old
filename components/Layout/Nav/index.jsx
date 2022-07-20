@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
-import { activate } from "../../../redux/transitionSlice";
 import {
   NavBar,
   HeaderContainer,
@@ -12,15 +10,13 @@ import {
   NavBtn,
 } from "./styles";
 
-const Nav = () => {
+const Nav = ({ handleNav }) => {
   const [open, setOpen] = useState(false);
   const router = useRouter();
-  const dispatch = useDispatch();
 
-  const handleNavigate = async (page) => {
+  const handleNavigate = (page) => {
     setOpen(false);
-    await router.push(page);
-    dispatch(activate());
+    handleNav(page);
   };
 
   return (
