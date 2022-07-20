@@ -49,7 +49,7 @@ const LightSpeed = () => {
     class Star {
       constructor() {
         this.size = STAR_SIZE;
-        this.opacity = Number(Math.random().toString().slice(0, 3));
+        this.opacity = Number(Math.random().toString().slice(0, 4));
         this.color = STAR_COLOR;
         this.startPos = generateStartingPoint();
         this.pos = { ...this.startPos };
@@ -105,9 +105,9 @@ const LightSpeed = () => {
             this.dulling = false;
           }
           if (this.dulling) {
-            this.opacity -= 0.025;
+            this.opacity -= 0.01;
           } else {
-            this.opacity += 0.025;
+            this.opacity += 0.01;
           }
         }
         this.draw();
