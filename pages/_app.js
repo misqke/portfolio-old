@@ -1,44 +1,28 @@
+import { Layout, GlobalStyles } from "../components";
 import { ThemeProvider } from "styled-components";
-import useDarkMode from "../components/useDarkMode";
-import { GlobalStyles, Layout } from "../components";
+import { Provider } from "react-redux";
+import store from "../redux/store";
 import React from "react";
 
+const theme = {
+  primary: "#0ab",
+  secondary: "#045",
+  body: "#012",
+  text: "#e5e5e5",
+  glass: "#05051543",
+  bg: "#050515",
+  gray: "#666",
+};
+
 function MyApp({ Component, pageProps }) {
-  const [theme, themeToggler, hue, hueToggler, mode, modeToggler, mounted] =
-    useDarkMode();
-
-  const lightTheme = {
-    body: `hsl(${hue}, 50%, 98%)`,
-    text: `hsl(${hue}, 50%, 2%)`,
-    primary: `hsl(${hue}, 50%, 25%)`,
-    bg: `hsl(${hue}, 50%, 70%)`,
-    bgTrans: `hsla(${hue}, 50%, 70%, .6)`,
-  };
-
-  const darkTheme = {
-    body: `hsl(${hue}, 50%, 2%)`,
-    text: `hsl(${hue}, 50%, 98%)`,
-    primary: `hsl(${hue}, 50%, 75%)`,
-    bg: `hsl(${hue}, 50%, 25%)`,
-    bgTrans: `hsla(${hue}, 50%, 25%, .6)`,
-  };
-
-  const themeMode = theme === "light" ? lightTheme : darkTheme;
-
-  if (!mounted) return <div />;
   return (
-    <ThemeProvider theme={themeMode}>
+    <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Layout
-        toggle={themeToggler}
-        theme={theme}
-        hue={hue}
-        changeHue={hueToggler}
-        mode={mode}
-        changeMode={modeToggler}
-      >
-        <Component {...pageProps} />
-      </Layout>
+      <Provider store={store}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </Provider>
     </ThemeProvider>
   );
 }

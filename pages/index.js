@@ -1,62 +1,31 @@
-import { Col, Text, Span } from "../styles/components";
 import Head from "next/head";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { deactivate } from "../redux/transitionSlice";
+import { Container, HomePage, ActionBtn, ActionBtnBox } from "../components";
 
 export default function Home() {
-  return (
-    <Col flex align="center">
-      <Head>
-        <title>Mike Rust - Portfolio</title>
-      </Head>
+  const dispatch = useDispatch();
+  const [opacity, setOpacity] = useState(0);
+  const [scale, setScale] = useState(20);
 
-      <Col flex justify={"center"} max="700px" height="100%" gap={"1rem"}>
-        <Col padding={"0px"}>
-          <Col
-            padding={"0px"}
-            align={"flex-start"}
-            animation={"fadeUp"}
-            dur={1000}
-          >
-            <Text shadow="primary" fs={2.5}>
-              Hi, I&apos;m{" "}
-              <Span shadow="text" weight={"bold"}>
-                Mike
-              </Span>
-              ,
-            </Text>
-          </Col>
-          <Col
-            padding={"0px"}
-            align={"flex-start"}
-            animation={"fadeUp"}
-            dur={1750}
-          >
-            <Text shadow="primary" fs={2.5}>
-              I&apos;m a{" "}
-              <Span shadow="text" weight={"bold"}>
-                React
-              </Span>{" "}
-              developer.
-            </Text>
-          </Col>
-          <Col
-            padding={"0.5rem"}
-            align={"flex-start"}
-            animation={"fadeUp"}
-            dur={2500}
-            // bg="trans"
-            // style={{
-            //   position: "absolute",
-            //   bottom: "10%",
-            // }}
-          >
-            <Text shadow="primary">
-              I make fully responsive web and mobile applications with React and
-              React Native. I specialize in front-end development but have
-              experience with full-stack applications as well.
-            </Text>
-          </Col>
-        </Col>
-      </Col>
-    </Col>
+  useEffect(() => {
+    setTimeout(() => {
+      setOpacity(1);
+      setScale(100);
+    }, 250);
+    setTimeout(() => {
+      dispatch(deactivate());
+    }, 450);
+  }, []);
+
+  return (
+    <Container opacity={opacity} scale={scale}>
+      <HomePage />
+      <ActionBtnBox>
+        <ActionBtn content="More about me" page="/about" />
+        <ActionBtn content="Get in touch" page="/contact" />
+      </ActionBtnBox>
+    </Container>
   );
 }
