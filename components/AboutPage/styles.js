@@ -4,9 +4,9 @@ export const AboutContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex: 1;
-  gap: 1rem;
+  gap: 2rem;
   padding: 1rem;
   font-size: 16px;
   @media screen and (min-width: 500px) {

@@ -46,9 +46,11 @@ export const Form = styled.form`
   gap: 1.5rem;
   width: 100%;
   max-width: 400px;
-  background: ${({ theme }) => theme.bg};
+  background: ${({ theme }) => theme.glass};
+  backdrop-filter: blur(3px);
   padding: 2rem;
   border-radius: 0.5rem;
+  box-shadow: 0px 10px 10px 2px #001;
   border: 1px solid
     ${(props) => (props.active ? props.theme.primary : props.theme.text)};
 `;

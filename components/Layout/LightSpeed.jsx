@@ -11,13 +11,14 @@ const LightSpeed = () => {
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
 
-    const NUM_STARS = (canvas.width * canvas.height) / 2000;
+    let NUM_STARS = (canvas.width * canvas.height) / 3000;
     const STAR_SIZE = 1;
     const STAR_COLOR = "#eeeecc";
 
     const handleResize = () => {
       canvas.height = window.innerHeight;
       canvas.width = window.innerWidth;
+      NUM_STARS = (canvas.width * canvas.height) / 3000;
     };
 
     window.addEventListener("resize", handleResize);
@@ -86,7 +87,7 @@ const LightSpeed = () => {
             this.size += 0.25;
           }
           if (this.opacity < 1) {
-            this.opacity += 0.5;
+            this.opacity += 0.1;
           }
           if (
             this.pos.x > 0 &&

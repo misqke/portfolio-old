@@ -7,10 +7,10 @@ import React from "react";
 const theme = {
   primary: "#0ab",
   secondary: "#045",
-  body: "#012",
+  body: "#000510",
   text: "#e5e5e5",
-  glass: "#05051543",
-  bg: "#050515",
+  glass: "#00071513",
+  bg: "#000510",
   gray: "#666",
 };
 

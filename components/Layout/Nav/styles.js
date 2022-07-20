@@ -12,7 +12,7 @@ export const NavBar = styled.div`
   z-index: 10;
   @media screen and (min-width: 750px) {
     flex-direction: row;
-    background-color: #0009;
+    background-color: #0002;
     backdrop-filter: blur(3px);
   }
 `;

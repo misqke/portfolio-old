@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { activate } from "../redux/transitionSlice";
 import { useRouter } from "next/router";
+import { Action } from "./index";
 
 const ActionBtn = ({ content, page }) => {
   const router = useRouter();
@@ -17,37 +18,6 @@ const ActionBtn = ({ content, page }) => {
 };
 
 export default ActionBtn;
-
-const Action = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: ${({ theme }) => theme.glass};
-  backdrop-filter: blur(3px);
-  width: 250px;
-  font-size: 1em;
-  padding: 0.55rem;
-  border: 1px solid
-    ${(props) =>
-      props.color === "secondary"
-        ? props.theme.secondary
-        : props.color === "white"
-        ? props.theme.text
-        : props.theme.primary};
-  color: ${(props) =>
-    props.color === "secondary"
-      ? props.theme.secondary
-      : props.color === "white"
-      ? props.theme.text
-      : props.theme.primary};
-  border-radius: 0.5rem;
-  cursor: pointer;
-  box-shadow: 0px 10px 10px 2px #001;
-  transition-duration: 300ms;
-  &:hover {
-    background: ${({ theme }) => theme.secondary};
-  }
-`;
 
 export const ActionBtnBox = styled.div`
   display: flex;
