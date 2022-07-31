@@ -5,6 +5,7 @@ import LightSpeed from "./LightSpeed";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { activate } from "../../redux/transitionSlice";
+import Head from "next/head";
 
 const Layout = ({ children }) => {
   const bodyRef = useRef();
@@ -19,6 +20,9 @@ const Layout = ({ children }) => {
 
   return (
     <Screen>
+      <Head>
+        <title>Mike Rust Portfolio</title>
+      </Head>
       <Nav handleNav={handleNav} />
       <Body ref={bodyRef}>{children}</Body>
       <LightSpeed />
