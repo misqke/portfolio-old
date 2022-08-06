@@ -29,19 +29,20 @@ const web = [
     live: "https://introspective-images.vercel.app/",
     code: "https://github.com/misqke/introspective_images",
     tech: ["React", "Styled Components", "Next", "MongoDB", "JWT"],
-    img: "https://res.cloudinary.com/dkhxk06gf/image/upload/v1651581126/portfolio/kz3p0wcgx2mnlo6mrxpt.jpg",
+    img: "https://res.cloudinary.com/dkhxk06gf/image/upload/v1659746018/portfolio/qx4jvcvggjiupnff5mcy.jpg",
 
     heroku: false,
   },
 
   {
-    name: "Milk Master",
-    slug: "milkmaster",
-    desc: "A MERN stack, web scraping application I built to simplify the tedious tasks of milk inventory and ordering. The Milk Master has reduced the time these tasks take by 75%.",
-    live: "https://milk-master-demo.herokuapp.com/",
-    code: "https://github.com/misqke/milk-master-demo",
-    tech: ["React", "Node", "Express", "Puppeteer"],
-    img: "https://res.cloudinary.com/dkhxk06gf/image/upload/v1652559567/portfolio/xvdiesh7sziuajdjkmvz.jpg",
+    name: "Milk Manager",
+    slug: "milkmanager",
+    desc: "A MERN stack, web scraping application I built to simplify the tedious tasks of milk inventory and ordering. The Milk Manager has reduced the time these tasks take by 75%.",
+    live: "https://milkmanager-demo.netlify.app/",
+    code: "https://github.com/misqke/milkManager_demo",
+    backend: "https://github.com/misqke/milkmanager-backend",
+    tech: ["React", "SCSS", "Redux", "Next", "Node", "Express", "Puppeteer"],
+    img: "https://res.cloudinary.com/dkhxk06gf/image/upload/v1659746589/portfolio/vz7vvzy6lja4xswvokqc.jpg",
 
     heroku: true,
   },
