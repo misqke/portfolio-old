@@ -1,9 +1,7 @@
 import React, { useRef, useEffect } from "react";
-import { useSelector } from "react-redux";
 
 const LightSpeed = () => {
   const canvasRef = useRef(null);
-  const transition = useSelector((state) => state.transition.active);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -11,106 +9,67 @@ const LightSpeed = () => {
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
 
-    let NUM_STARS = (canvas.width * canvas.height) / 3000;
+    let NUM_STARS = canvas.width / 7;
     const STAR_SIZE = 1;
     const STAR_COLOR = "#eeeecc";
 
     const handleResize = () => {
       canvas.height = window.innerHeight;
       canvas.width = window.innerWidth;
-      NUM_STARS = (canvas.width * canvas.height) / 3000;
+      NUM_STARS = canvas.width / 7;
     };
 
     window.addEventListener("resize", handleResize);
 
-    const minMovementX = canvas.width / 10;
-    const minMovementY = canvas.height / 10;
-
     const CENTER = { x: canvas.width / 2, y: canvas.height / 2 };
+    const MIN_DISTANCE = 10;
 
-    const generateStartingPoint = () => {
-      const primaryDir = Math.random() < 0.5 ? "x" : "y";
-      const dirX = Math.random() < 0.5 ? 1 : -1;
-      const dirY = Math.random() < 0.5 ? 1 : -1;
-      if (primaryDir === "x") {
-        const x =
-          CENTER.x +
-          (Math.random() * (CENTER.x - minMovementX) + minMovementX) * dirX;
-        const y = CENTER.y + Math.random() * CENTER.y * dirY;
-        return { x, y };
-      } else if (primaryDir === "y") {
-        const x = CENTER.x + Math.random() * CENTER.x * dirX;
-        const y =
-          CENTER.y +
-          (Math.random() * (CENTER.y - minMovementY) + minMovementY) * dirY;
-        return { x, y };
-      }
+    const calculateX = (r, a) => {
+      return r * Math.sin(a) + CENTER.x;
+    };
+    const calculateY = (r, a) => {
+      return r * Math.cos(a) + CENTER.y;
     };
 
     class Star {
       constructor() {
         this.size = STAR_SIZE;
-        this.opacity = Number(Math.random().toString().slice(0, 4));
         this.color = STAR_COLOR;
-        this.startPos = generateStartingPoint();
-        this.pos = { ...this.startPos };
-        this.dirX = this.startPos.x >= canvas.width / 2 ? 1 : -1;
-        this.dirY = this.startPos.y >= canvas.height / 2 ? 1 : -1;
-        this.velY = this.startPos.y - CENTER.y;
-        this.velX = this.startPos.x - CENTER.x;
-        this.dulling = this.opacity >= 70 ? true : false;
+        this.distance = MIN_DISTANCE;
+        this.angle = Math.random() * 360;
+        this.pos = {
+          x: calculateX(this.distance, this.angle),
+          y: calculateY(this.distance, this.angle),
+        };
+        this.speed = Math.random() * 2 + 10;
       }
       draw() {
-        ctx.fillStyle = this.color;
-        ctx.globalAlpha = this.opacity;
-        ctx.beginPath();
-        ctx.arc(
-          this.startPos.x,
-          this.startPos.y,
-          this.size,
-          0,
-          Math.PI * 2,
-          true
-        );
-        ctx.fill();
-
+        ctx.fillStyle = "#eeeecc77";
         ctx.strokeStyle = this.color;
-        ctx.lineWidth = this.size * 2;
+        ctx.shadowColor = "#eeeecc";
+        ctx.shadowBlur = 10;
         ctx.beginPath();
-        ctx.moveTo(this.startPos.x, this.startPos.y);
-        ctx.lineTo(this.pos.x, this.pos.y);
-        ctx.stroke();
+        ctx.arc(this.pos.x, this.pos.y, this.size, 0, Math.PI * 2, true);
+        ctx.fill();
       }
       animate() {
-        if (transition) {
-          if (this.size < 3) {
-            this.size += 0.25;
-          }
-          if (this.opacity < 1) {
-            this.opacity += 0.1;
-          }
-          if (
-            this.pos.x > 0 &&
-            this.pos.x < canvas.width &&
-            this.pos.y > 0 &&
-            this.pos.y < canvas.height
-          ) {
-            this.pos.x += this.velX / 5;
-            this.pos.y += this.velY / 5;
-          }
+        if (
+          this.pos.x + this.size > canvas.width ||
+          this.pos.x + this.size < 0 ||
+          this.pos.y + this.size > canvas.height ||
+          this.pos.y + this.size < 0
+        ) {
+          this.size = STAR_SIZE;
+          this.angle = Math.random() * 360;
+          this.distance = MIN_DISTANCE;
+          this.speed = Math.random() * 2 + 2;
         } else {
-          if (this.opacity >= 1) {
-            this.dulling = true;
-          }
-          if (this.opacity <= 0.2) {
-            this.dulling = false;
-          }
-          if (this.dulling) {
-            this.opacity -= 0.01;
-          } else {
-            this.opacity += 0.01;
-          }
+          this.distance = this.distance + this.speed;
         }
+        this.size += 0.025;
+        if (this.speed > 2) this.speed -= 0.002;
+        this.pos.x = calculateX(this.distance, this.angle);
+        this.pos.y = calculateY(this.distance, this.angle);
         this.draw();
       }
     }
@@ -138,7 +97,7 @@ const LightSpeed = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [transition]);
+  }, []);
 
   return <canvas ref={canvasRef}></canvas>;
 };

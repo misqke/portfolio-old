@@ -13,11 +13,11 @@ const web = [
   {
     name: "Pokedex",
     slug: "pokedex",
-    desc: "A front-end clone of the Pokedex page on Pokemon.com. I built a web scraper to gather data from the real site and an API to serve it with Express.",
+    desc: "A front-end clone of the Pokedex page on Pokemon.com. I built a web scraper to gather data from the real site and an API in Python with FastAPI to serve it.",
     live: "https://misqke-pokedex.netlify.app/",
     code: "https://github.com/misqke/pokedex",
-    backend: "https://github.com/misqke/pokemon-api",
-    tech: ["React", "SASS", "Next", "Node", "Express"],
+    backend: "https://github.com/misqke/fastapi_pokiapi",
+    tech: ["React", "SASS", "Next", "Python", "FastAPI"],
     img: "https://res.cloudinary.com/dkhxk06gf/image/upload/v1651581126/portfolio/eg69xtyhupgd1ujk73bu.jpg",
 
     heroku: false,

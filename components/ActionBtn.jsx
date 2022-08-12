@@ -1,17 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { useDispatch } from "react-redux";
-import { activate } from "../redux/transitionSlice";
 import { useRouter } from "next/router";
 import { Action } from "./index";
 
 const ActionBtn = ({ content, page }) => {
   const router = useRouter();
-  const dispatch = useDispatch();
 
   const handleNavigate = async () => {
-    await router.push(page);
-    dispatch(activate());
+    router.push(page);
   };
 
   return <Action onClick={() => handleNavigate()}>{content}</Action>;
